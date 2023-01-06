@@ -57,7 +57,6 @@
                         <a href="<?= url('/') ?>" class="nav-item nav-link">Home</a>
                         <a href="<?= url('fitur') ?>" class="nav-item nav-link">Fitur</a>
                         <a href="<?= url('paket') ?>" class="nav-item nav-link">Paket</a>
-                        <a href="<?= url('template') ?>" class="nav-item nav-link">Template</a>
                         <a href="<?= url('berita') ?>" class="nav-item nav-link">Berita</a>
                         <a href="<?= url('order') ?>" class="nav-item nav-link">Order</a>
                         <a href="<?= url('tentang') ?>" class="nav-item nav-link">Tentang Kami</a>
