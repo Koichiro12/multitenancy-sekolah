@@ -13,7 +13,7 @@
                 </div>
             </div>
             <div class="col-lg-6 text-center text-lg-start">
-                <img class="img-fluid rounded animated zoomIn" src="{{asset('public/img/pct.png')}}" alt="">
+                <img class="img-fluid rounded animated zoomIn" src="{{asset('public/central/img/pct.png')}}" alt="">
             </div>
         </div>
     </div>
@@ -92,7 +92,7 @@
                         <a href="" class="btn btn-success py-sm-3 px-sm-5 rounded-pill mt-3">Read More</a>
                     </div>
                     <div class="col-lg-6">
-                        <img class="img-fluid rounded wow zoomIn" data-wow-delay="0.5s" src="{{asset('public/img/pct1.png')}}">
+                        <img class="img-fluid rounded wow zoomIn" data-wow-delay="0.5s" src="{{asset('public/central/img/pct1.png')}}">
                     </div>
                 </div>
             </div>
@@ -147,7 +147,7 @@
             <div class="container">
                 <div class="row g-5">
                     <div class="col-lg-6 wow fadeInUp" data-wow-delay="0.1s">
-                        <img class="img-fluid rounded" src="{{asset('public/img/process.jpg')}}">
+                        <img class="img-fluid rounded" src="{{asset('public/central/img/process.jpg')}}">
                     </div>
                     <div class="col-lg-6 wow fadeInUp" data-wow-delay="0.5s">
                         <h1 class="mb-4">Three Simple Steps To Start Working With</h1>
@@ -269,7 +269,7 @@
             <div class="container">
                 <div class="row g-5 py-5 align-items-center">
                     <div class="col-lg-6 wow fadeInUp" data-wow-delay="0.1s">
-                        <img class="img-fluid rounded" src="{{asset('public/img/overview-1.jpg')}}">
+                        <img class="img-fluid rounded" src="{{asset('public/central/img/overview-1.jpg')}}">
                     </div>
                     <div class="col-lg-6 wow fadeInUp" data-wow-delay="0.5s">
                         <div class="d-flex align-items-center mb-4">
@@ -296,12 +296,12 @@
                         <p class="mb-0"><i class="fa fa-check-circle text-success me-3"></i>More effective & poerwfull</p>
                     </div>
                     <div class="col-lg-6 wow fadeInUp" data-wow-delay="0.1s">
-                        <img class="img-fluid rounded" src="{{asset('public/img/overview-2.jpg')}}">
+                        <img class="img-fluid rounded" src="{{asset('public/central/img/overview-2.jpg')}}">
                     </div>
                 </div>
                 <div class="row g-5 py-5 align-items-center">
                     <div class="col-lg-6 wow fadeInUp" data-wow-delay="0.1s">
-                        <img class="img-fluid rounded" src="{{asset('public/img/overview-3.jpg')}}">
+                        <img class="img-fluid rounded" src="{{asset('public/central/img/overview-3.jpg')}}">
                     </div>
                     <div class="col-lg-6 wow fadeInUp" data-wow-delay="0.5s">
                         <div class="d-flex align-items-center mb-4">
@@ -362,7 +362,7 @@
                     <div class="testimonial-item bg-light rounded my-4">
                         <p class="fs-5"><i class="fa fa-quote-left fa-4x text-success mt-n4 me-3"></i>Diam dolor diam ipsum sit. Aliqu diam amet diam et eos. Clita erat ipsum et lorem et sit sed stet lorem sit clita duo justo.</p>
                         <div class="d-flex align-items-center">
-                            <img class="img-fluid flex-shrink-0 rounded-circle" src="{{asset('public/img/testimonial-1.jpg')}}" style="width: 65px; height: 65px;">
+                            <img class="img-fluid flex-shrink-0 rounded-circle" src="{{asset('public/central/img/testimonial-1.jpg')}}" style="width: 65px; height: 65px;">
                             <div class="ps-4">
                                 <h5 class="mb-1">Client Name</h5>
                                 <span>Profession</span>
@@ -372,7 +372,7 @@
                     <div class="testimonial-item bg-light rounded my-4">
                         <p class="fs-5"><i class="fa fa-quote-left fa-4x text-success mt-n4 me-3"></i>Diam dolor diam ipsum sit. Aliqu diam amet diam et eos. Clita erat ipsum et lorem et sit sed stet lorem sit clita duo justo.</p>
                         <div class="d-flex align-items-center">
-                            <img class="img-fluid flex-shrink-0 rounded-circle" src="{{asset('public/img/testimonial-2.jpg')}}" style="width: 65px; height: 65px;">
+                            <img class="img-fluid flex-shrink-0 rounded-circle" src="{{asset('public/central/img/testimonial-2.jpg')}}" style="width: 65px; height: 65px;">
                             <div class="ps-4">
                                 <h5 class="mb-1">Client Name</h5>
                                 <span>Profession</span>
@@ -382,7 +382,7 @@
                     <div class="testimonial-item bg-light rounded my-4">
                         <p class="fs-5"><i class="fa fa-quote-left fa-4x text-success mt-n4 me-3"></i>Diam dolor diam ipsum sit. Aliqu diam amet diam et eos. Clita erat ipsum et lorem et sit sed stet lorem sit clita duo justo.</p>
                         <div class="d-flex align-items-center">
-                            <img class="img-fluid flex-shrink-0 rounded-circle" src="{{asset('public/img/testimonial-3.jpg')}}" style="width: 65px; height: 65px;">
+                            <img class="img-fluid flex-shrink-0 rounded-circle" src="{{asset('public/central/img/testimonial-3.jpg')}}" style="width: 65px; height: 65px;">
                             <div class="ps-4">
                                 <h5 class="mb-1">Client Name</h5>
                                 <span>Profession</span>
