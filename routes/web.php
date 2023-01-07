@@ -1,5 +1,7 @@
 <?php
 
+use App\Http\Controllers\AdminPageController;
+use App\Http\Controllers\AuthController;
 use App\Http\Controllers\PageController;
 use Illuminate\Support\Facades\Route;
 
@@ -13,6 +15,13 @@ use Illuminate\Support\Facades\Route;
 | contains the "web" middleware group. Now create something great!
 |
 */
+
+
+Route::get('/signin',[PageController::class,'login'])->name('signin');
+Route::post('/auth', [AuthController::class, 'authenticate'])->name('auth');
+Route::group(['middleware'=>['auth']],function(){
+    Route::get('/dashboard',[AdminPageController::class,'index'])->name('dasboard_admin');
+});
 
 Route::get('/',[PageController::class,'index'])->name('dasboard');
 Route::get('/fitur',[PageController::class,'view_fitur'])->name('fitur');
