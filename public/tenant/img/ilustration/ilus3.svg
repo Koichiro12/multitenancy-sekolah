@@ -1,0 +1,50 @@
+   <svg id="b055d3c0-9e4d-4559-957e-8bb1de712b90" data-name="Layer 1" xmlns="http://www.w3.org/2000/svg"
+            xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 311.01 267.37" width="311" height="267"
+            role="img">
+            <defs>
+                <style>
+                    .e6a19419-ca4e-4fc8-919d-c225b495789d {
+                        fill: url(#b3ab2035-4d74-4988-bfaf-023d653d93e3);
+                    }
+
+                    .ff645115-978f-4749-91b7-0655df25f0da {
+                        fill: url(#a472a647-94c4-48a3-a4ff-c546c6d0522e);
+                    }
+
+                    .f4cdc8fd-f942-49df-83d2-702a58c7e32f {
+                        fill: url(#e5d1713c-65a6-46d4-9d69-0c85940c7ca1);
+                    }
+                </style>
+                <radialGradient id="b3ab2035-4d74-4988-bfaf-023d653d93e3" cx="-772.29" cy="718.51" r="1"
+                    gradientTransform="matrix(102.14, -111.82, -133.67, -122.1, 175142, 1510.77)"
+                    gradientUnits="userSpaceOnUse">
+                    <stop offset="0" stop-color="#7fdddd"></stop>
+                    <stop offset="0.45" stop-color="#7fdddd"></stop>
+                    <stop offset="0.74" stop-color="#33d2c9"></stop>
+                    <stop offset="1" stop-color="#1aa9e8"></stop>
+                </radialGradient>
+                <radialGradient id="a472a647-94c4-48a3-a4ff-c546c6d0522e" cx="-774.36" cy="721.07" r="1"
+                    gradientTransform="matrix(100.19, -350.44, -418.92, -119.77, 379827.03, -184632.73)"
+                    gradientUnits="userSpaceOnUse">
+                    <stop offset="0.45" stop-color="#ffd953"></stop>
+                    <stop offset="0.74" stop-color="#fbab33"></stop>
+                    <stop offset="1" stop-color="#ef8523"></stop>
+                </radialGradient>
+                <radialGradient id="e5d1713c-65a6-46d4-9d69-0c85940c7ca1" cx="-770.54" cy="719.06" r="1"
+                    gradientTransform="matrix(125.74, 73.93, 88.38, -150.31, 33358.79, 165213.36)"
+                    gradientUnits="userSpaceOnUse">
+                    <stop offset="0" stop-color="#fcacf1"></stop>
+                    <stop offset="0.45" stop-color="#fcacf1"></stop>
+                    <stop offset="0.74" stop-color="#fe9887"></stop>
+                    <stop offset="1" stop-color="#ef4225"></stop>
+                </radialGradient>
+            </defs>
+            <path
+                d="M262.1,15.8a10,10,0,0,1,11.5,2.43l39.07,43.31a10,10,0,0,1,1.23,11.69l-29.12,50.54a10,10,0,0,1-10.73,4.79L217,116.49a10,10,0,0,1-7.87-8.74l-6.15-58a10,10,0,0,1,5.87-10.18Z"
+                transform="translate(-11.22 -14.93)" class="e6a19419-ca4e-4fc8-919d-c225b495789d"></path>
+            <path
+                d="M145.78,54a10,10,0,0,1,16.77-4.34L319.36,209.26A10,10,0,0,1,314.73,226L98.14,282A10,10,0,0,1,86,269.62Z"
+                transform="translate(-11.22 -14.93)" class="ff645115-978f-4749-91b7-0655df25f0da"></path>
+            <rect x="29.59" y="126.31" width="119.39" height="119.38" rx="10"
+                transform="translate(-127.49 153.31) rotate(-59.42)" class="f4cdc8fd-f942-49df-83d2-702a58c7e32f"></rect>
+        </svg>

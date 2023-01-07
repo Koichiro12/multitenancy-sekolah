@@ -1,0 +1,27 @@
+  <svg id="f9716a2a-57aa-406d-b398-b9f1288e2f67" data-name="Layer 1" xmlns="http://www.w3.org/2000/svg"
+            xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 282.42 282.43" width="282" height="282"
+            role="img">
+            <defs>
+                <radialGradient id="fb5d315b-08cf-4901-8ade-0d822e6a6e70" cx="-804.98" cy="696.66" r="1"
+                    gradientTransform="matrix(222.86, 131.03, 156.64, -266.4, 70300.74, 291182.92)"
+                    gradientUnits="userSpaceOnUse">
+                    <stop offset="0" stop-color="#7fdddd"></stop>
+                    <stop offset="0.45" stop-color="#7fdddd"></stop>
+                    <stop offset="0.74" stop-color="#33d2c9"></stop>
+                    <stop offset="1" stop-color="#1aa9e8"></stop>
+                </radialGradient>
+                <radialGradient id="b2cc80a4-2f7a-4644-b0ce-c70d4ada74b0" cx="-803.56" cy="669.34" r="1"
+                    gradientTransform="matrix(142.04, -71.96, -10.74, -21.19, 121325.86, -43387.14)"
+                    gradientUnits="userSpaceOnUse">
+                    <stop offset="0.45" stop-color="#ef8523"></stop>
+                    <stop offset="0.74" stop-color="#fbab33"></stop>
+                    <stop offset="1" stop-color="#ffd953"></stop>
+                </radialGradient>
+            </defs>
+            <rect x="47.29" y="52.12" width="211.6" height="211.58" rx="10"
+                transform="translate(-72.62 192.68) rotate(-59.42)"
+                style="fill-opacity:0.8999999761581421;fill:url(#fb5d315b-08cf-4901-8ade-0d822e6a6e70)"></rect>
+            <path
+                d="M146,174.43h0a7,7,0,0,1-2.57,9.6L24.8,252.49a7,7,0,0,1-9.59-2.57h0a7,7,0,0,1,2.57-9.6l118.58-68.46A7,7,0,0,1,146,174.43Z"
+                transform="translate(-11.89 -16.7)" style="fill:url(#b2cc80a4-2f7a-4644-b0ce-c70d4ada74b0)"></path>
+        </svg>

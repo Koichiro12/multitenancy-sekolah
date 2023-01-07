@@ -10,9 +10,6 @@ class PageController extends Controller
     public function index(){
         return view('central.index');
     }
-    public function login(){
-        return view('central.auth.signin');
-    }
     public function view_paket(){
         return view('central.paket');
     }

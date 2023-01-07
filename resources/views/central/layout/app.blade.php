@@ -62,7 +62,12 @@
                         <a href="<?= url('order') ?>" class="nav-item nav-link">Order</a>
                         <a href="<?= url('tentang') ?>" class="nav-item nav-link">Tentang Kami</a>
                     </div>
-                    <a href="" class="btn btn-light rounded-pill py-2 px-4 ms-3 d-none d-lg-block">SignIn</a>
+                    @if (Auth::check())
+                    <a href="{{route('dashboard')}}" class="btn btn-light rounded-pill py-2 px-4 ms-3 d-none d-lg-block">Member Area</a>
+                    @else
+                    <a href="{{route('signin')}}" class="btn btn-light rounded-pill py-2 px-4 ms-3 d-none d-lg-block">SignIn</a>
+                    @endif
+                    
                 </div>
             </nav>
             <!-- NavbarEnd -->

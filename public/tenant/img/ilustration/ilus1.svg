@@ -1,0 +1,47 @@
+ <svg id="b04def02-ba54-4ac5-a00f-6895f4cb19fb" data-name="Layer 1" xmlns="http://www.w3.org/2000/svg"
+            xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 269 258" width="269" height="258" role="img">
+            <defs>
+                <style>
+                    .acb2ec8b-8a46-4592-b6d1-c6a4b28d1be4 {
+                        fill-opacity: 0.85;
+                        fill: url(#add77119-e861-4ef0-87bc-5a45a27fa18e);
+                    }
+
+                    .f574b5c2-11fa-4c57-8d31-f76b9abf5680 {
+                        fill-opacity: 0.9;
+                        fill: url(#b8b47d88-c688-436c-bc48-81eb1ba46f34);
+                    }
+
+                    .b535b87f-b7cd-4d21-8133-b709b021cf33 {
+                        fill: url(#e30480d6-ec9d-403c-a112-d231046411d3);
+                    }
+                </style>
+                <radialGradient id="add77119-e861-4ef0-87bc-5a45a27fa18e" cx="-813.69" cy="682.8" r="1"
+                    gradientTransform="matrix(119.53, -203.26, -242.99, -142.88, 263271.54, -67619.23)"
+                    gradientUnits="userSpaceOnUse">
+                    <stop offset="0" stop-color="#fcacf1"></stop>
+                    <stop offset="0.45" stop-color="#fcacf1"></stop>
+                    <stop offset="0.74" stop-color="#fe9887"></stop>
+                    <stop offset="1" stop-color="#ef4225"></stop>
+                </radialGradient>
+                <radialGradient id="b8b47d88-c688-436c-bc48-81eb1ba46f34" cx="-813.57" cy="681.33" r="1"
+                    gradientTransform="matrix(81.75, -140.07, -166.83, -97.36, 180213, -47382.16)"
+                    gradientUnits="userSpaceOnUse">
+                    <stop offset="0" stop-color="#7fdddd"></stop>
+                    <stop offset="0.45" stop-color="#7fdddd"></stop>
+                    <stop offset="0.74" stop-color="#33d2c9"></stop>
+                    <stop offset="1" stop-color="#1aa9e8"></stop>
+                </radialGradient>
+                <radialGradient id="e30480d6-ec9d-403c-a112-d231046411d3" cx="-813.46" cy="680.39" r="1"
+                    gradientTransform="matrix(68.12, -115.85, -138.49, -81.44, 149833.55, -38560.75)"
+                    gradientUnits="userSpaceOnUse">
+                    <stop offset="0.45" stop-color="#ffd953"></stop>
+                    <stop offset="0.74" stop-color="#fbab33"></stop>
+                    <stop offset="1" stop-color="#ef8523"></stop>
+                </radialGradient>
+            </defs>
+            <circle cx="142.5" cy="96.5" r="96.5" class="acb2ec8b-8a46-4592-b6d1-c6a4b28d1be4"></circle>
+            <ellipse cx="66" cy="159.5" rx="66" ry="66.5"
+                class="f574b5c2-11fa-4c57-8d31-f76b9abf5680"></ellipse>
+            <circle cx="214" cy="203" r="55" class="b535b87f-b7cd-4d21-8133-b709b021cf33"></circle>
+        </svg>

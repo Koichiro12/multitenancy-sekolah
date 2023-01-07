@@ -60,7 +60,7 @@
                 <p class="mb-1 mt-3 font-weight-semibold">{{auth()->user()->name}}</p>
                 <p class="fw-light text-muted mb-0">{{auth()->user()->email}}</p>
               </div>
-              <a class="dropdown-item"><i class="dropdown-item-icon mdi mdi-account-outline text-success me-2"></i> My Profile <span class="badge badge-pill badge-danger">1</span></a>
+              <a class="dropdown-item"><i class="dropdown-item-icon mdi mdi-account-outline text-success me-2"></i> My Profile<!-- <span class="badge badge-pill badge-danger">1</span>--></a>
               <a class="dropdown-item"><i class="dropdown-item-icon mdi mdi-calendar-check-outline text-success me-2"></i> Activity</a>
               <form action="<?php echo url('/signout') ?>" method="post">
                 @csrf
@@ -87,65 +87,65 @@
           </li>
           <li class="nav-item nav-category">Data Transaksi</li>
           <li class="nav-item">
-            <a class="nav-link" data-bs-toggle="collapse" href="<?= url('/') ?>" aria-expanded="false" aria-controls="ui-basic">
-              <i class="menu-icon mdi mdi-floor-plan"></i>
+            <a class="nav-link" href="<?= url('/') ?>" >
+              <i class="menu-icon mdi mdi-chart-bar"></i>
               <span class="menu-title">Data Transaksi</span>
             </a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" data-bs-toggle="collapse" href="<?= url('/') ?>" aria-expanded="false" aria-controls="ui-basic">
-              <i class="menu-icon mdi mdi-floor-plan"></i>
+            <a class="nav-link" href="<?= url('/') ?>" >
+              <i class="menu-icon mdi mdi-account-convert"></i>
               <span class="menu-title">Data Pelanggan</span>
             </a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" data-bs-toggle="collapse" href="<?= url('/') ?>" aria-expanded="false" aria-controls="ui-basic">
-              <i class="menu-icon mdi mdi-floor-plan"></i>
+            <a class="nav-link" href="<?= url('/') ?>" >
+              <i class="menu-icon mdi mdi-cart-plus"></i>
               <span class="menu-title">Data Order</span> 
             </a>
           </li>
           <li class="nav-item nav-category">Data Paket</li>
           <li class="nav-item">
-            <a class="nav-link" data-bs-toggle="collapse" href="<?= url('/') ?>" aria-expanded="false" aria-controls="ui-basic">
-              <i class="menu-icon mdi mdi-floor-plan"></i>
+            <a class="nav-link" href="{{route('features.index')}}" >
+              <i class="menu-icon mdi mdi-puzzle"></i>
               <span class="menu-title">Fitur</span>
             </a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" data-bs-toggle="collapse" href="<?= url('/') ?>" aria-expanded="false" aria-controls="ui-basic">
-              <i class="menu-icon mdi mdi-floor-plan"></i>
+            <a class="nav-link" href="{{route('packet.index')}}" >
+              <i class="menu-icon mdi mdi-seal"></i>
               <span class="menu-title">Paket</span> 
             </a>
           </li>
           <li class="nav-item nav-category">Post</li>
           <li class="nav-item">
-            <a class="nav-link" data-bs-toggle="collapse" href="<?= url('/') ?>" aria-expanded="false" aria-controls="ui-basic">
-              <i class="menu-icon mdi mdi-floor-plan"></i>
+            <a class="nav-link" href="{{route('news.index')}}" >
+              <i class="menu-icon mdi mdi-newspaper"></i>
               <span class="menu-title">Berita</span>
             </a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" data-bs-toggle="collapse" href="<?= url('/') ?>" aria-expanded="false" aria-controls="ui-basic">
-              <i class="menu-icon mdi mdi-floor-plan"></i>
+            <a class="nav-link" href="{{route('testimonial.index')}}" >
+              <i class="menu-icon mdi mdi-note-text"></i>
               <span class="menu-title">Testimoni</span>
             </a>
           </li>
           <li class="nav-item nav-category">Administrator</li>
           <li class="nav-item">
-            <a class="nav-link" data-bs-toggle="collapse" href="<?= url('/') ?>" aria-expanded="false" aria-controls="auth">
-              <i class="menu-icon mdi mdi-account-circle-outline"></i>
-              <span class="menu-title">User</span>
-            </a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" data-bs-toggle="collapse" href="<?= url('/') ?>" aria-expanded="false" aria-controls="ui-basic">
-              <i class="menu-icon mdi mdi-floor-plan"></i>
+            <a class="nav-link" href="<?= url('/') ?>">
+              <i class="menu-icon mdi mdi-city"></i>
               <span class="menu-title">Identitas Website</span>
             </a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" data-bs-toggle="collapse" href="<?= url('/') ?>" aria-expanded="false" aria-controls="auth">
-              <i class="menu-icon mdi mdi-account-circle-outline"></i>
+            <a class="nav-link" href="{{route('users.index')}}">
+              <i class="menu-icon mdi mdi-account-card-details"></i>
+              <span class="menu-title">Users</span>
+            </a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="<?= url('/') ?>">
+              <i class="menu-icon mdi mdi-comment-multiple-outline"></i>
               <span class="menu-title">Contact</span>
             </a>
           </li>

@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Generator: Adobe Illustrator 24.2.0, SVG Export Plug-In . SVG Version: 6.00 Build 0)  -->
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1" id="Layer_1" x="0px" y="0px" width="267.4" height="246.2" viewBox="0 0 267.4 246.2" style="enable-background:new 0 0 267.4 246.2;" xml:space="preserve">
+<style type="text/css">
+	.st0{fill:url(#SVGID_1_);}
+	.st1{fill:url(#SVGID_2_);fill-opacity:0.9;}
+	.st2{fill:url(#SVGID_3_);fill-opacity:0.85;}
+</style>
+<g>
+	
+		<radialGradient id="SVGID_1_" cx="-879.3737" cy="4112.6362" r="1" gradientTransform="matrix(106.6378 -181.3636 -216.7982 -127.4726 985532.5625 365025.1875)" gradientUnits="userSpaceOnUse">
+		<stop offset="0.4538" style="stop-color:#FFD953"></stop>
+		<stop offset="0.7411" style="stop-color:#FBAB33"></stop>
+		<stop offset="1" style="stop-color:#EF8523"></stop>
+	</radialGradient>
+	<path class="st0" d="M105.2,74h152.2c5.5,0,10,4.5,10,10v152.2c0,5.5-4.5,10-10,10H105.2c-5.5,0-10-4.5-10-10V84   C95.2,78.5,99.7,74,105.2,74z"></path>
+</g>
+<g>
+	
+		<radialGradient id="SVGID_2_" cx="-882.2173" cy="4115.98" r="1" gradientTransform="matrix(56.0639 -202.7837 -242.4033 -67.0176 1047333.5625 97183.3281)" gradientUnits="userSpaceOnUse">
+		<stop offset="0" style="stop-color:#7FDDDD"></stop>
+		<stop offset="0.4538" style="stop-color:#7FDDDD"></stop>
+		<stop offset="0.7411" style="stop-color:#33D2C9"></stop>
+		<stop offset="1" style="stop-color:#1AA9E8"></stop>
+	</radialGradient>
+	<path shape-rendering="crispEdges" class="st1" d="M57.6,67.5l147-39.4c5.3-1.4,10.8,1.7,12.2,7.1l39.4,147   c1.4,5.3-1.7,10.8-7.1,12.2l-147,39.4c-5.3,1.4-10.8-1.7-12.2-7.1l-39.4-147C49.1,74.4,52.2,68.9,57.6,67.5z"></path>
+</g>
+<g>
+	
+		<radialGradient id="SVGID_3_" cx="-883.9254" cy="4119.8262" r="1" gradientTransform="matrix(1.6697 -210.4324 -251.5451 -1.9959 1037932.5625 -177563.0938)" gradientUnits="userSpaceOnUse">
+		<stop offset="0" style="stop-color:#FCACF1"></stop>
+		<stop offset="0.4538" style="stop-color:#FCACF1"></stop>
+		<stop offset="0.7411" style="stop-color:#FE9887"></stop>
+		<stop offset="1" style="stop-color:#EF4225"></stop>
+	</radialGradient>
+	<path shape-rendering="crispEdges" class="st2" d="M5,77.5L136.8,1.3c4.8-2.8,10.9-1.1,13.7,3.7l76.1,131.8   c2.8,4.8,1.1,10.9-3.7,13.7L91.1,226.6c-4.8,2.8-10.9,1.1-13.7-3.7L1.3,91.1C-1.4,86.3,0.2,80.2,5,77.5z"></path>
+</g>
+</svg>

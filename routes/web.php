@@ -2,7 +2,12 @@
 
 use App\Http\Controllers\AdminPageController;
 use App\Http\Controllers\AuthController;
+use App\Http\Controllers\FiturController;
+use App\Http\Controllers\NewsController;
 use App\Http\Controllers\PageController;
+use App\Http\Controllers\PaketController;
+use App\Http\Controllers\TestimonialController;
+use App\Http\Controllers\UsersController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -18,12 +23,17 @@ use Illuminate\Support\Facades\Route;
 
 
 //Authentifikasi Central
-Route::get('/signin',[PageController::class,'login'])->name('signin');
+Route::get('/signin',[AuthController::class,'signin'])->name('signin');
 Route::post('/auth', [AuthController::class, 'authenticate'])->name('auth');
 Route::post('/signout',[AuthController::class,'logout']);
 //Admin Central
 Route::group(['middleware'=>['auth']],function(){
     Route::get('/dashboard',[AdminPageController::class,'index'])->name('dashboard');
+    Route::resource('/features',FiturController::class);
+    Route::resource('/packet',PaketController::class);
+    Route::resource('/news',NewsController::class);
+    Route::resource('/testimonial',TestimonialController::class);
+    Route::resource('/users',UsersController::class);
 });
 //FrontWeb Central
 Route::get('/',[PageController::class,'index'])->name('dasboard');
