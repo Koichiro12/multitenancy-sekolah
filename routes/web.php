@@ -17,12 +17,15 @@ use Illuminate\Support\Facades\Route;
 */
 
 
+//Authentifikasi Central
 Route::get('/signin',[PageController::class,'login'])->name('signin');
 Route::post('/auth', [AuthController::class, 'authenticate'])->name('auth');
+Route::post('/signout',[AuthController::class,'logout']);
+//Admin Central
 Route::group(['middleware'=>['auth']],function(){
-    Route::get('/dashboard',[AdminPageController::class,'index'])->name('dasboard_admin');
+    Route::get('/dashboard',[AdminPageController::class,'index'])->name('dashboard');
 });
-
+//FrontWeb Central
 Route::get('/',[PageController::class,'index'])->name('dasboard');
 Route::get('/fitur',[PageController::class,'view_fitur'])->name('fitur');
 Route::get('/paket',[PageController::class,'view_paket'])->name('paket');

@@ -35,10 +35,10 @@
           </button>
         </div>
         <div>
-          <a class="navbar-brand brand-logo" href="index.html">
+          <a class="navbar-brand brand-logo" href="{{route('dashboard')}}">
             <img src="{{asset('public/central/admin/images/logo.svg')}}" alt="logo" />
           </a>
-          <a class="navbar-brand brand-logo-mini" href="index.html">
+          <a class="navbar-brand brand-logo-mini" href="{{route('dashboard')}}">
             <img src="{{asset('public/central/admin/images/logo-mini.svg')}}" alt="logo" />
           </a>
         </div>
@@ -46,8 +46,8 @@
       <div class="navbar-menu-wrapper d-flex align-items-top"> 
         <ul class="navbar-nav">
           <li class="nav-item font-weight-semibold d-none d-lg-block ms-0">
-            <h1 class="welcome-text">Good Morning, <span class="text-black fw-bold">John Doe</span></h1>
-            <h3 class="welcome-sub-text">Your performance summary this week </h3>
+            <h1 class="welcome-text">Selamat Datang, <span class="text-black fw-bold">{{auth()->user()->name}}</span></h1>
+            <h3 class="welcome-sub-text">Apa yang bisa kami bantu ?</h3>
           </li>
         </ul>
         <ul class="navbar-nav ms-auto">
@@ -57,12 +57,15 @@
             <div class="dropdown-menu dropdown-menu-right navbar-dropdown" aria-labelledby="UserDropdown">
               <div class="dropdown-header text-center">
                 <img class="img-md rounded-circle" src="{{asset('public/central/admin/images/faces/face8.jpg')}}" alt="Profile image">
-                <p class="mb-1 mt-3 font-weight-semibold">Allen Moreno</p>
-                <p class="fw-light text-muted mb-0">allenmoreno@gmail.com</p>
+                <p class="mb-1 mt-3 font-weight-semibold">{{auth()->user()->name}}</p>
+                <p class="fw-light text-muted mb-0">{{auth()->user()->email}}</p>
               </div>
               <a class="dropdown-item"><i class="dropdown-item-icon mdi mdi-account-outline text-success me-2"></i> My Profile <span class="badge badge-pill badge-danger">1</span></a>
               <a class="dropdown-item"><i class="dropdown-item-icon mdi mdi-calendar-check-outline text-success me-2"></i> Activity</a>
-              <a class="dropdown-item"><i class="dropdown-item-icon mdi mdi-power text-success me-2"></i>Sign Out</a>
+              <form action="<?php echo url('/signout') ?>" method="post">
+                @csrf
+                <button class="dropdown-item" type="submit"><i class="dropdown-item-icon mdi mdi-power text-success me-2"></i>Sign Out</button>
+                </form>
             </div>
           </li>
         </ul>
