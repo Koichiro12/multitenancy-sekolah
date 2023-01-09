@@ -23,5 +23,13 @@ class UserSeeder extends Seeder
             'password' => Hash::make('admin'),
             'level' => 0,
         ]);
+        DB::table('user_profiles')->insert([
+            'id_user' => '1',
+            'bio' => 'Your Bio Here',
+            'alamat' => '-',
+            'no_hp' => '-',
+            'foto_profile' => '-'
+        ]);
+        
     }
 }

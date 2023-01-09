@@ -14,11 +14,9 @@
   <link rel="stylesheet" href="{{asset('public/central/admin/vendors/typicons/typicons.css')}}">
   <link rel="stylesheet" href="{{asset('public/central/admin/vendors/simple-line-icons/css/simple-line-icons.css')}}">
   <link rel="stylesheet" href="{{asset('public/central/admin/vendors/css/vendor.bundle.base.css')}}">
+  
+  <!-- include summernote css/js -->
   <!-- endinject -->
-  <!-- Plugin css for this page -->
-  <link rel="stylesheet" href="{{asset('public/central/admin/vendors/datatables.net-bs4/dataTables.bootstrap4.css')}}">
-  <link rel="stylesheet" href="{{asset('public/central/admin/js/select.dataTables.min.css')}}">
-  <!-- End plugin css for this page -->
   <!-- inject:css -->
   <link rel="stylesheet" href="{{asset('public/central/admin/css/vertical-layout-light/style.css')}}">
   <!-- endinject -->
@@ -53,15 +51,23 @@
         <ul class="navbar-nav ms-auto">
           <li class="nav-item dropdown d-none d-lg-block user-dropdown">
             <a class="nav-link" id="UserDropdown" href="#" data-bs-toggle="dropdown" aria-expanded="false">
-              <img class="img-xs rounded-circle" src="{{asset('public/central/admin/images/faces/face8.jpg')}}" alt="Profile image"> </a>
-            <div class="dropdown-menu dropdown-menu-right navbar-dropdown" aria-labelledby="UserDropdown">
+              @if ($data_users->foto_profile != '-')
+              <img class="img-xs rounded-circle" src="{{asset('public/central/uploads/'.$data_users->foto_profile)}}" alt="Profile image"> </a>
+              @else
+              <img class="img-xs rounded-circle" src="{{asset('public/central/img/blank_foto_profile.png')}}" alt="Profile image"> </a>
+              @endif
+              <div class="dropdown-menu dropdown-menu-right navbar-dropdown" aria-labelledby="UserDropdown">
               <div class="dropdown-header text-center">
-                <img class="img-md rounded-circle" src="{{asset('public/central/admin/images/faces/face8.jpg')}}" alt="Profile image">
-                <p class="mb-1 mt-3 font-weight-semibold">{{auth()->user()->name}}</p>
+                @if ($data_users->foto_profile != '-')
+                <img class="img-xs rounded-circle" src="{{asset('public/central/uploads/'.$data_users->foto_profile)}}" alt="Profile image"> </a>
+                @else
+                <img class="img-xs rounded-circle" src="{{asset('public/central/img/blank_foto_profile.png')}}" alt="Profile image"> </a>
+                @endif
+                <p class="mb-1 mt-3 font-weight-semibold">{{$data_users->name}}</p>
                 <p class="fw-light text-muted mb-0">{{auth()->user()->email}}</p>
               </div>
-              <a class="dropdown-item"><i class="dropdown-item-icon mdi mdi-account-outline text-success me-2"></i> My Profile<!-- <span class="badge badge-pill badge-danger">1</span>--></a>
-              <a class="dropdown-item"><i class="dropdown-item-icon mdi mdi-calendar-check-outline text-success me-2"></i> Activity</a>
+              <a class="dropdown-item" href="{{route('user_profile')}}"><i class="dropdown-item-icon mdi mdi-account-outline text-success me-2"></i> My Profile<!-- <span class="badge badge-pill badge-danger">1</span>--></a>
+              <a class="dropdown-item" href="{{route('user_activity')}}"><i class="dropdown-item-icon mdi mdi-calendar-check-outline text-success me-2"></i> Activity</a>
               <form action="<?php echo url('/signout') ?>" method="post">
                 @csrf
                 <button class="dropdown-item" type="submit"><i class="dropdown-item-icon mdi mdi-power text-success me-2"></i>Sign Out</button>
@@ -96,12 +102,6 @@
             <a class="nav-link" href="<?= url('/') ?>" >
               <i class="menu-icon mdi mdi-account-convert"></i>
               <span class="menu-title">Data Pelanggan</span>
-            </a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="<?= url('/') ?>" >
-              <i class="menu-icon mdi mdi-cart-plus"></i>
-              <span class="menu-title">Data Order</span> 
             </a>
           </li>
           <li class="nav-item nav-category">Data Paket</li>

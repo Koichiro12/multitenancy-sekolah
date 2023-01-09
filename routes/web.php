@@ -7,6 +7,7 @@ use App\Http\Controllers\NewsController;
 use App\Http\Controllers\PageController;
 use App\Http\Controllers\PaketController;
 use App\Http\Controllers\TestimonialController;
+use App\Http\Controllers\UserController;
 use App\Http\Controllers\UsersController;
 use Illuminate\Support\Facades\Route;
 
@@ -34,6 +35,10 @@ Route::group(['middleware'=>['auth']],function(){
     Route::resource('/news',NewsController::class);
     Route::resource('/testimonial',TestimonialController::class);
     Route::resource('/users',UsersController::class);
+    Route::get('/user_profile',[UserController::class,'profile'])->name('user_profile');
+    Route::get('/user_activity',[UserController::class,'activity'])->name('user_activity');
+    
+    
 });
 //FrontWeb Central
 Route::get('/',[PageController::class,'index'])->name('dasboard');

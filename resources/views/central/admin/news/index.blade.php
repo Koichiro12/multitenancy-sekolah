@@ -16,13 +16,13 @@
                             <button class="add btn btn-icons btn-success  text-white me-0 pl-12p"><i class="mdi mdi-plus"></i></button>
                           </div>
                     </div>
-                    
-                    
-                    
                     <div class="table-responsive">
                         <table class="table">
                             <thead>
                                 <th>No</th>
+                                <th>Tanggal Upload</th>
+                                <th>Judul</th>
+                                <th>Pengupload</th>
                                 <th>Aksi</th>
                             </thead>
                             <tbody></tbody>
