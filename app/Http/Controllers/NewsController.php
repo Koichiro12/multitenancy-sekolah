@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\News;
 use Illuminate\Http\Request;
 
 class NewsController extends Controller
@@ -14,7 +15,8 @@ class NewsController extends Controller
     public function index()
     {
         //
-        return view('central.admin.news.index');
+        $data = News::latest()->get();
+        return view('central.admin.news.index',compact(['data']));
     }
 
     /**
@@ -25,6 +27,7 @@ class NewsController extends Controller
     public function create()
     {
         //
+        return view('central.admin.news.create');
     }
 
     /**
@@ -58,6 +61,10 @@ class NewsController extends Controller
     public function edit($id)
     {
         //
+        $data = News::findOrFail($id);
+        if($data){
+            return view('central.admin.news.edit',compact(['data']));
+        }
     }
 
     /**
@@ -81,5 +88,13 @@ class NewsController extends Controller
     public function destroy($id)
     {
         //
+        $data = News::findOrFail($id);
+        $data->delete();
+        if($data){
+            session()->flash('success',"News Has Been Delete");
+        }else{
+            session()->flash('error',"News Cannot Delete");
+        }
+        return redirect()->route('news.index');
     }
 }

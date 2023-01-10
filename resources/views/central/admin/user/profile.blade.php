@@ -3,9 +3,23 @@
 @section('content-app')
 
 <div class="content-wrapper">
-<form class="forms-sample" method="POST" action="#">
+    <div class="row">
+        <div class="col-md-12">
+            @if(session('success'))
+            <div class="alert alert-success text-center">
+                {{ session('success') }}
+            </div>
+        @endif 
+        @if(session('error'))
+            <div class="alert alert-danger text-center">
+                {{ session('error') }}
+            </div>
+        @endif 
+        </div>
+    </div>
+<form class="forms-sample" enctype="multipart/form-data" method="POST" action="{{route('update_profile',auth()->user()->id)}}">
     @csrf
-    @method('PUT')
+    @method('POST')
     <div class="row">
         <div class="col-md-4">
             <div class="card">
@@ -61,5 +75,11 @@
     </div>
 </form>
 </div>
-
+@endsection
+@section('content-script')
+    <script>
+        $('#foto_profile').change( function(event) {
+            $("#view_image").fadeIn("fast").attr('src',URL.createObjectURL(event.target.files[0]));
+        });
+    </script>
 @endsection

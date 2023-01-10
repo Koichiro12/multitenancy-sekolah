@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Features;
 use Illuminate\Http\Request;
 
 class FiturController extends Controller
@@ -14,7 +15,8 @@ class FiturController extends Controller
     public function index()
     {
         //
-        return view('central.admin.fitur.index');
+        $data = Features::latest()->get();
+        return view('central.admin.fitur.index',compact(['data']));
     }
 
     /**
@@ -25,6 +27,7 @@ class FiturController extends Controller
     public function create()
     {
         //
+        return view('central.admin.fitur.create');
     }
 
     /**
@@ -58,6 +61,10 @@ class FiturController extends Controller
     public function edit($id)
     {
         //
+        $data = Features::findOrFail($id);
+        if($data){
+            return view('central.admin.fitur.edit',compact(['data']));
+        }
     }
 
     /**
@@ -81,5 +88,13 @@ class FiturController extends Controller
     public function destroy($id)
     {
         //
+        $data = Features::findOrFail($id);
+        $data->delete();
+        if($data){
+            session()->flash('success',"Features Has Been Delete");
+        }else{
+            session()->flash('error',"Features Cannot Delete");
+        }
+        return redirect()->route('features.index');
     }
 }

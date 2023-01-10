@@ -2,10 +2,10 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\testimonial;
+use App\Models\Contact;
 use Illuminate\Http\Request;
 
-class TestimonialController extends Controller
+class ContactController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -15,8 +15,8 @@ class TestimonialController extends Controller
     public function index()
     {
         //
-        $data = testimonial::latest()->get();
-        return view('central.admin.testimoni.index',compact(['data']));
+        $data = Contact::latest()->get();
+        return view('central.admin.contact.index',compact(['data']));
     }
 
     /**
@@ -27,7 +27,6 @@ class TestimonialController extends Controller
     public function create()
     {
         //
-        return view('central.admin.testimoni.create');
     }
 
     /**
@@ -61,10 +60,6 @@ class TestimonialController extends Controller
     public function edit($id)
     {
         //
-        $data = testimonial::findOrFail($id);
-        if($data){
-            return view('central.admin.testimoni.edut',compact(['data']));
-        }
     }
 
     /**
@@ -88,13 +83,5 @@ class TestimonialController extends Controller
     public function destroy($id)
     {
         //
-        $data = testimonial::findOrFail($id);
-        $data->delete();
-        if($data){
-            session()->flash('success',"Testimonial Has Been Delete");
-        }else{
-            session()->flash('error',"Testimonial Cannot Delete");
-        }
-        return redirect()->route('testimonial.index');
     }
 }

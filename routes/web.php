@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\AdminPageController;
 use App\Http\Controllers\AuthController;
+use App\Http\Controllers\ContactController;
 use App\Http\Controllers\FiturController;
 use App\Http\Controllers\NewsController;
 use App\Http\Controllers\PageController;
@@ -35,9 +36,10 @@ Route::group(['middleware'=>['auth']],function(){
     Route::resource('/news',NewsController::class);
     Route::resource('/testimonial',TestimonialController::class);
     Route::resource('/users',UsersController::class);
+    Route::resource('/contact',ContactController::class);
     Route::get('/user_profile',[UserController::class,'profile'])->name('user_profile');
     Route::get('/user_activity',[UserController::class,'activity'])->name('user_activity');
-    
+    Route::post('/update_profile/{id}',[UserController::class,'update_profile'])->name('update_profile');
     
 });
 //FrontWeb Central

@@ -1,5 +1,5 @@
 @extends('central.admin.layout.app')
-@section('page','Fitur')
+@section('page','Contact')
 @section('content-app')
 
 <div class="content-wrapper">
@@ -8,43 +8,39 @@
             <div class="card">
                 <div class="card-body">
                     <h4 class="card-title">@yield('page')</h4>
+                    
                     <div class="d-flex justify-content-between align-items-center">
                         <p class="card-description"> Create And Modify @yield('page') Here</p>
                         <div class="add-items d-flex mb-0">
                             <!-- <input type="text" class="form-control todo-list-input" placeholder="What do you need to do today?"> -->
-                            <a href="{{route('features.create')}}" class="add btn btn-icons btn-success  text-white me-0 pl-12p"><i class="mdi mdi-plus"></i></a>
-                          </div>
+                           </div>
                     </div>
                     <div class="table-responsive">
                         <table class="table">
                             <thead>
                                 <th>No</th>
-                                <th>Icon</th>
-                                <th>Nama</th>
-                                <th>Deskripsi</th>
+                                <th>Name</th>
+                                <th>Email</th>
+                                <th>Subject</th>
+                                <th>Message</th>
                                 <th>Aksi</th>
                             </thead>
                             <tbody>
                                 @forelse ($data as $item)
                                     <tr>
                                         <td>{{$loop->index + 1}}</td>
-                                        <td><i class="{{$item->icon}}"></i></td>
-                                        <td>{{$item->feature_name}}</td>
-                                        <td>{{$item->feature_desc}}</td>
+                                        <td>{{$item->name}}</td>
+                                        <td>{{$item->email}}</td>
+                                        <td>{{$item->subject}}</td>
+                                        <td>{{$item->message}}</td>
                                         <td>
-                                            <form onsubmit="return confirm('Apakah Anda yakin ?')"
-                                                action="{{ route('features.destroy',$item->id) }}" method="POST">
-                                                <a href="{{ route('features.edit',$item->id) }}" class="btn btn-warning"><i class="fas fa-edit"></i> Edit</a>
-                                                @csrf
-                                                @method('DELETE')
-                                                <button type="submit" class="btn btn-danger"><i class="fas fa-trash"></i> Hapus</button>    
-                                            </form>
+                                            <a href="{{ route('contact.edit',$item->id) }}" class="btn btn-warning"><i class="fas fa-eye"></i> View</a>
                                         </td>
                                     </tr>
                                 @empty
-                                <tr>
-                                    <td colspan="100%" class="text-muted text-center">Tidak Ada Data</td>
-                                </tr>
+                                    <tr>
+                                        <td colspan="100%" class="text-muted text-center">Tidak Ada Data</td>
+                                    </tr>
                                 @endforelse
                             </tbody>
                         </table>

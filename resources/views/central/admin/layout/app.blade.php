@@ -144,7 +144,7 @@
             </a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="<?= url('/') ?>">
+            <a class="nav-link" href="{{route('contact.index')}}">
               <i class="menu-icon mdi mdi-comment-multiple-outline"></i>
               <span class="menu-title">Contact</span>
             </a>
