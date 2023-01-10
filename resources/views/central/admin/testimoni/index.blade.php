@@ -13,7 +13,7 @@
                         <p class="card-description"> Create And Modify @yield('page') Here</p>
                         <div class="add-items d-flex mb-0">
                             <!-- <input type="text" class="form-control todo-list-input" placeholder="What do you need to do today?"> -->
-                            <button class="add btn btn-icons btn-success  text-white me-0 pl-12p"><i class="mdi mdi-plus"></i></button>
+                            <a href="{{route('testimonial.create')}}" class="add btn btn-icons btn-success text-white me-0 pl-12p"><i class="mdi mdi-plus"></i></a>
                           </div>
                     </div>
                     <div class="table-responsive">
