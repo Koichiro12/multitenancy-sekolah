@@ -39,6 +39,29 @@ class FiturController extends Controller
     public function store(Request $request)
     {
         //
+        $validate = $request->validate([
+            'feature_name' => ['required'],
+            'feature_desc' => ['required'],
+        ]);
+        if($validate){
+            $file = $request->file('icon');
+            $foto = $file != null ? date('Ymdhis').$file->getClientOriginalName() : '-';
+            if($file != null){
+                $file->move('public/central/uploads',$foto);
+            }
+            $create = Features::create([
+                'icon' => $foto,
+                'feature_name' => $request->feature_name,
+                'feature_desc' => $request->feature_desc,
+            ]);
+            if($create){
+                session()->flash('success',"Features Has Been Create");
+                return redirect()->route('features.index');
+            }else{
+                session()->flash('error',"Features Cannot Create");
+                return redirect()->back();
+            }
+        }
     }
 
     /**
@@ -77,6 +100,30 @@ class FiturController extends Controller
     public function update(Request $request, $id)
     {
         //
+        $validate = $request->validate([
+            'feature_name' => ['required'],
+            'feature_desc' => ['required'],
+        ]);
+        if($validate){
+            $update = Features::findOrFail($id);
+            $file = $request->file('icon');
+            $foto = $file != null ? date('Ymdhis').$file->getClientOriginalName() : $update->icon;
+            if($file != null){
+                $file->move('public/central/uploads',$foto);
+            }
+            $update->update([
+                'icon' => $foto,
+                'feature_name' => $request->feature_name,
+                'feature_desc' => $request->feature_desc,
+            ]);
+            if($update){
+                session()->flash('success',"Features Has Been Edited");
+                return redirect()->route('features.index');
+            }else{
+                session()->flash('error',"Features Cannot Edited");
+                return redirect()->back();
+            }
+        }
     }
 
     /**

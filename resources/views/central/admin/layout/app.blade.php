@@ -91,17 +91,17 @@
               <span class="menu-title">Dashboard</span>
             </a>
           </li>
-          <li class="nav-item nav-category">Data Transaksi</li>
+          <li class="nav-item nav-category">Data Tenancy</li>
           <li class="nav-item">
             <a class="nav-link" href="<?= url('/') ?>" >
               <i class="menu-icon mdi mdi-chart-bar"></i>
-              <span class="menu-title">Data Transaksi</span>
+              <span class="menu-title">Data Order</span>
             </a>
           </li>
           <li class="nav-item">
             <a class="nav-link" href="<?= url('/') ?>" >
-              <i class="menu-icon mdi mdi-account-convert"></i>
-              <span class="menu-title">Data Pelanggan</span>
+              <i class="menu-icon mdi mdi-chart-bar"></i>
+              <span class="menu-title">Data Tenancy</span>
             </a>
           </li>
           <li class="nav-item nav-category">Data Paket</li>

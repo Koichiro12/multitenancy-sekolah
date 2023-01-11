@@ -27,8 +27,12 @@
                     <div class="card-title text-center">Foto</div>
                     <div class="form-group text-center">
                         <hr>
+                        @if ($data->icon != '-')
+                            <img src="{{asset('public/central/uploads/'.$data->icon)}}" width="100%" height="100%" id="view_image">
+                        @else
                             <img src="{{asset('public/central/img/blank_foto_profile.png')}}" id="view_image" width="100%" height="100%"  alt="image">
-                        <br>
+                        @endif
+                    <br>
                         <hr>
                         <input type="file" class="form-control" name="icon" id="icon" accept="image/png, image/jpeg">
                     </div>
@@ -44,11 +48,11 @@
                     </div>
                        <div class="form-group">
                             <label>Nama</label>
-                            <input type="text" name="feature_name" id="feature_name" class="form-control" required>
+                            <input type="text" value="{{$data->feature_name}}" name="feature_name" id="feature_name" class="form-control" required>
                         </div>
                         <div class="form-group">
                             <label>Deskripsi</label>
-                            <textarea name="feature_desc" id="feature_desc" class="form-control" style="height:200px;" cols="30" rows="10"></textarea>  
+                            <textarea name="feature_desc" id="feature_desc" class="form-control" style="height:200px;" cols="30" rows="10">{{$data->feature_desc}}</textarea>  
                           </div>
                         <button type="submit" class="btn btn-primary me-2">Submit</button>
                         <a class="btn btn-light" href="{{route('features.index')}}">Cancel</a>
