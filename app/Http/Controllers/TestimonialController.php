@@ -39,6 +39,31 @@ class TestimonialController extends Controller
     public function store(Request $request)
     {
         //
+        $validate = $request->validate([
+            'testi_name' => ['required'],
+            'testi_profesion' => ['required'],
+            'testi_desc' => ['required'],
+        ]);
+        if($validate){
+            $file = $request->file('testi_image');
+            $foto = $file != null ? date('Ymdhis').$file->getClientOriginalName() : '-';
+            if($file != null){
+                $file->move('public/central/uploads',$foto);
+            }
+            $create = testimonial::create([
+                'testi_image' => $foto,
+                'testi_name' => $request->testi_name,
+                'testi_profesion' => $request->testi_profesion,
+                'testi_desc' => $request->testi_desc,
+            ]);
+            if($create){
+                session()->flash('success',"Testimonial Has Been Create");
+                return redirect()->route('testimonial.index');
+            }else{
+                session()->flash('error',"Testimonial Cannot Create");
+                return redirect()->back();
+            }
+        }
     }
 
     /**
@@ -63,7 +88,7 @@ class TestimonialController extends Controller
         //
         $data = testimonial::findOrFail($id);
         if($data){
-            return view('central.admin.testimoni.edut',compact(['data']));
+            return view('central.admin.testimoni.edit',compact(['data']));
         }
     }
 
@@ -77,6 +102,32 @@ class TestimonialController extends Controller
     public function update(Request $request, $id)
     {
         //
+        $validate = $request->validate([
+            'testi_name' => ['required'],
+            'testi_profesion' => ['required'],
+            'testi_desc' => ['required'],
+        ]);
+        if($validate){
+            $update = testimonial::findOrFail($id);
+            $file = $request->file('testi_image');
+            $foto = $file != null ? date('Ymdhis').$file->getClientOriginalName() : $update->testi_image;
+            if($file != null){
+                $file->move('public/central/uploads',$foto);
+            }
+            $update->update([
+                'testi_image' => $foto,
+                'testi_name' => $request->testi_name,
+                'testi_profesion' => $request->testi_profesion,
+                'testi_desc' => $request->testi_desc,
+            ]);
+            if($update){
+                session()->flash('success',"Testimonial Has Been Update");
+                return redirect()->route('testimonial.index');
+            }else{
+                session()->flash('error',"Testimonial Cannot Create");
+                return redirect()->back();
+            }
+        }
     }
 
     /**

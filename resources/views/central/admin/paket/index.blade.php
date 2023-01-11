@@ -5,6 +5,20 @@
 <div class="content-wrapper">
     <div class="row">
         <div class="col-md-12">
+            @if(session('success'))
+            <div class="alert alert-success text-center">
+                {{ session('success') }}
+            </div>
+        @endif 
+        @if(session('error'))
+            <div class="alert alert-danger text-center">
+                {{ session('error') }}
+            </div>
+        @endif 
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-12">
             <div class="card">
                 <div class="card-body">
                     <h4 class="card-title">@yield('page')</h4>
@@ -33,5 +47,4 @@
         </div>
     </div>
 </div>
-
 @endsection

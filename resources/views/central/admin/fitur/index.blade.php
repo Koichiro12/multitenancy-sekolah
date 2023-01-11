@@ -5,6 +5,20 @@
 <div class="content-wrapper">
     <div class="row">
         <div class="col-md-12">
+            @if(session('success'))
+            <div class="alert alert-success text-center">
+                {{ session('success') }}
+            </div>
+        @endif 
+        @if(session('error'))
+            <div class="alert alert-danger text-center">
+                {{ session('error') }}
+            </div>
+        @endif 
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-12">
             <div class="card">
                 <div class="card-body">
                     <h4 class="card-title">@yield('page')</h4>
@@ -19,7 +33,7 @@
                         <table class="table">
                             <thead>
                                 <th>No</th>
-                                <th>Icon</th>
+                                <th>Image</th>
                                 <th>Nama</th>
                                 <th>Deskripsi</th>
                                 <th>Aksi</th>
@@ -28,7 +42,11 @@
                                 @forelse ($data as $item)
                                     <tr>
                                         <td>{{$loop->index + 1}}</td>
-                                        <td><i class="{{$item->icon}}"></i></td>
+                                        <td>
+                                            @if ($item->icon != '-')
+                                                <img src="{{asset('public/central/uploads/'.$item->icon)}}" alt="">
+                                            @endif
+                                        </td>
                                         <td>{{$item->feature_name}}</td>
                                         <td>{{$item->feature_desc}}</td>
                                         <td>
@@ -50,7 +68,7 @@
                         </table>
                     </div>
                 </div>
-            </div>
+            </div>  
         </div>
     </div>
 </div>

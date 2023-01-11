@@ -8,4 +8,9 @@ use Illuminate\Database\Eloquent\Model;
 class Features extends Model
 {
     use HasFactory;
+    protected $fillable = [
+        'icon',
+        'feature_name',
+        'feature_desc',
+    ];
 }

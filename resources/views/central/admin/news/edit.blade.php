@@ -3,12 +3,21 @@
 @section('content-app')
 
 <div class="content-wrapper">
-    @if(session('error'))
-                <div class="alert alert-danger text-center">
-                    {{ session('error') }}
-                </div>
-            @endif 
-    <form class="forms-sample" enctype="multipart/form-data" method="POST" action="{{route('news.update',$data->id)}}">
+    <div class="row">
+        <div class="col-md-12">
+            @if(session('success'))
+            <div class="alert alert-success text-center">
+                {{ session('success') }}
+            </div>
+        @endif 
+        @if(session('error'))
+            <div class="alert alert-danger text-center">
+                {{ session('error') }}
+            </div>
+        @endif 
+        </div>
+    </div>
+<form class="forms-sample" enctype="multipart/form-data" method="POST" action="{{route('news.update',$data->id)}}">
         @csrf
         @method('PUT')
     <div class="row">

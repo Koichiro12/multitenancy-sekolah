@@ -39,6 +39,31 @@ class NewsController extends Controller
     public function store(Request $request)
     {
         //
+        $validate = $request->validate([
+            'news_name' => ['required'],
+            'news_desc' => ['required'],
+            'news_uploader' => ['required'],
+        ]);
+        if($validate){
+            $file = $request->file('news_image');
+            $foto = $file != null ? date('Ymdhis').$file->getClientOriginalName() : '-';
+            if($file != null){
+                $file->move('public/central/uploads',$foto);
+            }
+            $create = News::create([
+                'news_image' => $foto,
+                'news_name' => $request->news_name,
+                'news_desc' => $request->news_desc,
+                'news_uploader' => $request->news_uploader,
+            ]);
+            if($create){
+                session()->flash('success',"News Has Been Create");
+                return redirect()->route('news.index');
+            }else{
+                session()->flash('error',"News Cannot Create");
+                return redirect()->back();
+            }
+        }
     }
 
     /**
@@ -77,6 +102,32 @@ class NewsController extends Controller
     public function update(Request $request, $id)
     {
         //
+        $validate = $request->validate([
+            'news_name' => ['required'],
+            'news_desc' => ['required'],
+            'news_uploader' => ['required'],
+        ]);
+        if($validate){
+            $update = News::findOrFail($id);
+            $file = $request->file('news_image');
+            $foto = $file != null ? date('Ymdhis').$file->getClientOriginalName() : $update->news_image;
+            if($file != null){
+                $file->move('public/central/uploads',$foto);
+            }
+            $update->update([
+                'news_image' => $foto,
+                'news_name' => $request->news_name,
+                'news_desc' => $request->news_desc,
+                'news_uploader' => $request->news_uploader,
+            ]);
+            if($update){
+                session()->flash('success',"News Has Been Update");
+                return redirect()->route('news.index');
+            }else{
+                session()->flash('error',"News Cannot Update");
+                return redirect()->back();
+            }
+        }
     }
 
     /**
