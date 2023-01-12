@@ -2,10 +2,9 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\Contact;
 use Illuminate\Http\Request;
 
-class ContactController extends Controller
+class OrderController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -15,8 +14,8 @@ class ContactController extends Controller
     public function index()
     {
         //
-        $data = Contact::latest()->get();
-        return view('central.admin.contact.index',compact(['data']));
+        
+        return view('central.admin.order.index');
     }
 
     /**
@@ -38,24 +37,6 @@ class ContactController extends Controller
     public function store(Request $request)
     {
         //
-        $validate = $request->validate([
-            'name' => ['required'],
-            'email' => ['required'],
-        ]);
-        if($validate){
-            $create = Contact::create([
-                'name' => $request->name,
-                'email' => $request->email,
-                'subject' => $request->subject != null ? $request->subject : '-',
-                'message' => $request->message != null ? $request->message : '-',
-            ]);
-            if($create){
-                session()->flash('success',"Thankyou, Contact Has Been Create");
-            }else{
-                session()->flash('error',"Contact Cannot Create");
-            }
-            return redirect()->back();
-        }
     }
 
     /**

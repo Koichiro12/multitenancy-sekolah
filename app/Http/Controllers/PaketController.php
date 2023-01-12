@@ -2,6 +2,9 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\KeunggulanPaket;
+use App\Models\ListUnggulPaket;
+use App\Models\Paket;
 use Illuminate\Http\Request;
 
 class PaketController extends Controller
@@ -14,7 +17,8 @@ class PaketController extends Controller
     public function index()
     {
         //
-        return view('central.admin.paket.index');
+        $data = Paket::latest()->get();
+        return view('central.admin.paket.index',compact(['data']));
     }
 
     /**
@@ -25,6 +29,8 @@ class PaketController extends Controller
     public function create()
     {
         //
+        $keunggulan = KeunggulanPaket::latest()->get();
+        return view('central.admin.paket.create',compact(['keunggulan']));
     }
 
     /**
@@ -58,6 +64,12 @@ class PaketController extends Controller
     public function edit($id)
     {
         //
+        $keunggulan = KeunggulanPaket::latest()->get();
+        $data = Paket::findOrFail($id);
+        $list_keunggulan = ListUnggulPaket::where([['kode_paket','=',$id]])->get();
+        if($data){
+            return view('central.admin.paket.edit',compact(['keunggulan','data','list_keunggulan']));
+        }
     }
 
     /**

@@ -24,15 +24,15 @@
                           </div>
                           <div>
                             <p class="statistics-title">Paket</p>
-                            <h3 class="rate-percentage">0</h3>
+                            <h3 class="rate-percentage">{{$paket->count()}}</h3>
                           </div>
                           <div>
                             <p class="statistics-title">Berita</p>
-                            <h3 class="rate-percentage">0</h3>
+                            <h3 class="rate-percentage">{{$news->count()}}</h3>
                           </div>
                           <div class="d-none d-md-block">
                             <p class="statistics-title">Fitur</p>
-                            <h3 class="rate-percentage">0</h3>
+                            <h3 class="rate-percentage">{{$fitur->count()}}</h3>
                           </div>
                           <div class="d-none d-md-block">
                             <p class="statistics-title">Users</p>

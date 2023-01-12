@@ -1,5 +1,5 @@
 @extends('central.admin.layout.app')
-@section('page','Paket')
+@section('page','Tenancy')
 @section('content-app')
 
 <div class="content-wrapper">
@@ -27,15 +27,13 @@
                         <p class="card-description"> Create And Modify @yield('page') Here</p>
                         <div class="add-items d-flex mb-0">
                             <!-- <input type="text" class="form-control todo-list-input" placeholder="What do you need to do today?"> -->
-                            <a href="{{route('packet.create')}}" class="add btn btn-icons btn-success  text-white me-0 pl-12p"><i class="mdi mdi-plus"></i></a>
+                            <a href="{{route('tenancy.create')}}" class="add btn btn-icons btn-success  text-white me-0 pl-12p"><i class="mdi mdi-plus"></i></a>
                           </div>
                     </div>
                     <div class="table-responsive">
                         <table class="table">
                             <thead>
                                 <th>No</th>
-                                <th>Nama</th>
-                                <th>Harga</th>
                                 <th>Aksi</th>
                             </thead>
                             <tbody></tbody>

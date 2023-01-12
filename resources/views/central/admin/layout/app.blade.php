@@ -93,13 +93,13 @@
           </li>
           <li class="nav-item nav-category">Data Tenancy</li>
           <li class="nav-item">
-            <a class="nav-link" href="<?= url('/') ?>" >
+            <a class="nav-link" href="{{route('orders.index')}}" >
               <i class="menu-icon mdi mdi-chart-bar"></i>
               <span class="menu-title">Data Order</span>
             </a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="<?= url('/') ?>" >
+            <a class="nav-link" href="{{route('tenancy.index')}}" >
               <i class="menu-icon mdi mdi-chart-bar"></i>
               <span class="menu-title">Data Tenancy</span>
             </a>
@@ -115,6 +115,12 @@
             <a class="nav-link" href="{{route('packet.index')}}" >
               <i class="menu-icon mdi mdi-seal"></i>
               <span class="menu-title">Paket</span> 
+            </a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="{{route('keunggulan_paket.index')}}" >
+              <i class="menu-icon mdi mdi-seal"></i>
+              <span class="menu-title">Keunggulan Paket</span> 
             </a>
           </li>
           <li class="nav-item nav-category">Post</li>
