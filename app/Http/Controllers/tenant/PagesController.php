@@ -8,6 +8,10 @@ use Illuminate\Http\Request;
 class PagesController extends Controller
 {
     //
+    public function dashboard()
+    {
+        return view('tenant.admin.dashboard');
+    }
     public function home()
     {
         return view('tenant.page.home');

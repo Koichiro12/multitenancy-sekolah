@@ -22,6 +22,7 @@ class UserFactory extends Factory
             'name' => 'Administrator',
             'email' => 'admin@jamanu.com',
             'email_verified_at' => now(),
+            'level' => '0',
             'password' => Hash::make('admin'), // password
             'remember_token' => Str::random(10),
         ];

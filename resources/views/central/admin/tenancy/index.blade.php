@@ -34,9 +34,31 @@
                         <table class="table">
                             <thead>
                                 <th>No</th>
+                                <th>ID</th>
+                                <th>Domains</th>
+                                <th>Plan</th>
                                 <th>Aksi</th>
                             </thead>
-                            <tbody></tbody>
+                            <tbody>
+                                @forelse ($data as $item)
+                                    <tr>
+                                        <td>{{$loop->index + 1}}</td>
+                                        <td>{{$item->id_tenant}}</td>
+                                        <td>{{$item->domain}}</td>
+                                        <td>{{$item->plan}}</td>
+                                        <td>
+                                            <form onsubmit="return confirm('Apakah Anda yakin ?')"
+                                                action="{{ route('tenancy.destroy',$item->id) }}" method="POST">
+                                                @csrf
+                                                @method('DELETE')
+                                                <button type="submit" class="btn btn-danger"><i class="fas fa-trash"></i> Hapus</button>
+                                            </form>
+                                        </td>
+                                    </tr>
+                                @empty
+                                    
+                                @endforelse
+                            </tbody>
                         </table>
                     </div>
                 </div>

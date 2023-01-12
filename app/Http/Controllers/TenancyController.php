@@ -2,6 +2,8 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Tenant;
+use App\Models\User;
 use Illuminate\Http\Request;
 
 class TenancyController extends Controller
@@ -14,7 +16,8 @@ class TenancyController extends Controller
     public function index()
     {
         //
-        return view('central.admin.tenancy.index');
+        $data = Tenant::join('domains','tenants.id','=','domains.tenant_id')->get(['tenants.*','tenants.id as id_tenant','domains.*']);
+        return view('central.admin.tenancy.index',compact(['data']));
     }
 
     /**
@@ -25,6 +28,7 @@ class TenancyController extends Controller
     public function create()
     {
         //
+        return view('central.admin.tenancy.create');
     }
 
     /**
@@ -36,6 +40,28 @@ class TenancyController extends Controller
     public function store(Request $request)
     {
         //
+        $validate = $request->validate([
+            'domains' => ['required'],
+            'id' => ['required'],
+            'plan' => ['required'],
+        ]);
+        if($validate){
+            $tenant = Tenant::create([
+                'id' => $request->id,
+                'plan' => $request->plan
+            ]);
+            $tenant->domains()->create(['domain',$request->domains]);
+            if($tenant){
+                Tenant::all()->runForEach(function(){
+                    User::factory()->create();
+                });
+                session()->flash('success',"Tenancy Has Been Create");
+                return redirect()->route('tenancy.index');
+            }else{
+                session()->flash('error',"Tenancy Cannot Create");
+                return redirect()->back();
+            }
+        }
     }
 
     /**

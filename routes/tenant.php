@@ -35,6 +35,7 @@ Route::middleware([
     PreventAccessFromCentralDomains::class,
 ])->group(function () {
     Route::get('/', [PagesController::class, 'home'])->name('home');
+    Route::get('/dashboard', [PagesController::class, 'dashboard'])->name('dashboard');
     Route::get('/about', [PagesController::class, 'about'])->name('about');
     Route::get('/alumni', [PagesController::class, 'alumni'])->name('alumni');
     Route::get('/ppdb', [PagesController::class, 'ppdb'])->name('ppdb');
