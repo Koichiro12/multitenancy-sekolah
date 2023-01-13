@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Paket;
 use App\Models\Tenant;
 use App\Models\User;
 use Illuminate\Http\Request;
@@ -28,7 +29,8 @@ class TenancyController extends Controller
     public function create()
     {
         //
-        return view('central.admin.tenancy.create');
+        $paket = Paket::latest()->get();
+        return view('central.admin.tenancy.create',compact(['paket']));
     }
 
     /**

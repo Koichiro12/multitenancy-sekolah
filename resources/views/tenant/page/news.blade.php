@@ -3,7 +3,7 @@
 @section('content')
     <div class="news">
         <div class="news-hero bg-asset"
-            style="background: url(https://oceanschool.nfb.ca/_nuxt/img/heroBigTitleBg.09689c9.jpg)">
+            style="background: url({{ 'public/tenant/img/hero_news.jpg' }})">
             <div class="news-hero-bc">
                 <a href="{{ route('home') }}">
                     <ion-icon name="home"></ion-icon> Home

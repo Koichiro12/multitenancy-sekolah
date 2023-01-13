@@ -42,9 +42,12 @@
                                 <input type="text" name="domains" id="domains" class="form-control">
                         </div>
                        <div class="form-group">
-                            <label>Plan</label>
+                            <label>Paket</label>
                             <select name="plan" id="plan" class="form-control">
-                                <option> -- Pilih Plan --</option>
+                                <option> -- Pilih Paket --</option>
+                                @foreach ($paket as $item)
+                                    <option value="{{$item->nama_paket}}">{{$item->nama_paket}}</option>
+                                @endforeach
                             </select>
                        </div>
                         <button type="submit" class="btn btn-primary me-2">Submit</button>
