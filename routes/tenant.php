@@ -41,4 +41,5 @@ Route::middleware([
     Route::get('/ppdb', [PagesController::class, 'ppdb'])->name('ppdb');
     Route::get('/news', [PagesController::class, 'news'])->name('news');
     Route::get('/detail-news', [PagesController::class, 'detailNews'])->name('detailNews');
+    Route::get('/login', [PagesController::class, 'login'])->name('login');
 });

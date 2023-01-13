@@ -12,6 +12,9 @@ class PagesController extends Controller
     {
         return view('tenant.admin.dashboard');
     }
+    public function login(){
+        return view('tenant.auth.signin');
+    }
     public function home()
     {
         return view('tenant.page.home');
