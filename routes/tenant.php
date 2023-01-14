@@ -2,6 +2,7 @@
 
 declare(strict_types=1);
 
+use App\Http\Controllers\tenant\beritaController;
 use App\Http\Controllers\tenant\PagesController;
 use Illuminate\Support\Facades\Route;
 use Stancl\Tenancy\Middleware\InitializeTenancyByDomain;
@@ -39,7 +40,7 @@ Route::middleware([
     Route::get('/about', [PagesController::class, 'about'])->name('about');
     Route::get('/alumni', [PagesController::class, 'alumni'])->name('alumni');
     Route::get('/ppdb', [PagesController::class, 'ppdb'])->name('ppdb');
-    Route::get('/news', [PagesController::class, 'news'])->name('news');
+    Route::get('/news', [beritaController::class, 'index'])->name('news');
     Route::get('/detail-news', [PagesController::class, 'detailNews'])->name('detailNews');
     Route::get('/login', [PagesController::class, 'login'])->name('login');
 });
