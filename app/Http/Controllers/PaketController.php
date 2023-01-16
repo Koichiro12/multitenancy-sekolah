@@ -42,6 +42,7 @@ class PaketController extends Controller
     public function store(Request $request)
     {
         //
+        
     }
 
     /**
@@ -93,5 +94,13 @@ class PaketController extends Controller
     public function destroy($id)
     {
         //
+        $data = KeunggulanPaket::findOrFail($id);
+        $data->delete();
+        if($data){
+            session()->flash('success',"Paket Has Been Delete");
+        }else{
+            session()->flash('error',"Paket Cannot Delete");
+        }
+        return redirect()->route('testimonial.index');
     }
 }

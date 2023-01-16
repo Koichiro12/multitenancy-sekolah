@@ -36,9 +36,32 @@
                                 <th>No</th>
                                 <th>Nama</th>
                                 <th>Harga</th>
+                                <th>Status</th>
                                 <th>Aksi</th>
                             </thead>
-                            <tbody></tbody>
+                            <tbody>
+                                @forelse ($data as $item)
+                                    <tr>
+                                        <td>{{$loop->index + 1}}</td>
+                                        <td>{{$item->nama_paket}}</td>
+                                        <td>{{$item->harga_paket}} / {{$item->per_harga_paket}}</td>
+                                        <td>{{$item->status}}</td>
+                                        <td>
+                                        <form onsubmit="return confirm('Apakah Anda yakin ?')"
+                                            action="{{ route('packet.destroy',$item->id) }}" method="POST">
+                                            <a href="{{ route('packet.edit',$item->id) }}" class="btn btn-warning"><i class="fas fa-edit"></i> Edit</a>
+                                            @csrf
+                                            @method('DELETE')
+                                            <button type="submit" class="btn btn-danger"><i class="fas fa-trash"></i> Hapus</button>    
+                                        </form>
+                                        </td>
+                                    </tr>
+                                @empty
+                                <tr>
+                                    <td colspan="100%" class="text-center text-muted">Tidak Ada Data</td>
+                                </tr>
+                                @endforelse
+                            </tbody>
                         </table>
                     </div>
                 </div>
