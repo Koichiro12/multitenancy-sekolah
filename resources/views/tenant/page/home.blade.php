@@ -200,44 +200,6 @@
 
             </div>
         </div>
-
-
-        {{-- <div class="home__action">
-            <div class="home__action-wrapper">
-                <div class="home__action-item">
-                    <div class="home__action-item-title">
-                        <p>Keunggulan</p>
-                        <div class="home__action-item-title-btn">
-                            <ion-icon name="arrow-forward-outline"></ion-icon>
-                        </div>
-                    </div>
-                    <img class="home__action-item-img" src="{{ 'public/tenant/img/ilustration/ilus1.svg' }}"
-                        alt="">
-                </div>
-                <div class="home__action-item">
-                    <div class="home__action-item-title">
-                        <p>Fasilitas</p>
-                        <div class="home__action-item-title-btn">
-                            <ion-icon name="arrow-forward-outline"></ion-icon>
-                        </div>
-                    </div>
-                    <img class="home__action-item-img" src="{{ 'public/tenant/img/ilustration/ilus2.svg' }}"
-                        alt="">
-                </div>
-                <div class="home__action-item">
-                    <div class="home__action-item-title">
-                        <p>Prestasi</p>
-                        <div class="home__action-item-title-btn">
-                            <ion-icon name="arrow-forward-outline"></ion-icon>
-                        </div>
-                    </div>
-                    <img class="home__action-item-img" src="{{ 'public/tenant/img/ilustration/ilus3.svg' }}"
-                        alt="">
-                </div>
-            </div>
-
-        </div> --}}
-
         <div class="home__berita">
             <div class="section-title"><svg fill="none" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 480 40">
                     <path d="M0 40C137.185 40 125.676 0 240 0s103.999 40 240 40H0Z" fill="#fff"></path>
