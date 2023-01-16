@@ -6,6 +6,7 @@ use App\Models\Paket;
 use App\Models\Tenant;
 use App\Models\User;
 use Illuminate\Http\Request;
+use Stancl\Tenancy\Database\Models\Domain;
 
 class TenancyController extends Controller
 {
@@ -52,11 +53,11 @@ class TenancyController extends Controller
                 'id' => $request->id,
                 'plan' => $request->plan
             ]);
-            $tenant->domains()->create(['domain',$request->domains]);
+            Domain::create([
+                'domain' => $request->domains,
+                'tenant_id' => $request->id
+            ]);
             if($tenant){
-                Tenant::all()->runForEach(function(){
-                    User::factory()->create();
-                });
                 session()->flash('success',"Tenancy Has Been Create");
                 return redirect()->route('tenancy.index');
             }else{
@@ -109,5 +110,14 @@ class TenancyController extends Controller
     public function destroy($id)
     {
         //
+        $data = Tenant::findOrFail($id);
+        $data->delete();
+        $data->domains()->delete();
+        if($data){
+            session()->flash('success',"Tenancy Has Been Deleted");
+        }else{
+            session()->flash('error',"Tenancy Cannot Delete");
+        }
+        return redirect()->route('tenancy.index');
     }
 }

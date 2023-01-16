@@ -48,7 +48,7 @@
                                         <td>{{$item->plan}}</td>
                                         <td>
                                             <form onsubmit="return confirm('Apakah Anda yakin ?')"
-                                                action="{{ route('tenancy.destroy',$item->id) }}" method="POST">
+                                                action="{{ route('tenancy.destroy',$item->id_tenant) }}" method="POST">
                                                 @csrf
                                                 @method('DELETE')
                                                 <button type="submit" class="btn btn-danger"><i class="fas fa-trash"></i> Hapus</button>

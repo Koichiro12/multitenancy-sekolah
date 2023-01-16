@@ -42,7 +42,40 @@ class PaketController extends Controller
     public function store(Request $request)
     {
         //
-        
+        $validate = $request->validate([
+            'nama_paket' => ['required'],
+            'harga_paket' => ['required'],
+            'per_harga_paket' => ['required'],
+        ]);
+        if($validate){
+            $create = Paket::create([
+                'nama_paket' => $request->nama_paket,
+                'harga_paket' => $request->harga_paket,
+                'per_harga_paket' => $request->per_harga_paket,
+                'status_paket' => '1'
+            ]);
+            if($create){
+                $datapaket = Paket::where([['nama_paket','=',$request->nama_paket]
+                ,['harga_paket','=',$request->harga_paket]
+                ,['per_harga_paket','=',$request->per_harga_paket]
+                ,['status_paket','=','1']])->get()->first();
+                $keunggulan = KeunggulanPaket::latest()->get();
+                foreach ($keunggulan as $item) {
+                    if($request['keunggulan_'.$item->id] != null){
+                        ListUnggulPaket::create([
+                            'kode_paket' => $datapaket->id,
+                            'kode_keunggulan' => $item->id,
+                        ]);
+                    }        
+                }
+                session()->flash('success',"Paket Has Been Create");
+                return redirect()->route('packet.index');
+            }else{
+                session()->flash('error',"Something Went Wrong");
+                return redirect()->back();
+            }
+           
+        }
     }
 
     /**
@@ -83,6 +116,38 @@ class PaketController extends Controller
     public function update(Request $request, $id)
     {
         //
+        $validate = $request->validate([
+            'nama_paket' => ['required'],
+            'harga_paket' => ['required'],
+            'per_harga_paket' => ['required'],
+        ]);
+        if($validate){
+            $update = Paket::findOrFail($id);
+            $update->update([
+                'nama_paket' => $request->nama_paket,
+                'harga_paket' => $request->harga_paket,
+                'per_harga_paket' => $request->per_harga_paket,
+                'status_paket' => '1'
+            ]);
+            if($update){
+                ListUnggulPaket::where([['kode_paket','=',$id]])->delete();
+                $keunggulan = KeunggulanPaket::latest()->get();
+                foreach ($keunggulan as $item) {
+                    if($request['keunggulan_'.$item->id] != null){
+                        ListUnggulPaket::create([
+                            'kode_paket' => $id,
+                            'kode_keunggulan' => $item->id,
+                        ]);
+                    }        
+                }
+                session()->flash('success',"Paket Has Been Update");
+                return redirect()->route('packet.index');
+            }else{
+                session()->flash('error',"Something Went Wrong");
+                return redirect()->back();
+            }
+           
+        }
     }
 
     /**
@@ -94,13 +159,14 @@ class PaketController extends Controller
     public function destroy($id)
     {
         //
-        $data = KeunggulanPaket::findOrFail($id);
+        $data = Paket::findOrFail($id);
+        ListUnggulPaket::where([['kode_paket','=',$id]])->delete();
         $data->delete();
         if($data){
             session()->flash('success',"Paket Has Been Delete");
         }else{
             session()->flash('error',"Paket Cannot Delete");
         }
-        return redirect()->route('testimonial.index');
+        return redirect()->route('packet.index');
     }
 }

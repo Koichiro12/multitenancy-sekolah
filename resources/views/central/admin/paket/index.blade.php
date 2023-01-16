@@ -44,9 +44,10 @@
                                     <tr>
                                         <td>{{$loop->index + 1}}</td>
                                         <td>{{$item->nama_paket}}</td>
-                                        <td>{{$item->harga_paket}} / {{$item->per_harga_paket}}</td>
-                                        <td>{{$item->status}}</td>
+                                        <td>Rp.{{number_format($item->harga_paket)}},- / {{$item->per_harga_paket}}</td>
+                                        <td>{!!$item->status_paket != 0 ? '<span class="badge badge-success">Aktif</span>' : '<span class="badge badge-primary">Aktif</span>'!!}</td>
                                         <td>
+                                            
                                         <form onsubmit="return confirm('Apakah Anda yakin ?')"
                                             action="{{ route('packet.destroy',$item->id) }}" method="POST">
                                             <a href="{{ route('packet.edit',$item->id) }}" class="btn btn-warning"><i class="fas fa-edit"></i> Edit</a>
