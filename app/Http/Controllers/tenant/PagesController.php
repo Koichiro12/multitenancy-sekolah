@@ -5,6 +5,8 @@ namespace App\Http\Controllers\tenant;
 use App\Http\Controllers\Controller;
 use App\Models\tenant\tenantBerita;
 use App\Models\tenant\tenantFasilitas;
+use App\Models\tenant\tenantGallery;
+use App\Models\tenant\tenantGuru;
 use Illuminate\Http\Request;
 
 class PagesController extends Controller
@@ -42,7 +44,13 @@ class PagesController extends Controller
     }
     public function guru()
     {
-
-        return view('tenant.page.guru');
+        $kepalaSekolah = tenantGuru::where('kategori', 'kepala sekolah')->get();
+        $guru = tenantGuru::where('kategori', 'guru')->get();
+        return view('tenant.page.guru', compact('kepalaSekolah', 'guru'));
+    }
+    public function gallery()
+    {
+        $gallery = tenantGallery::get();
+        return view('tenant.page.gallery', compact('gallery'));
     }
 }

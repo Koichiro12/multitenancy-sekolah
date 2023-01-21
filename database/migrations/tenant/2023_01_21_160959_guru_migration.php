@@ -13,7 +13,14 @@ return new class extends Migration
      */
     public function up()
     {
-
+        Schema::create('guru', function (Blueprint $table) {
+            $table->id();
+            $table->string('nama');
+            $table->string('kategori');
+            $table->string('deskripsi');
+            $table->string('image');
+            $table->timestamps();
+        });
     }
 
     /**

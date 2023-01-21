@@ -13,7 +13,13 @@ return new class extends Migration
      */
     public function up()
     {
-        //
+        Schema::create('fasilitas', function (Blueprint $table) {
+            $table->id();
+            $table->string('nama');
+            $table->string('deskripsi');
+            $table->string('image');
+            $table->timestamps();
+        });
     }
 
     /**
