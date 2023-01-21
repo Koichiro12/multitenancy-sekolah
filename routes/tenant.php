@@ -6,6 +6,7 @@ use App\Http\Controllers\tenant\beritaController;
 use App\Http\Controllers\tenant\PagesController;
 use Illuminate\Support\Facades\Route;
 use Stancl\Tenancy\Middleware\InitializeTenancyByDomain;
+use Stancl\Tenancy\Middleware\InitializeTenancyByDomainOrSubdomain;
 use Stancl\Tenancy\Middleware\PreventAccessFromCentralDomains;
 
 /*
@@ -22,7 +23,7 @@ use Stancl\Tenancy\Middleware\PreventAccessFromCentralDomains;
 
 Route::middleware([
     'api',
-    InitializeTenancyByDomain::class,
+    InitializeTenancyByDomainOrSubdomain::class,
     PreventAccessFromCentralDomains::class,
 ])->group(function () {
     Route::get('/', function () {
@@ -32,11 +33,11 @@ Route::middleware([
 
 Route::middleware([
     'web',
-    InitializeTenancyByDomain::class,
+    InitializeTenancyByDomainOrSubdomain::class,
     PreventAccessFromCentralDomains::class,
 ])->group(function () {
-    Route::get('/', [PagesController::class, 'home'])->name('home');
     Route::get('/dashboard', [PagesController::class, 'dashboard'])->name('dashboard');
+    Route::get('/', [PagesController::class, 'home'])->name('home');
     Route::get('/about', [PagesController::class, 'about'])->name('about');
     Route::get('/alumni', [PagesController::class, 'alumni'])->name('alumni');
     Route::get('/ppdb', [PagesController::class, 'ppdb'])->name('ppdb');

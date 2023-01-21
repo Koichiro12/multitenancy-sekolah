@@ -48,9 +48,7 @@
                             </div>
                             <div class="col-md-5">
                                 <select name="per_harga_paket" id="per_harga_paket" class="form-control">
-                                    <option value="">-- Pilih Paket --</option>
-                                    <option value="1"> Bulan </option>
-                                    <option value="12"> Tahun </option>
+                                    <option value="bulan"> Bulan </option>
                                 </select>
                             </div>
                         </div>

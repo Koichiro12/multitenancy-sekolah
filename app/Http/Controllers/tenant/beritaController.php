@@ -10,7 +10,8 @@ class beritaController extends Controller
 {
     public function index()
     {
-        $berita = tenantBerita::get();
+        $berita = tenantBerita::latest()->get();
         return view('tenant.page.news', compact('berita'));
     }
+    
 }

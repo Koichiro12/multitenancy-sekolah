@@ -46,7 +46,7 @@
                             <select name="plan" id="plan" class="form-control">
                                 <option> -- Pilih Paket --</option>
                                 @foreach ($paket as $item)
-                                    <option value="{{$item->nama_paket}}">{{$item->nama_paket}}</option>
+                                    <option value="{{$item->id}}">{{$item->nama_paket}}</option>
                                 @endforeach
                             </select>
                        </div>
