@@ -78,121 +78,36 @@
 
                     <div class="swiper SwiperHome">
                         <div class="swiper-wrapper">
-                            <div class="swiper-slide">
-                                <div class="berita-box">
-                                    <div class="berita-box-img bg-asset"
-                                        style="background: url({{ 'public/tenant/img/fasilitas/aula.jpg' }})"></div>
-                                    <div class="berita-box-info">
-                                        <div class="berita-box-info-cat">
-                                            <div class="berita-box-info-cat-item btn">ruang</div>
-                                            <div class="berita-box-info-cat-item btn">kegiatan</div>
+
+                            @foreach ($fasilitas as $f)
+                                <div class="swiper-slide">
+                                    <div class="berita-box">
+                                        <div class="berita-box-img bg-asset" style="background: url({{ $f->image }})">
                                         </div>
-                                        <div class="berita-box-info-title">
-                                            <div class="berita-box-info-title-txt">aula mts nu pakis</div>
-                                            <div class="berita-box-info-title-desc">Lorem, ipsum dolor sit amet consectetur
-                                                adipisicing elit. Eos distinctio et commodi perferendis officiis quisquam
-                                                doloremque provident ex numquam itaque? Porro dolores soluta et possimus?
+                                        <div class="berita-box-info">
+                                            <div class="berita-box-info-cat">
+                                                <div class="berita-box-info-cat-item btn">ruang</div>
+                                                <div class="berita-box-info-cat-item btn">kegiatan</div>
                                             </div>
-                                        </div>
-                                        <div class="berita-box-info-date">
-                                            <div class="berita-box-info-date-1">
-                                                <ion-icon name="calendar-outline"></ion-icon>
-                                                <p>1, jannuary 2023</p>
+                                            <div class="berita-box-info-title">
+                                                <div class="berita-box-info-title-txt">{{ $f->nama }}</div>
+                                                <div class="berita-box-info-title-desc">{{ $f->deskripsi }}
+                                                </div>
                                             </div>
-                                            <div class="berita-box-info-date-2">1, jannuary 2023</div>
+                                            <div class="berita-box-info-date">
+                                                <div class="berita-box-info-date-1">
+                                                    <ion-icon name="calendar-outline"></ion-icon>
+                                                    <p>{{ $f->created_at->format('d F Y') }}</p>
+                                                </div>
+                                                <div class="berita-box-info-date-2">{{ $f->created_at->format('d F Y') }}
+                                                </div>
+
+                                            </div>
 
                                         </div>
-
                                     </div>
                                 </div>
-                            </div>
-                            <div class="swiper-slide">
-                                <div class="berita-box">
-                                    <div class="berita-box-img bg-asset"
-                                        style="background: url({{ 'public/tenant/img/fasilitas/labcom.jpg' }})"></div>
-                                    <div class="berita-box-info">
-
-                                        <div class="berita-box-info-cat">
-                                            <div class="berita-box-info-cat-item btn">tecnology</div>
-                                            <div class="berita-box-info-cat-item btn">ruang</div>
-                                        </div>
-                                        <div class="berita-box-info-title">
-                                            <div class="berita-box-info-title-txt">lab computer</div>
-                                            <div class="berita-box-info-title-desc">Lorem, ipsum dolor sit amet consectetur
-                                                adipisicing elit. Eos distinctio et commodi perferendis officiis quisquam
-                                                doloremque provident ex numquam itaque? Porro dolores soluta et possimus?
-                                            </div>
-                                        </div>
-                                        <div class="berita-box-info-date">
-                                            <div class="berita-box-info-date-1">
-                                                <ion-icon name="calendar-outline"></ion-icon>
-                                                <p>1, jannuary 2023</p>
-                                            </div>
-                                            <div class="berita-box-info-date-2">1, jannuary 2023</div>
-
-                                        </div>
-
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="swiper-slide">
-                                <div class="berita-box">
-                                    <div class="berita-box-img bg-asset"
-                                        style="background: url({{ 'public/tenant/img/fasilitas/perpus.jpg' }})"></div>
-                                    <div class="berita-box-info">
-
-                                        <div class="berita-box-info-cat">
-                                            <div class="berita-box-info-cat-item btn">tecnology</div>
-                                            <div class="berita-box-info-cat-item btn">food</div>
-                                        </div>
-                                        <div class="berita-box-info-title">
-                                            <div class="berita-box-info-title-txt">perpustakaan</div>
-                                            <div class="berita-box-info-title-desc">Lorem, ipsum dolor sit amet consectetur
-                                                adipisicing elit. Eos distinctio et commodi perferendis officiis quisquam
-                                                doloremque provident ex numquam itaque? Porro dolores soluta et possimus?
-                                            </div>
-                                        </div>
-                                        <div class="berita-box-info-date">
-                                            <div class="berita-box-info-date-1">
-                                                <ion-icon name="calendar-outline"></ion-icon>
-                                                <p>1, jannuary 2023</p>
-                                            </div>
-                                            <div class="berita-box-info-date-2">1, jannuary 2023</div>
-
-                                        </div>
-
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="swiper-slide">
-                                <div class="berita-box">
-                                    <div class="berita-box-img bg-asset"
-                                        style="background: url({{ 'public/tenant/img/fasilitas/ruangkelas.jpg' }})"></div>
-                                    <div class="berita-box-info">
-
-                                        <div class="berita-box-info-cat">
-                                            <div class="berita-box-info-cat-item btn">tecnology</div>
-                                            <div class="berita-box-info-cat-item btn">food</div>
-                                        </div>
-                                        <div class="berita-box-info-title">
-                                            <div class="berita-box-info-title-txt">ruang kelas</div>
-                                            <div class="berita-box-info-title-desc">Lorem, ipsum dolor sit amet consectetur
-                                                adipisicing elit. Eos distinctio et commodi perferendis officiis quisquam
-                                                doloremque provident ex numquam itaque? Porro dolores soluta et possimus?
-                                            </div>
-                                        </div>
-                                        <div class="berita-box-info-date">
-                                            <div class="berita-box-info-date-1">
-                                                <ion-icon name="calendar-outline"></ion-icon>
-                                                <p>1, jannuary 2023</p>
-                                            </div>
-                                            <div class="berita-box-info-date-2">1, jannuary 2023</div>
-
-                                        </div>
-
-                                    </div>
-                                </div>
-                            </div>
+                            @endforeach
                         </div>
                         <div class="swiper-pagination"></div>
                     </div>
@@ -215,7 +130,7 @@
 
                 <div class="home__berita-container">
                     @foreach ($berita as $b)
-                        <a href="{{ route('detailNews') }}" class="berita-box">
+                        <a href="{{ route('detailBerita', [$b->id]) }}" class="berita-box">
                             <div class="berita-box-btn btn-circle">
                                 <ion-icon name="log-in-outline"></ion-icon>
                             </div>

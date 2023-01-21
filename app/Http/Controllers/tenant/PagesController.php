@@ -4,6 +4,7 @@ namespace App\Http\Controllers\tenant;
 
 use App\Http\Controllers\Controller;
 use App\Models\tenant\tenantBerita;
+use App\Models\tenant\tenantFasilitas;
 use Illuminate\Http\Request;
 
 class PagesController extends Controller
@@ -20,7 +21,8 @@ class PagesController extends Controller
     public function home()
     {
         $berita = tenantBerita::get();
-        return view('tenant.page.home', compact('berita'));
+        $fasilitas = tenantFasilitas::get();
+        return view('tenant.page.home', compact('berita', 'fasilitas'));
     }
     public function about()
     {
@@ -37,9 +39,5 @@ class PagesController extends Controller
     public function news()
     {
         return view('tenant.page.news');
-    }
-    public function detailNews()
-    {
-        return view('tenant.page.detailNews');
     }
 }

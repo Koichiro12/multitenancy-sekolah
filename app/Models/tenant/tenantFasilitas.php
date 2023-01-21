@@ -5,17 +5,15 @@ namespace App\Models\tenant;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class tenantBerita extends Model
+class tenantFasilitas extends Model
 {
     use HasFactory;
 
-    protected $table = 'berita';
+    protected $table = 'fasilitas';
     protected $id = 'id';
     protected $fillable = [
-        'judul',
-        'kategori',
+        'nama',
         'deskripsi',
-        'keyword',
         'image',
     ];
 }

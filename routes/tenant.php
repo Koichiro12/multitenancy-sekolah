@@ -2,6 +2,7 @@
 
 declare(strict_types=1);
 
+use App\Http\Controllers\tenant\alumniController;
 use App\Http\Controllers\tenant\beritaController;
 use App\Http\Controllers\tenant\PagesController;
 use Illuminate\Support\Facades\Route;
@@ -38,9 +39,9 @@ Route::middleware([
     Route::get('/', [PagesController::class, 'home'])->name('home');
     Route::get('/dashboard', [PagesController::class, 'dashboard'])->name('dashboard');
     Route::get('/about', [PagesController::class, 'about'])->name('about');
-    Route::get('/alumni', [PagesController::class, 'alumni'])->name('alumni');
+    Route::get('/alumni', [alumniController::class, 'index'])->name('alumni');
     Route::get('/ppdb', [PagesController::class, 'ppdb'])->name('ppdb');
     Route::get('/news', [beritaController::class, 'index'])->name('news');
-    Route::get('/detail-berita/{id}', [beritaController::class, 'detailBerita'])->name('detailNews');
+    Route::get('/detail-berita/{id}', [beritaController::class, 'detailBerita'])->name('detailBerita');
     Route::get('/login', [PagesController::class, 'login'])->name('login');
 });
