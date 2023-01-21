@@ -40,4 +40,9 @@ class PagesController extends Controller
     {
         return view('tenant.page.news');
     }
+    public function guru()
+    {
+
+        return view('tenant.page.guru');
+    }
 }

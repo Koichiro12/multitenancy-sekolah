@@ -65,6 +65,7 @@
                 <a href="{{ route('news') }}" class="header-popup-container-box-link">Berita</a>
                 <a href="{{ route('ppdb') }}" class="header-popup-container-box-link">Ppdb</a>
                 <a href="{{ route('alumni') }}" class="header-popup-container-box-link">Alumni</a>
+                <a href="{{ route('guru') }}" class="header-popup-container-box-link">guru</a>
             </div>
 
             <div class="header-popup-container-action">

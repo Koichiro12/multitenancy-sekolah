@@ -42,6 +42,7 @@ Route::middleware([
     Route::get('/alumni', [alumniController::class, 'index'])->name('alumni');
     Route::get('/ppdb', [PagesController::class, 'ppdb'])->name('ppdb');
     Route::get('/news', [beritaController::class, 'index'])->name('news');
+    Route::get('/guru', [PagesController::class, 'guru'])->name('guru');
     Route::get('/detail-berita/{id}', [beritaController::class, 'detailBerita'])->name('detailBerita');
     Route::get('/login', [PagesController::class, 'login'])->name('login');
 });
