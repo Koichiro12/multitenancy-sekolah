@@ -42,7 +42,32 @@ class PaketController extends Controller
     public function store(Request $request)
     {
         //
-        
+        dd($request);
+        $validate = $request->validate([
+            'nama_paket' => ['required'],
+            'harga_paket' => ['required'],
+            'per_harga_paket' => ['required'],
+        ]);
+        if($validate){
+            $create = Paket::create([
+                'nama_paket' => $request->nama_paket,
+                'harga_paket' => $request->harga_paket,
+                'per_harga_paket' => $request->per_harga_paket,
+                'status_paket' => '1',
+            ]);
+            if($create){
+                $data_paket = Paket::where([['nama_paket','=',$request->nama_paket],
+                ['harga_paket','=',$request->harga_paket],
+                ['per_harga_paket','=',$request->per_harga_paket],
+                ['status_paket','=','1'],])->get()->first();
+                $keunggulan = KeunggulanPaket::latest()->get();
+                foreach($keunggulan as $k){
+                    if($request['keunggulan_'.$k['id']] != null){
+
+                    }
+                }
+            }
+        }
     }
 
     /**
