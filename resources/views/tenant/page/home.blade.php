@@ -214,110 +214,30 @@
                 </div>
 
                 <div class="home__berita-container">
-                    <a href="{{ route('detailNews') }}" class="berita-box">
-                        <div class="berita-box-btn btn-circle">
-                            <ion-icon name="log-in-outline"></ion-icon>
-                        </div>
-                        <div class="berita-box-img"
-                            style="background: url({{ 'public/tenant/img/berita/berita1.jpg' }})"></div>
-                        <div class="berita-box-info">
-                            <div class="berita-box-info-title">
-                                <div class="berita-box-info-title-cat">berita</div>
-                                <div class="berita-box-info-title-txt">Illiyin Studio Developer</div>
+                    @foreach ($berita as $b)
+                        <a href="{{ route('detailNews') }}" class="berita-box">
+                            <div class="berita-box-btn btn-circle">
+                                <ion-icon name="log-in-outline"></ion-icon>
                             </div>
-                            <div class="berita-box-info-date">
-                                <div class="berita-box-info-date-1">
-                                    <ion-icon name="calendar-outline"></ion-icon>
-                                    <p>1, jannuary 2023</p>
+                            <div class="berita-box-img" style="background: url({{ $b->image }})"></div>
+                            <div class="berita-box-info">
+                                <div class="berita-box-info-title">
+                                    <div class="berita-box-info-title-cat">{{ $b->kategori }}</div>
+                                    <div class="berita-box-info-title-txt">{{ $b->judul }}</div>
                                 </div>
-                                <div class="berita-box-info-date-2">1, jannuary 2023</div>
+                                <div class="berita-box-info-date">
+                                    <div class="berita-box-info-date-1">
+                                        <ion-icon name="calendar-outline"></ion-icon>
+                                        <p>{{ $b->created_at->format('d F Y') }}</p>
+                                    </div>
+                                    <div class="berita-box-info-date-2">{{ $b->created_at->format('d F Y') }}</div>
+
+                                </div>
 
                             </div>
+                        </a>
+                    @endforeach
 
-                        </div>
-                    </a>
-                    <a href="{{ route('detailNews') }}" class="berita-box">
-                        <div class="berita-box-btn btn-circle">
-                            <ion-icon name="log-in-outline"></ion-icon>
-                        </div>
-                        <div class="berita-box-img"
-                            style="background: url({{ 'public/tenant/img/berita/berita2.jpg' }})"></div>
-                        <div class="berita-box-info">
-                            <div class="berita-box-info-title">
-                                <div class="berita-box-info-title-cat">berita</div>
-                                <div class="berita-box-info-title-txt">Illiyin Studio Developer</div>
-                            </div>
-                            <div class="berita-box-info-date">
-                                <div class="berita-box-info-date-1">
-                                    <ion-icon name="calendar-outline"></ion-icon>
-                                    <p>1, jannuary 2023</p>
-                                </div>
-                                <div class="berita-box-info-date-2">1, jannuary 2023</div>
-
-                            </div>
-
-                        </div>
-                    </a>
-                    <a href="{{ route('detailNews') }}" class="berita-box">
-                        <div class="berita-box-btn btn-circle">
-                            <ion-icon name="log-in-outline"></ion-icon>
-                        </div>
-                        <div class="berita-box-img"
-                            style="background: url({{ 'public/tenant/img/berita/berita3.jpg' }})"></div>
-                        <div class="berita-box-info">
-                            <div class="berita-box-info-title">
-                                <div class="berita-box-info-title-cat">berita</div>
-                                <div class="berita-box-info-title-txt">Illiyin Studio Developer</div>
-                            </div>
-                            <div class="berita-box-info-date">
-                                <div class="berita-box-info-date-1">
-                                    <ion-icon name="calendar-outline"></ion-icon>
-                                    <p>1, jannuary 2023</p>
-                                </div>
-                                <div class="berita-box-info-date-2">1, jannuary 2023</div>
-                            </div>
-                        </div>
-                    </a>
-                    <a href="{{ route('detailNews') }}" class="berita-box">
-                        <div class="berita-box-btn btn-circle">
-                            <ion-icon name="log-in-outline"></ion-icon>
-                        </div>
-                        <div class="berita-box-img"
-                            style="background: url({{ 'public/tenant/img/berita/berita4.jpg' }})"></div>
-                        <div class="berita-box-info">
-                            <div class="berita-box-info-title">
-                                <div class="berita-box-info-title-cat">berita</div>
-                                <div class="berita-box-info-title-txt">Illiyin Studio Developer</div>
-                            </div>
-                            <div class="berita-box-info-date">
-                                <div class="berita-box-info-date-1">
-                                    <ion-icon name="calendar-outline"></ion-icon>
-                                    <p>1, jannuary 2023</p>
-                                </div>
-                                <div class="berita-box-info-date-2">1, jannuary 2023</div>
-                            </div>
-                        </div>
-                    </a>
-                    <a href="{{ route('detailNews') }}" class="berita-box">
-                        <div class="berita-box-btn btn-circle">
-                            <ion-icon name="log-in-outline"></ion-icon>
-                        </div>
-                        <div class="berita-box-img"
-                            style="background: url({{ 'public/tenant/img/berita/berita5.jpg' }})"></div>
-                        <div class="berita-box-info">
-                            <div class="berita-box-info-title">
-                                <div class="berita-box-info-title-cat">berita</div>
-                                <div class="berita-box-info-title-txt">Illiyin Studio Developer</div>
-                            </div>
-                            <div class="berita-box-info-date">
-                                <div class="berita-box-info-date-1">
-                                    <ion-icon name="calendar-outline"></ion-icon>
-                                    <p>1, jannuary 2023</p>
-                                </div>
-                                <div class="berita-box-info-date-2">1, jannuary 2023</div>
-                            </div>
-                        </div>
-                    </a>
                 </div>
             </div>
         </div>

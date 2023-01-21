@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\tenant;
 
 use App\Http\Controllers\Controller;
+use App\Models\tenant\tenantBerita;
 use Illuminate\Http\Request;
 
 class PagesController extends Controller
@@ -12,12 +13,14 @@ class PagesController extends Controller
     {
         return view('tenant.admin.dashboard');
     }
-    public function login(){
+    public function login()
+    {
         return view('tenant.auth.signin');
     }
     public function home()
     {
-        return view('tenant.page.home');
+        $berita = tenantBerita::get();
+        return view('tenant.page.home', compact('berita'));
     }
     public function about()
     {

@@ -13,4 +13,9 @@ class beritaController extends Controller
         $berita = tenantBerita::get();
         return view('tenant.page.news', compact('berita'));
     }
+    public function detailBerita($id)
+    {
+        $detailBerita = tenantBerita::find($id);
+        return view('tenant.page.detailNews', compact('detailBerita'));
+    }
 }
