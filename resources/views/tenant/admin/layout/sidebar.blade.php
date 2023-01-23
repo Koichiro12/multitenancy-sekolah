@@ -82,7 +82,7 @@
             </a>
             <ul class="menu-sub">
                 <li class="menu-item">
-                    <a href="{{route('dashboardFasilitas')}}" class="menu-link">
+                    <a href="{{ route('dashboardFasilitas') }}" class="menu-link">
                         <div data-i18n="Account">Fasilitas</div>
                     </a>
                 </li>
@@ -109,17 +109,12 @@
         <li class="menu-item">
             <a href="javascript:void(0);" class="menu-link menu-toggle">
                 <i class="menu-icon tf-icons bx bx-lock-open-alt"></i>
-                <div data-i18n="Authentications">Prestasi</div>
+                <div data-i18n="Authentications">Alumni</div>
             </a>
             <ul class="menu-sub">
                 <li class="menu-item">
-                    <a href="" class="menu-link">
-                        <div data-i18n="Basic">Prestasi</div>
-                    </a>
-                </li>
-                <li class="menu-item">
-                    <a href="" class="menu-link">
-                        <div data-i18n="Basic">Keunggulan</div>
+                    <a href="{{ route('dashboardAlumni') }}" class="menu-link">
+                        <div data-i18n="Basic">Alumni</div>
                     </a>
                 </li>
             </ul>
@@ -127,22 +122,12 @@
         <li class="menu-item">
             <a href="javascript:void(0);" class="menu-link menu-toggle">
                 <i class="menu-icon tf-icons bx bx-lock-open-alt"></i>
-                <div data-i18n="Authentications">Staff Guru dan Siswa</div>
+                <div data-i18n="Authentications">Guru</div>
             </a>
             <ul class="menu-sub">
                 <li class="menu-item">
                     <a href="" class="menu-link">
                         <div data-i18n="Basic">Data Guru</div>
-                    </a>
-                </li>
-                <li class="menu-item">
-                    <a href="" class="menu-link">
-                        <div data-i18n="Basic">Data Siswa</div>
-                    </a>
-                </li>
-                <li class="menu-item">
-                    <a href="" class="menu-link">
-                        <div data-i18n="Basic">Data Pegawai</div>
                     </a>
                 </li>
             </ul>

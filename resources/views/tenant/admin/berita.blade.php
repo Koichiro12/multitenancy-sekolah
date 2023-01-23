@@ -52,7 +52,7 @@
 
         <div class="card mb-4">
             <h5 class="card-header">Table Dark</h5>
-            <div class="w-100 text-nowrap">
+            <div class="w-100 ">
                 <table class="table table-dark">
                     <thead>
                         <tr>

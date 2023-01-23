@@ -61,4 +61,10 @@ Route::middleware([
     Route::get('/dashboard-fasilitas-del-{id}', [adminController::class, 'deleteFasilitas'])->name('dashboardFasilitasDel');
     Route::get('/dashboard-fasilitas-show-{id}', [adminController::class, 'showFasilitas'])->name('dashboardFasilitasShow');
     Route::post('/dashboard-fasilitas-update-{id}', [adminController::class, 'updateFasilitas'])->name('dashboardFasilitasUpdate');
+    // dashboard route alumni
+    Route::get('/dashboard-alumni', [adminController::class, 'alumni'])->name('dashboardAlumni');
+    Route::post('/dashboard-alumni-add', [adminController::class, 'addAlumni'])->name('dashboardAlumniAdd');
+    Route::get('/dashboard-alumni-del-{id}', [adminController::class, 'deleteAlumni'])->name('dashboardAlumniDel');
+    Route::get('/dashboard-alumni-show-{id}', [adminController::class, 'showAlumni'])->name('dashboardAlumniShow');
+    Route::post('/dashboard-alumni-update-{id}', [adminController::class, 'updateAlumni'])->name('dashboardAlumniUpdate');
 });

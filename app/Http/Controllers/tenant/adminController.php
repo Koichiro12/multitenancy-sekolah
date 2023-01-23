@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\tenant;
 
 use App\Http\Controllers\Controller;
+use App\Models\tenant\tenantAlumni;
 use App\Models\tenant\tenantBerita;
 use App\Models\tenant\tenantFasilitas;
 use Illuminate\Http\Request;
@@ -24,7 +25,7 @@ class adminController extends Controller
         $request->validate([
             'judul' => 'required',
             'keyword' => 'required',
-            'image' => 'required',
+            'image' => 'required|unique:berita|image|mimes:jpg,png,jpeg,gif,svg',
             'deskripsi' => 'required',
         ]);
         $image = $this->uploadImageBerita($request->image);
@@ -57,7 +58,7 @@ class adminController extends Controller
         $request->validate([
             'judul' => 'required',
             'keyword' => 'required',
-            'image' => 'required',
+            'image' => 'required|unique:berita|image|mimes:jpg,png,jpeg,gif,svg',
             'deskripsi' => 'required',
         ]);
         $berita = tenantBerita::find($id);
@@ -74,7 +75,11 @@ class adminController extends Controller
         return redirect()->route('dashboardBerita');
     }
 
-    // fasilitas function 
+    //////////////////////////////////////////////////////////////////
+    /////////////////////FASILITAS FUNCTION///////////////////////////
+    /////////////////////FASILITAS FUNCTION///////////////////////////
+    /////////////////////FASILITAS FUNCTION///////////////////////////
+    //////////////////////////////////////////////////////////////////
     public function fasilitas()
     {
         $fasilitas = tenantFasilitas::get();
@@ -84,7 +89,7 @@ class adminController extends Controller
     {
         $request->validate([
             'nama' => 'required',
-            'image' => 'required',
+            'image' => 'required|unique:fasilitas|image|mimes:jpg,png,jpeg,gif,svg',
             'deskripsi' => 'required',
         ]);
         $image = $this->uploadImageFasilitas($request->image);
@@ -114,7 +119,7 @@ class adminController extends Controller
     {
         $request->validate([
             'nama' => 'required',
-            'image' => 'required',
+            'image' => 'required|unique:fasilitas|image|mimes:jpg,png,jpeg,gif,svg',
             'deskripsi' => 'required',
         ]);
         $fasilitas = tenantFasilitas::find($id);
@@ -130,6 +135,70 @@ class adminController extends Controller
         $fasilitas->save();
         return redirect()->route('dashboardFasilitas');
     }
+
+    //////////////////////////////////////////////////////////////////
+    /////////////////////ALUMNI FUNCTION///////////////////////////
+    /////////////////////ALUMNI FUNCTION///////////////////////////
+    /////////////////////ALUMNI FUNCTION///////////////////////////
+    //////////////////////////////////////////////////////////////////
+    public function alumni()
+    {
+        $alumni = tenantAlumni::get();
+        return view('tenant.admin.alumni', compact('alumni'));
+    }
+    public function addAlumni(Request $request)
+    {
+        $request->validate([
+            'judul' => 'required',
+            'prestasi' => 'required',
+            'deskripsi' => 'required',
+            'image' => 'required|unique:alumni|image|mimes:jpg,png,jpeg,gif,svg',
+        ]);
+        $image = $this->uploadImageAlumni($request->image);
+        $file = new tenantAlumni();
+        $file->judul = $request->judul;
+        $file->prestasi = $request->prestasi;
+        $file->deskripsi = $request->deskripsi;
+        $file->image = $image;
+        $file->save();
+        return redirect()->route('dashboardAlumni');
+    }
+    public function deleteAlumni($id)
+    {
+        $alumni = tenantAlumni::find($id);
+        $image = public_path($alumni->image);
+        if ($image) {
+            unlink($alumni->image);
+        }
+        tenantAlumni::destroy($id);
+        return redirect()->route('dashboardAlumni');
+    }
+    public function showAlumni($id)
+    {
+        $showAlumni = tenantAlumni::find($id);
+        return view('tenant.admin.editAlumni', compact('showAlumni'));
+    }
+    public function updateAlumni(Request $request, $id)
+    {
+        $request->validate([
+            'judul' => 'required',
+            'prestasi' => 'required',
+            'deskripsi' => 'required',
+            'image' => 'required|unique:alumni|image|mimes:jpg,png,jpeg,gif,svg',
+        ]);
+        $alumni = tenantAlumni::find($id);
+        if (!empty($request->image)) {
+            unlink($alumni->image);
+            $image = $this->uploadImageAlumni($request->image);
+            $alumni->image = $image;
+        }
+        $alumni->judul = $request->judul;
+        $alumni->prestasi = $request->prestasi;
+        $alumni->deskripsi = $request->deskripsi;
+        $alumni->image = $image;
+        $alumni->save();
+        return redirect()->route('dashboardAlumni');
+    }
     public function uploadImageBerita($image)
     {
         $extFile = $image->getClientOriginalName();
@@ -141,6 +210,13 @@ class adminController extends Controller
     {
         $extFile = $image->getClientOriginalName();
         $path = $image->move('public/tenant/upload_file/fasilitas', $extFile);
+        $path = str_replace('\\', '/', $path);
+        return $path;
+    }
+    public function uploadImageAlumni($image)
+    {
+        $extFile = $image->getClientOriginalName();
+        $path = $image->move('public/tenant/upload_file/alumni', $extFile);
         $path = str_replace('\\', '/', $path);
         return $path;
     }
