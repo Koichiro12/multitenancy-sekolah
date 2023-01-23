@@ -30,59 +30,24 @@
         <div class="row g-5 flex-column-reverse flex-lg-row">
             <div class="col-lg-5 wow fadeInUp" data-wow-delay="0.1s">
                 <h1 class="mb-2">Berita Terkini</h1>
+                @foreach ($data as $item)
                 <a href="#" class="d-flex mb-0">
                     <div class="flex-shrink-0 btn-square rounded-circle bg-success text-white">
                         <i class="fa fa-check"></i>
                     </div>
                     <div class="ms-4">
-                        <h6>Awesome Web Application ?</h6>
-                        <p class="text-muted">1 Jan 2023</p>
+                        <h6>{{$item['news_name']}}</h6>
+                        <p class="text-muted">{{ date_format($item['created_at'],"d M Y")}}</p>
                     </div>
                 </a>
-                <a href="#" class="d-flex mb-0">
-                    <div class="flex-shrink-0 btn-square rounded-circle bg-success text-white">
-                        <i class="fa fa-check"></i>
-                    </div>
-                    <div class="ms-4">
-                        <h6>What Brand for Develop Web Applications ?</h6>
-                        <p class="text-muted">1 Des 2023</p>
-                    </div>
-                </a>
-                <a href="#" class="d-flex mb-0">
-                    <div class="flex-shrink-0 btn-square rounded-circle bg-success text-white">
-                        <i class="fa fa-check"></i>
-                    </div>
-                    <div class="ms-4">
-                        <h6>Web Application ?</h6>
-                        <p class="text-muted">3 March 2021</p>
-                    </div>
-                </a>
-                <a href="#" class="d-flex mb-0">
-                    <div class="flex-shrink-0 btn-square rounded-circle bg-success text-white">
-                        <i class="fa fa-check"></i>
-                    </div>
-                    <div class="ms-4">
-                        <h6>Why Use Web App ?</h6>
-                        <p class="text-muted">23 Feb 2023</p>
-                    </div>
-                </a>
+                @endforeach
             </div>
             <div class="col-lg-6 wow animated zoomIn">
                <div class="d-flex mb-2">
                 <div class="ms-4">
-                    <h1>Why Use Web App ?</h1>
-                    <p class="text-muted">Jhon Doe / 23 Feb 2023</p>
-                    <p class="text-muted">Diam dolor diam ipsum et tempor sit. Aliqu diam amet diam et eos labore. Clita erat ipsum et lorem et sit, sed stet no labore lorem sit clita duo justo
-                        Diam dolor diam ipsum et tempor sit. Aliqu diam amet diam et eos labore. Clita erat ipsum et lorem et sit, sed stet no labore lorem sit clita duo justo
-                        Diam dolor diam ipsum et tempor sit. Aliqu diam amet diam et eos labore. Clita erat ipsum et lorem et sit, sed stet no labore lorem sit clita duo justo
-                        Diam dolor diam ipsum et tempor sit. Aliqu diam amet diam et eos labore. Clita erat ipsum et lorem et sit, sed stet no labore lorem sit clita duo justo
-                        Diam dolor diam ipsum et tempor sit. Aliqu diam amet diam et eos labore. Clita erat ipsum et lorem et sit, sed stet no labore lorem sit clita duo justo
-                    </p>
-                    <p class="text-muted">
-                        Diam dolor diam ipsum et tempor sit. Aliqu diam amet diam et eos labore. Clita erat ipsum et lorem et sit, sed stet no labore lorem sit clita duo justo
-                        Diam dolor diam ipsum et tempor sit. Aliqu diam amet diam et eos labore. Clita erat ipsum et lorem et sit, sed stet no labore lorem sit clita duo justo
-                        Diam dolor diam ipsum et tempor sit. Aliqu diam amet diam et eos labore. Clita erat ipsum et lorem et sit, sed stet no labore lorem sit clita duo justo
-                        Diam dolor diam ipsum et tempor sit. Aliqu diam amet diam et eos labore. Clita erat ipsum et lorem et sit, sed stet no labore lorem sit clita duo justo
+                    <h1>{{$data[0]['news_name']}}</h1>
+                    <p class="text-muted">{{$data[0]['news_uploader']}} / {{ date_format($item['created_at'],"d M Y")}}</p>
+                    <p class="text-muted">{{$data[0]['news_desc']}}
                     </p>
                 </div>
                </div>

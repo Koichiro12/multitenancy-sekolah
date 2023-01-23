@@ -3,7 +3,8 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-
+use App\Models\News;
+use App\Models\Features;
 class PageController extends Controller
 {
     //
@@ -20,13 +21,15 @@ class PageController extends Controller
         return view('central.template');
     }
     public function view_berita(){
-        return view('central.berita');
+        $data = News::latest()->get();
+        return view('central.berita',compact(['data']));
     }
     public function view_promo(){
         return view('central.promo');
     }
     public function view_fitur(){
-        return view('central.fitur');
+        $data = Features::latest()->get();
+        return view('central.fitur',compact(['data']));
     }
     public function view_order(){
         return view('central.order');
