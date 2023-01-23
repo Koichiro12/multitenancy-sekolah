@@ -49,9 +49,16 @@ Route::middleware([
 
     // dashboard route
     Route::get('/dashboard', [adminController::class, 'index'])->name('dashboard');
+    // dashboard route berita
     Route::get('/dashboard-berita', [adminController::class, 'berita'])->name('dashboardBerita');
     Route::post('/dashboard-berita-add', [adminController::class, 'addBerita'])->name('dashboardBeritaAdd');
     Route::get('/dashboard-berita-del-{id}', [adminController::class, 'deleteBerita'])->name('dashboardBeritaDel');
     Route::get('/dashboard-berita-show-{id}', [adminController::class, 'showBerita'])->name('dashboardBeritaShow');
     Route::post('/dashboard-berita-update-{id}', [adminController::class, 'updateBerita'])->name('dashboardBeritaUpdate');
+    // dashboard route fasilitas
+    Route::get('/dashboard-fasilitas', [adminController::class, 'fasilitas'])->name('dashboardFasilitas');
+    Route::post('/dashboard-fasilitas-add', [adminController::class, 'addFasilitas'])->name('dashboardFasilitasAdd');
+    Route::get('/dashboard-fasilitas-del-{id}', [adminController::class, 'deleteFasilitas'])->name('dashboardFasilitasDel');
+    Route::get('/dashboard-fasilitas-show-{id}', [adminController::class, 'showFasilitas'])->name('dashboardFasilitasShow');
+    Route::post('/dashboard-fasilitas-update-{id}', [adminController::class, 'updateFasilitas'])->name('dashboardFasilitasUpdate');
 });
