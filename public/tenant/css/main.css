@@ -2392,6 +2392,9 @@ body {
     border-radius: 3rem;
     width: -webkit-fill-available;
     height: 50vw; }
+    .detail-news-content-img-src {
+      height: 100%;
+      width: 100%; }
   .detail-news-content-text p {
     font-size: 2.4rem;
     color: rgba(19, 33, 51, 0.8);

@@ -40,6 +40,7 @@
     <!-- Page CSS -->
 
     <!-- Helpers -->
+    <script src="{{ 'public/tenant/js/jquery.js' }}"></script>
     <script src="{{ 'public/tenant/admin/assets/vendor/js/helpers.js' }}"></script>
     <script src="{{ 'public/tenant/admin/assets/js/config.js' }}"></script>
 </head>
