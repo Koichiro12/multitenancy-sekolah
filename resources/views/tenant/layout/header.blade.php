@@ -56,15 +56,17 @@
                 <div class="header-popup-container-box-title">Halaman</div>
                 <a href="{{ route('home') }}" class="header-popup-container-box-link">Beranda</a>
                 <a href="{{ route('about') }}" class="header-popup-container-box-link">Tentang</a>
-                <a href="" class="header-popup-container-box-link">Prestasi</a>
-                <a href="" class="header-popup-container-box-link">Keunggulan</a>
+                <a href="{{ route('news') }}" class="header-popup-container-box-link">Berita</a>
+                <a href="{{ route('ppdb') }}" class="header-popup-container-box-link">Ppdb</a>
+                <a href="{{ route('alumni') }}" class="header-popup-container-box-link">Alumni</a>
             </div>
             <div class="header-popup-container-box">
                 <div class="header-popup-container-box-title">Halaman</div>
-                <a href="{{ route('home') }}" class="header-popup-container-box-link">Beranda</a>
-                <a href="{{ route('about') }}" class="header-popup-container-box-link">Tentang</a>
-                <a href="" class="header-popup-container-box-link">Prestasi</a>
-                <a href="" class="header-popup-container-box-link">Keunggulan</a>
+                <a href="{{ route('news') }}" class="header-popup-container-box-link">Berita</a>
+                <a href="{{ route('ppdb') }}" class="header-popup-container-box-link">Ppdb</a>
+                <a href="{{ route('alumni') }}" class="header-popup-container-box-link">Alumni</a>
+                <a href="{{ route('guru') }}" class="header-popup-container-box-link">Guru</a>
+                <a href="{{ route('gallery') }}" class="header-popup-container-box-link">Gallery</a>
             </div>
 
             <div class="header-popup-container-action">

@@ -1,0 +1,124 @@
+.guru {
+    width: -webkit-fill-available;
+    &-hero {
+        width: -webkit-fill-available;
+        padding: 10rem 4rem 5rem 4rem;
+        margin: 2rem 2rem 0 2rem;
+        border-radius: 3rem;
+        display: flex;
+        gap: 5rem;
+        align-items: center;
+        background: radial-gradient(
+            74.87% 160.81% at 29.43% 109.75%,
+            #7fdddd 0,
+            #7fdddd 45.38%,
+            #33d2c9 74.11%,
+            #1aa9e8 100%
+        );
+        @media (max-width: 768px) {
+            padding: 10rem 5rem;
+        }
+
+        &-info {
+            &-img {
+                width: 50rem;
+                height: 50rem;
+                border-radius: 10rem;
+            }
+            &-name {
+                padding: 4.6rem 3rem;
+                border-radius: 3rem;
+                background-color: white;
+                display: flex;
+                align-items: center;
+                justify-content: space-between;
+                transform: translateY(-5rem);
+                & p {
+                    &:nth-child(1) {
+                        font-size: 2rem;
+                        font-weight: 500;
+                        text-transform: capitalize;
+                    }
+                    &:nth-child(2) {
+                        font-size: 1.6rem;
+                        font-weight: 400;
+                        text-transform: capitalize;
+                    }
+                }
+            }
+        }
+        &-text {
+            display: flex;
+            flex-direction: column;
+            gap: 1rem;
+            & svg {
+            }
+            & p {
+                font-family: "primary-font", sans-serif;
+                font-size: 2.4rem;
+                line-height: 167%;
+                font-weight: 400;
+            }
+        }
+    }
+    &-container {
+        position: relative;
+        padding: 3rem;
+        display: flex;
+        gap: 3rem;
+        flex-wrap: wrap;
+        & .guru-card {
+            overflow: hidden;
+            width: min-content;
+            position: relative;
+            box-shadow: 0 60px 44px -49px rgba(grey, 0.2);
+            &:hover .guru-card-top-img {
+                transform: scale(1.2);
+            }
+            &-top {
+                overflow: hidden;
+                position: relative;
+                transform: translateY(2rem);
+                border-radius: 3rem 3rem 0 0;
+                &-img {
+                    transition: all 0.3s;
+                    height: 30rem;
+                    width: 35rem;
+                }
+                &-info {
+                    bottom: 0;
+                    left: 0;
+                    margin: 2rem 2rem 4rem 2rem;
+                    position: absolute;
+                    display: flex;
+                    gap: 1rem;
+                    align-items: center;
+                    &-item {
+                        padding: 1rem 2rem;
+                        border-radius: 10rem;
+                        font-size: 1.4rem;
+                        background-color: $color-secondary;
+                        color: white;
+                        text-transform: capitalize;
+                    }
+                }
+            }
+            &-bot {
+                position: relative;
+                border: 1px solid #e7ebeb;
+                border-radius: 3rem;
+                padding: 2rem;
+                z-index: 100;
+                background-color: white;
+                box-shadow: 0 60px 44px -49px rgba(grey, 0.2);
+                &-name {
+                    font-size: 2.2rem;
+                    margin-bottom: 2rem;
+                }
+                &-desc {
+                    font-size: 1.6rem;
+                }
+            }
+        }
+    }
+}

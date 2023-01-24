@@ -1,0 +1,85 @@
+#location {
+  .location {
+    position: fixed;
+    top: 0;
+    left: 0;
+    height: 100%;
+    width: 100%;
+    z-index: 11;
+    display: flex;
+    background-color: rgba($color: #000000, $alpha: 0.5);
+    align-items: center;
+    padding: 0 10rem;
+    justify-content: center;
+    opacity: 0;
+    visibility: hidden;
+    transition: all 0.2s linear;
+    
+        @include respond(bp-768) {
+          padding: 0 5rem;
+        }
+    
+        @include respond(bp-500) {
+          padding: 0 ;
+        }
+    
+    &__wrapper {
+      max-width: 144rem;
+      padding: 3rem;
+      background-color: #f9fbfd;
+      height: 100%;
+      width: 100%;
+      transform: translate(0, 100%);
+      transition: all 0.3s ease-out;
+      transition-delay: 0.2s;
+
+      @include respond(tab-port) {
+        padding: 2rem;
+      }
+      &--content {
+        border-radius: 1rem;
+        height: 100%;
+        width: 100%;
+        display: flex;
+        flex-direction: column;
+        border: solid 1px $color-border;
+        &__title {
+          padding: 2rem;
+          display: flex;
+          align-items: center;
+          justify-content: space-between;
+          width: 100%;
+          border-bottom: solid 1px $color-border;
+          font-size: 3rem;
+          p {
+            &:first-child {
+              font-size: inherit;
+              font-weight: 600;
+            }
+            &:last-child {
+              ion-icon {
+                cursor: pointer;
+                font-size: inherit;
+                &:hover {
+                }
+              }
+            }
+          }
+        }
+
+        &__map {
+          position: relative;
+          height: 100%;
+          width: 100%;
+
+          #map {
+            position: absolute;
+            top: 0;
+            height: 100%;
+            width: 100%;
+          }
+        }
+      }
+    }
+  }
+}

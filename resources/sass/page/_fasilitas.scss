@@ -1,0 +1,267 @@
+.fasilitas {
+  position: fixed;
+  top: 0;
+  left: 0;
+  height: 100%;
+  width: 100%;
+  z-index: 11;
+  display: flex;
+  background-color: rgba($color: #000000, $alpha: 0.5);
+  align-items: center;
+  padding: 0 10rem;
+  justify-content: center;
+  opacity: 0;
+  visibility: hidden;
+  transition: all 0.2s linear;
+
+  @include respond(bp-768) {
+    padding: 0 5rem;
+  }
+  @include respond(bp-500) {
+    padding: 0;
+  }
+  &__wrapper {
+    max-width: 144rem;
+    padding: 3rem;
+    background-color: #f9fbfd;
+    height: 100%;
+    width: 100%;
+    transform: translate(0, 100%);
+    transition: all 0.3s ease-out;
+    transition-delay: 0.2s;
+    @include respond(tab-port) {
+      padding: 2rem;
+    }
+    @include respond(bp-500) {
+      padding: 0;
+    }
+    &--content {
+      border-radius: 1rem;
+      height: 100%;
+      width: 100%;
+      display: flex;
+      flex-direction: column;
+      border: solid 1px $color-border;
+      @include respond(bp-500) {
+        border: none;
+      }
+      &__title {
+        padding: 2rem;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        width: 100%;
+        border-bottom: solid 1px $color-border;
+        font-size: 3rem;
+        p {
+          &:first-child {
+            font-size: inherit;
+            font-weight: 600;
+          }
+          &:last-child {
+            ion-icon {
+              cursor: pointer;
+              font-size: inherit;
+              &:hover {
+              }
+            }
+          }
+        }
+      }
+
+      .swipe-body {
+        padding-right: 2rem;
+        margin: 2rem;
+        overflow-y: auto;
+        z-index: 1;
+        &::-webkit-scrollbar {
+          width: 1rem;
+
+          &-track {
+            background-color: rgba($color: $color-primary, $alpha: 0.1);
+            border-radius: 1rem;
+          }
+          &-thumb {
+            background-color: $color-primary;
+            border-radius: 1rem;
+          }
+        }
+
+        @include respond(bp-500) {
+          margin: 0;
+        }
+      }
+      &__container {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 2rem;
+        width: 100%;
+        flex: 1;
+
+        @include respond(tab-land) {
+          grid-template-columns: repeat(2, 1fr);
+        }
+        @include respond(tab-port) {
+          grid-template-columns: repeat(1, 1fr);
+        }
+        &--box {
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          width: 100%;
+
+          &:nth-child(1) {
+            .fasilitas-box__info--img {
+              background-image: url(../assets/img/fasilitas1.jpeg);
+            }
+          }
+
+          &:nth-child(2) {
+            .fasilitas-box__info--img {
+              background-image: url(../assets/img/fasilitas2.jpeg);
+            }
+          }
+          &:nth-child(3) {
+            .fasilitas-box__info--img {
+              background-image: url(../assets/img/fasilitas3.jpeg);
+            }
+          }
+          &:nth-child(4) {
+            .fasilitas-box__info--img {
+              background-image: url(../assets/img/fasilitas4.jpeg);
+            }
+          }
+          &:nth-child(5) {
+            .fasilitas-box__info--img {
+              background-image: url(../assets/img/fasilitas5.jpeg);
+            }
+          }
+          &:nth-child(6) {
+            .fasilitas-box__info--img {
+              background-image: url(../assets/img/fasilitas2.jpeg);
+            }
+          }
+          .fasilitas-box {
+            padding: 2rem;
+            border-radius: 1rem;
+            height: 100%;
+            display: flex;
+            align-items: center;
+            position: relative;
+            overflow: hidden;
+            box-shadow: 0px 4px 1rem rgba(0, 0, 0, 0.05);
+            transition: all 0.3s;
+            width: 100%;
+            &:hover {
+              background-color: $color-primary;
+
+              .fasilitas-box__info--title {
+                color: #fff;
+              }
+            }
+            &__info {
+              width: 100%;
+              height: 100%;
+              display: flex;
+              flex-direction: column;
+              justify-content: center;
+              gap: 1.4rem;
+
+              &--title {
+                font-size: 2rem;
+                font-weight: 600;
+              }
+              &--img {
+                width: 100%;
+                height: 35rem;
+                background-position: 50% 0;
+                background-repeat: no-repeat;
+                background-size: cover;
+
+                @include respond(phone) {
+                  height: 25rem;
+                }
+              }
+
+              &--swipe {
+                border-radius: 1rem;
+                display: flex;
+                align-items: flex-end;
+                position: absolute;
+                bottom: 0;
+                left: 0;
+
+                width: 100%;
+                transform: translate(0, 100%);
+                transition: all 0.2s linear;
+
+                &__wrapper {
+                  position: relative;
+                  display: flex;
+                  align-items: center;
+                  justify-content: center;
+                  background: #fff;
+                  width: 100%;
+                  padding: 3rem;
+                  border-radius: 1rem;
+                  transition: all 0.3s ease-out;
+                  transition-delay: 0.2s;
+
+                  &__btn {
+                    cursor: pointer;
+                    position: absolute;
+                    top: -9rem;
+                    padding: 1rem 2.4rem;
+                    border-radius: 0.5rem;
+                    background-color: $color-primary;
+                    display: flex;
+                    align-items: center;
+                    justify-content: center;
+                    width: fit-content;
+                    gap: 1rem;
+
+                    ion-icon {
+                      color: #fff;
+                      font-size: 2rem;
+                    }
+                    p {
+                      font-size: 1.6rem;
+                      font-weight: 600;
+                      color: #fff;
+                    }
+                  }
+
+                  &__container {
+                    display: flex;
+                    flex-direction: column;
+                    &--info {
+                      font-size: 1.4rem;
+                      color: $color-primary;
+                      margin-bottom: 1.6rem;
+                      display: flex;
+                      gap: 1rem;
+                      align-items: center;
+
+                      ion-icon {
+                        font-size: 2rem;
+                        color: $color-primary;
+                      }
+                    }
+                    &--title {
+                      font-size: 1.6rem;
+                      font-weight: 600;
+                      margin-bottom: 1rem;
+                    }
+                    &--desc {
+                      font-size: 1.4rem;
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}

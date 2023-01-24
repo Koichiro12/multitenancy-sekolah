@@ -1,0 +1,100 @@
+$color-primary: #ffc107;
+$color-secondary: #132133;
+$color-dark: #0c101a;
+$color-section: #eff3f3;
+$color-m-dark: #919fae;
+$color-grey: #cecdcd;
+$color-border: #d2e0ea;
+$color-blue: #60c1f8;
+
+.undesc {
+    overflow: hidden !important;
+    text-overflow: unset !important;
+    white-space: unset !important;
+    display: unset !important;
+    -webkit-line-clamp: unset !important;
+    -webkit-box-orient: unset !important;
+}
+
+.active-link {
+    color: #fff !important;
+    position: relative;
+    display: flex;
+    align-items: center;
+    &::after {
+        content: "";
+        font-size: 1rem;
+        position: absolute;
+        left: 50%;
+        bottom: -20%;
+        transform: translate(-50%, 0);
+        height: 3px;
+        width: 50%;
+        background-color: #fff;
+        border-radius: 1px;
+    }
+}
+
+.show {
+    opacity: 1 !important;
+    visibility: visible !important;
+}
+.hide {
+    opacity: 0 !important;
+    visibility: hidden !important;
+}
+.trans {
+    &-0 {
+        transform: translate(0, 0) !important;
+    }
+    &-y-100 {
+        transform: translateY(-100%);
+    }
+    &-y100 {
+        transform: translateY(100%);
+    }
+}
+.btn-top-swipe {
+    top: -2.5rem !important;
+}
+
+.bg-primary {
+    background: $color-primary;
+}
+
+.p {
+    &x {
+        &-500 {
+            padding-left: 5rem;
+            padding-right: 5rem;
+        }
+        &-100 {
+            padding-left: 10rem;
+            padding-right: 10rem;
+            @include respond(bp-768) {
+                padding-left: 5rem;
+                padding-right: 5rem;
+            }
+        }
+    }
+    &y {
+        &-50 {
+            padding-top: 5rem;
+            padding-bottom: 5rem;
+        }
+        &-100 {
+            padding-top: 10rem;
+            padding-bottom: 10rem;
+            @include respond(bp-768) {
+                padding-top: 5rem;
+                padding-bottom: 5rem;
+            }
+        }
+    }
+}
+.d-flex {
+    display: flex;
+}
+.flex-column {
+    flex-direction: column;
+}
