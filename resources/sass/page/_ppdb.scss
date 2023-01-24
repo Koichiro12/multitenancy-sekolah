@@ -1,0 +1,444 @@
+.ppdb {
+    width: -webkit-fill-available;
+    background: $color-section;
+    &-hero {
+        width: -webkit-fill-available;
+        padding: 10rem;
+        margin: 2rem 2rem 0 2rem;
+        border-radius: 3rem;
+        @media (max-width: 768px) {
+            padding: 10rem 5rem;
+        }
+        & > * {
+            color: white;
+        }
+        &-bc {
+            display: flex;
+            gap: 1rem;
+            margin-bottom: 5rem;
+            a,
+            ion-icon > * {
+                color: white;
+            }
+            a:nth-child(1) {
+                display: flex;
+                align-items: center;
+                gap: 1rem;
+                font-size: 1.6rem;
+                font-weight: 500;
+
+                & ion-icon {
+                    color: white;
+                    font-size: 2rem;
+                }
+            }
+            a:nth-child(2) {
+                color: white;
+                display: flex;
+                font-size: 1.6rem;
+            }
+            a:nth-child(3) {
+                font-size: 1.6rem;
+                font-weight: 500;
+            }
+        }
+        &-title {
+            font-size: 10vw;
+            line-height: 0.9;
+            font-weight: 900;
+            font-family: "primary-font", sans-serif;
+            text-transform: uppercase;
+        }
+    }
+    &-title {
+        padding: 10rem;
+        display: flex;
+        position: relative;
+        @media (max-width: 1301px) {
+            flex-direction: column;
+            gap: 15rem;
+        }
+        @media (max-width: 768px) {
+            padding: 10rem 5rem;
+            gap: 10rem;
+        }
+        &-text {
+            width: 50%;
+            @media (max-width: 1301px) {
+                width: -webkit-fill-available;
+            }
+            p {
+                text-transform: uppercase;
+                letter-spacing: -0.02em;
+                font-weight: 900;
+                font-family: "primary-font", sans-serif;
+                text-transform: uppercase;
+                font-size: 8rem;
+                line-height: 100%;
+                color: $color-secondary;
+                margin-bottom: 2rem;
+                @media (max-width: 700px) {
+                    font-size: 11vw;
+                }
+            }
+            &-btn {
+                background-color: $color-secondary;
+                color: white;
+                font-weight: 500;
+                padding: 2rem 3rem;
+                @media (max-width: 700px) {
+                    padding: 1.6rem 2.6rem;
+                    font-size: 2rem;
+                }
+            }
+        }
+        &-ilus {
+            width: 50%;
+            display: flex;
+            flex-direction: column;
+            align-items: flex-end;
+            justify-content: center;
+            gap: 10rem;
+            @media (max-width: 1301px) {
+                width: -webkit-fill-available;
+            }
+            @media (max-width: 768px) {
+                gap: 5rem;
+            }
+            & .ilus-box {
+                display: flex;
+                padding: 5rem 3rem;
+                border-radius: 3rem;
+                box-shadow: 0 60px 44px -49px rgba(grey, 0.3);
+                background-color: white;
+                position: relative;
+                width: fit-content;
+                @media (max-width: 768px) {
+                    flex-direction: column;
+                    gap: 3rem;
+                }
+                @media (max-width: 768px) {
+                    align-self: center !important;
+                    width: 100%;
+                    align-items: center;
+                }
+                &:nth-child(1) {
+                    padding-left: 20rem;
+                    & .ilus-box-img {
+                        left: -8rem;
+                        bottom: 3rem;
+                        @media (max-width: 768px) {
+                            left: unset;
+                            bottom: unset;
+                            position: relative;
+                        }
+                    }
+                    @media (max-width: 768px) {
+                        padding-left: 3rem;
+                    }
+                }
+                &:nth-child(2) {
+                    padding-left: 20rem;
+                    & .ilus-box-img {
+                        left: -8rem;
+                        bottom: 0rem;
+                        @media (max-width: 768px) {
+                            left: unset;
+                            bottom: unset;
+                            position: relative;
+                        }
+                    }
+                    @media (max-width: 1301px) {
+                        align-self: flex-start;
+                    }
+                    @media (max-width: 768px) {
+                        padding-left: 3rem;
+                    }
+                }
+                &:nth-child(3) {
+                    padding-right: 20rem;
+                    & .ilus-box-img {
+                        right: -8rem;
+                        bottom: 0rem;
+                        @media (max-width: 768px) {
+                            right: unset;
+                            bottom: unset;
+
+                            position: relative;
+                        }
+                    }
+                    @media (max-width: 1301px) {
+                        align-self: center;
+                    }
+                    @media (max-width: 768px) {
+                        padding-right: 3rem;
+                    }
+                }
+
+                &-img {
+                    position: absolute;
+                    height: fit-content;
+
+                    img {
+                        height: 20rem;
+                    }
+                }
+                &-info {
+                    display: flex;
+                    gap: 1rem;
+                    &-1 {
+                        height: 3rem;
+                        width: 3rem;
+                        background-color: $color-secondary;
+                        color: white;
+                        font-weight: 600;
+                        font-size: 1.8rem;
+                    }
+                    &-2 {
+                        p {
+                            font-size: 1.8rem;
+                            &:nth-child(1) {
+                                font-weight: 600;
+                                color: $color-secondary;
+                            }
+                            &:nth-child(2) {
+                                font-weight: 400;
+                                color: rgba($color-secondary, 0.5);
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+    // &-step {
+    //     width: 100%;
+    //     background-color: white;
+    //     padding: 0 10rem  5rem 10rem;
+    //     &-wrapper {
+    //         display: flex;
+    //         justify-content: center;
+    //         flex-wrap: wrap;
+    //         gap: 2.4rem;
+    //         &-item {
+    //             display: flex;
+    //             flex-direction: column;
+    //             align-items: center;
+    //             justify-content: center;
+    //             gap: 1rem;
+    //             border-radius: .5rem;
+    //             padding: 2rem;
+    //             box-shadow: 0 0 1rem rgba(grey, 0.2);
+    //             width: 30rem;
+    //             height: 23rem;
+    //             &-icon {
+    //                 & ion-icon {
+    //                     font-size: 4rem;
+    //                 }
+    //             }
+    //             &-title {
+    //                 font-size: 2.4rem;
+    //                 font-weight: 400;
+    //                 color: $color-secondary;
+    //             }
+    //             &-desc {
+    //                 font-size: 1.4rem;
+    //                 font-weight: 400;
+    //                 color: rgba($color-secondary, 0.7);
+    //             }
+    //         }
+    //     }
+    // }
+
+    &-form {
+        &-wrapper {
+            border-radius: 3rem;
+            overflow: hidden;
+            background-color: white;
+            &-head {
+                padding: 3rem;
+                background: white;
+                box-shadow: rgba(black, 0.12) 0px 0px 20px 0px;
+                display: flex;
+                justify-content: space-between;
+                flex-wrap: wrap;
+                position: relative;
+                &-title {
+                    display: flex;
+                    align-items: center;
+                    gap: 1rem;
+                    font-size: 2rem;
+                    font-weight: 500;
+                    color: $color-secondary;
+
+                    & ion-icon {
+                        font-size: 3rem;
+                        color: lightgreen;
+                    }
+                }
+                &-link {
+                    font-size: 1.6rem;
+                    font-weight: 400;
+                    color: $color-secondary;
+                }
+                &-prog {
+                    transition: all 0.3s;
+                    width: 100%;
+                    position: absolute;
+                    bottom: 0;
+                    left: 0;
+                    & .bar {
+                        height: 0.5rem;
+                        background-color: lightblue;
+                        & .progress {
+                            transition: all 0.3s;
+                            height: 100%;
+                            width: 100%;
+                            max-width: 0;
+                            background-color: #185abc;
+                            border-radius: 1rem;
+                        }
+                    }
+                }
+            }
+            &-content {
+                display: flex;
+                padding: 3rem 0 5rem 0;
+
+                @media (max-width: 900px) {
+                    flex-direction: column;
+                }
+                &-right {
+                    width: 100%;
+                    & .ppdb-info {
+                        background-color: white;
+                        &-wrapper {
+                            margin: 3rem;
+                            padding: 2rem;
+                            display: flex;
+                            flex-direction: column;
+                            gap: 5rem;
+                            background: rgba(#ffd953, 0.1);
+                            border-radius: 1rem;
+                            &-head {
+                                font-size: 3.6rem;
+                                font-weight: 500;
+                                color: #fbab33;
+                            }
+                            &-content {
+                                display: flex;
+                                flex-direction: column;
+                                gap: 3rem;
+                                &-item {
+                                    width: 100%;
+                                    display: flex;
+                                    align-items: flex-start;
+                                    gap: 1rem;
+                                    & ion-icon {
+                                        font-size: 2.4rem;
+                                        min-height: 2.4rem;
+                                        min-width: 2.4rem;
+                                        color: #fbab33;
+                                    }
+                                    & p {
+                                        font-size: 1.6rem;
+                                        font-weight: 400;
+                                        color: #fbab33;
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+                &-left {
+                    width: 100%;
+
+                    & .form {
+                        &-wrapper {
+                            padding: 2rem;
+                            &-head {
+                                display: flex;
+                                flex-direction: column;
+                                gap: 1rem;
+                                & p {
+                                    &:nth-child(1) {
+                                        display: flex;
+                                        gap: 1rem;
+                                        align-items: center;
+                                        font-size: 2.4rem;
+                                        color: $color-secondary;
+                                        font-weight: 500;
+                                        & ion-icon {
+                                            font-size: 3rem;
+                                            color: lightgreen;
+                                        }
+                                    }
+                                    &:nth-child(2) {
+                                        font-size: 1.8rem;
+                                        font-size: 400;
+                                        color: rgba($color-secondary, 0.7);
+                                    }
+                                }
+                            }
+                            & hr {
+                                border: none;
+                                border-top: solid 1px rgba(grey, 0.5);
+                                margin: 2rem 0;
+                                width: 100%;
+                            }
+                            &-content {
+                                display: flex;
+                                flex-direction: column;
+                                gap: 2rem;
+                                & .form-input,
+                                & .form-select {
+                                    display: flex;
+                                    flex-direction: column;
+                                    gap: 1rem;
+                                    label {
+                                        font-size: 2rem;
+                                        text-transform: capitalize;
+                                        span {
+                                            color: red;
+                                        }
+                                    }
+                                    input,
+                                    select {
+                                        padding: 1.5rem 2.4rem;
+                                        border-radius: 1rem;
+                                        background-color: white;
+                                        font-size: 1.6rem;
+                                        outline: none;
+                                        border: solid 1px rgba(grey, 0.5);
+                                        text-transform: capitalize;
+                                        &::placeholder {
+                                            text-transform: capitalize;
+                                        }
+                                        & option {
+                                            text-transform: capitalize;
+                                        }
+                                    }
+                                }
+                                &-btn {
+                                    background: $color-secondary;
+                                    font-weight: 400;
+                                    color: white;
+                                    width: 100%;
+                                    display: flex;
+                                    justify-content: center;
+                                    text-transform: uppercase;
+                                    transition: all 0.3s;
+                                    &:hover {
+                                        background: white;
+                                        color: $color-secondary;
+                                        border: solid 1px $color-secondary;
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+}

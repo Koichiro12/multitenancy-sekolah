@@ -1,0 +1,512 @@
+.home {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background-color: white;
+    &__hero {
+        position: relative;
+        padding: 10rem;
+        align-self: stretch;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        flex-direction: column;
+
+        margin: 2rem 2rem 0 2rem;
+        border-radius: 3rem;
+        overflow: hidden;
+        height: calc(100vh - 4rem);
+        @include respond(1000) {
+            display: none;
+        }
+        @include respond(bp-768) {
+            padding: 8.52rem 5rem 0 5rem;
+        }
+        @include respond(bp-500) {
+            padding: 8.52rem 2rem 0 2rem;
+        }
+
+        &-info {
+            z-index: 1;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-direction: column;
+            gap: 2rem;
+            &-title {
+                p {
+                    text-align: center;
+                    color: white;
+                    &:nth-child(1) {
+                        font-size: 10vw;
+                        line-height: 0.9;
+                        font-weight: 900;
+                        font-family: "primary-font", sans-serif;
+                        text-transform: uppercase;
+                        span {
+                            color: $color-primary;
+                        }
+                    }
+                    &:nth-child(2) {
+                        margin: 2rem;
+                        font-size: 2.4rem;
+                        text-transform: capitalize;
+                    }
+                }
+            }
+        }
+    }
+
+    &__mitra {
+        padding: 5rem;
+        width: 100%;
+        height: 100%;
+        display: flex;
+        justify-content: center;
+        position: relative;
+
+        @include respond(bp-768) {
+            padding: 5rem;
+        }
+        @include respond(bp-500) {
+            padding: 5rem 2rem;
+        }
+        &--wrapper {
+            display: flex;
+            align-items: center;
+            gap: 3rem;
+            justify-content: space-evenly;
+            flex-wrap: wrap;
+            max-width: 144rem;
+            width: 100%;
+            &__box {
+                img {
+                    height: 5rem;
+                }
+            }
+        }
+    }
+
+    &__video {
+        width: 100%;
+        &-wrapper {
+            margin: 2rem;
+            border-radius: 3rem;
+            height: 50vw;
+            width: -webkit-fill-available;
+            position: relative;
+            z-index: 10;
+            overflow: hidden;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            @media (max-width: 600px) {
+                height: 62vw;
+            }
+
+            &-info {
+                height: fit-content;
+                width: fit-content;
+                position: relative;
+                z-index: 10;
+                height: 60%;
+                width: 60%;
+                @include respond(bp-1000) {
+                    height: 80%;
+                    width: 80%;
+                }
+                @media (max-width: 600px) {
+                    height: 62%;
+                }
+
+                &-img {
+                    width: -webkit-fill-available;
+                    height: -webkit-fill-available;
+                    border-radius: 5rem;
+                    @media (max-width: 600px) {
+                        border-radius: 3rem;
+                    }
+                }
+
+                &-title {
+                    position: absolute;
+                    top: 0;
+                    left: 50%;
+                    transform: translate(-50%, -50%);
+                    color: white;
+                    font-size: 8vw;
+                    font-weight: 900;
+                    font-family: "primary-font", sans-serif;
+                    text-transform: uppercase;
+                    white-space: nowrap;
+                }
+                &-btn {
+                    position: absolute;
+                    bottom: -3rem;
+                    left: -3rem;
+                    height: 12rem;
+                    width: 12rem;
+                    border-radius: 100%;
+                    display: flex;
+                    align-items: center;
+                    justify-content: center;
+                    background-color: white;
+                    transition: all 0.3s;
+                    cursor: pointer;
+                    &:hover {
+                        transform: scale(1.2);
+                        box-shadow: 4px 4px 2rem rgba(white, 0.3);
+                    }
+                    @include respond(bp-1000) {
+                        height: 8rem;
+                        width: 8rem;
+                        bottom: 50%;
+                        left: 50%;
+                        transform: translate(-50%, 50%);
+                        &:hover {
+                            transform: scale(1.1) translate(-50%, 50%);
+                            box-shadow: 4px 4px 2rem rgba(white, 0.3);
+                        }
+                    }
+                    @media (max-width: 768px) {
+                        height: 6rem;
+                        width: 6rem;
+                    }
+                    & ion-icon {
+                        font-size: 3rem;
+                        color: $color-secondary;
+                    }
+
+                    &-txt {
+                        font-family: "primary-font", sans-serif;
+                        text-transform: uppercase;
+                        font-weight: 600;
+                        color: white;
+                        font-size: 1.4rem;
+                        position: absolute;
+                        right: -10rem;
+                        @include respond(bp-1000) {
+                            display: none;
+                        }
+                    }
+                }
+            }
+        }
+    }
+
+    &__fas {
+        margin-top: 10rem;
+        width: -webkit-fill-available;
+        border-radius: 3rem 3rem 0 0;
+        background-color: $color-section;
+        box-shadow: 4px 4px 2rem rgba($color-section, 0.3);
+        &-wrapper {
+            display: flex;
+            flex-direction: column;
+            &-head {
+                padding: 5rem;
+                display: flex;
+                align-items: center;
+                width: -webkit-fill-available;
+                justify-content: space-between;
+                @media (max-width:768px) {
+                    padding: 3rem;
+                    
+                }
+                &-title {
+                    font-size: 2.6rem;
+                    text-transform: capitalize;
+                    font-weight: 600;
+                }
+                &-paginate {
+                    display: flex;
+                    align-items: center;
+                    gap: 2rem;
+                    & .button-prev {
+                        background: $color-section;
+                        border: solid 1px $color-secondary;
+                        height: 5rem;
+                        width: 5rem;
+                    }
+                    & .button-next {
+                        background: $color-section;
+                        border: solid 1px $color-secondary;
+                        height: 5rem;
+                        width: 5rem;
+                    }
+                    & ion-icon {
+                        font-size: 2rem;
+                    }
+                }
+            }
+            &-content {
+                padding: 0 2rem 15rem 2rem;
+
+                & .SwiperHome {
+                    height: 60rem;
+                    & .swiper-wrapper {
+                        & .swiper-slide {
+                            & .berita-box {
+                                width: 100%;
+                                height: 100%;
+                                position: relative;
+                                border: 1px solid #e7ebeb;
+                                box-shadow: 0 60px 44px -49px rgba(black, 0.2);
+                                border-radius: 3rem;
+                                overflow: hidden;
+                                &-img {
+                                    width: 100%;
+                                    height: 60%;
+                                    transition: all 0.3s;
+                                    cursor: pointer;
+
+                                    &:hover {
+                                        transform: scale(1.1);
+                                    }
+                                }
+                                &-info {
+                                    position: absolute;
+                                    bottom: 0;
+                                    left: 0;
+                                    height: 50%;
+                                    border-radius: 3rem 3rem 0 0;
+                                    padding: 3rem;
+                                    overflow: hidden;
+                                    display: flex;
+                                    justify-content: space-between;
+                                    flex-direction: column;
+                                    background-color: white;
+                                    width: -webkit-fill-available;
+                                    z-index: 10;
+                                    &-cat {
+                                        display: flex;
+                                        align-items: center;
+                                        gap: 1rem;
+                                        position: absolute;
+                                        top: -5rem;
+
+                                        &-item {
+                                            background-color: $color-secondary;
+                                            text-transform: capitalize;
+                                            font-weight: 500;
+                                            color: white;
+                                        }
+                                    }
+                                    &-title {
+                                        &-txt {
+                                            text-transform: capitalize;
+                                            font-size: 2.4rem;
+                                            font-weight: 500;
+                                            color: $color-secondary;
+                                            margin-bottom: 2rem;
+                                        }
+                                        &-desc {
+                                            font-size: 1.6rem;
+                                            color: rgba($color-secondary, 0.8);
+                                        }
+                                    }
+                                    &-date {
+                                        display: flex;
+                                        justify-content: space-between;
+                                        align-items: center;
+                                        &-1 {
+                                            display: flex;
+                                            align-items: center;
+                                            gap: 0.5rem;
+                                            & ion-icon {
+                                                font-size: 2rem;
+                                            }
+                                            & p {
+                                                font-size: 1.6rem;
+                                                @include respond(tab-land) {
+                                                    font-size: calc(
+                                                        1.6rem / 1.2
+                                                    );
+                                                }
+                                                @include respond(bp-1000) {
+                                                    font-size: 1.6rem;
+                                                }
+                                            }
+                                        }
+                                        &-2 {
+                                            font-size: 1.4rem;
+                                            @include respond(tab-land) {
+                                                font-size: calc(1.4rem / 1.2);
+                                            }
+                                            @include respond(bp-1000) {
+                                                font-size: 1.4rem;
+                                            }
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+
+    &__berita {
+        padding: 5rem;
+        width: -webkit-fill-available;
+        display: flex;
+        background-color: white;
+        justify-content: center;
+        position: relative;
+        &-wrapper {
+            width: fit-content;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+        &-head {
+            align-self: flex-start;
+            display: flex;
+            align-items: center;
+            gap: 2rem;
+            margin-bottom: 3.2rem;
+            &-link {
+                background-color: $color-section;
+                color: $color-secondary;
+                font-weight: 500;
+                &.active {
+                    background-color: $color-secondary;
+                    color: $color-section;
+                }
+            }
+        }
+        &-container {
+            width: fit-content;
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 4rem;
+            @include respond(bp-1000) {
+                grid-template-columns: 1fr;
+            }
+            @media (max-width: 701px) {
+                width: 100%;
+            }
+            & .berita-box {
+                width: 54.3rem;
+                height: 52.4rem;
+                position: relative;
+                border: 1px solid #e7ebeb;
+                box-shadow: 0 60px 44px -49px rgba(grey, 0.2);
+                border-radius: 3rem;
+                overflow: hidden;
+
+                @include respond(tab-land) {
+                    width: calc(54.3rem / 1.2);
+                    height: calc(52.4rem / 1.2);
+                }
+                @include respond(bp-1000) {
+                    width: 54.3rem;
+                    height: 52.4rem;
+                }
+                @media (max-width: 701px) {
+                    width: 100%;
+                }
+                &-btn {
+                    height: 4rem;
+                    width: 4rem;
+                    position: absolute;
+                    top: 2rem;
+                    right: 2rem;
+                    background-color: white;
+                    z-index: 10;
+                    & ion-icon {
+                        font-size: 2.4rem;
+                    }
+                }
+                &-img {
+                    background-repeat: no-repeat !important;
+                    background-size: cover !important;
+                    background-position: center !important;
+                    width: 100%;
+                    height: 60%;
+                    transition: all 0.3s;
+                    cursor: pointer;
+
+                    &:hover {
+                        transform: scale(1.1);
+                    }
+                }
+                &-info {
+                    position: absolute;
+                    bottom: 0;
+                    left: 0;
+                    height: 50%;
+                    border-radius: 3rem 3rem 0 0;
+                    padding: 3rem;
+                    overflow: hidden;
+                    display: flex;
+                    justify-content: space-between;
+                    flex-direction: column;
+                    background-color: white;
+                    width: -webkit-fill-available;
+
+                    &-title {
+                        &-cat {
+                            margin-bottom: 2rem;
+                            font-size: 2rem;
+                            color: rgba($color-secondary, 0.7);
+                            text-transform: capitalize;
+
+                            @include respond(tab-land) {
+                                font-size: calc(2rem / 1.2);
+                            }
+                            @include respond(bp-1000) {
+                                font-size: 2rem;
+                            }
+                        }
+                        &-txt {
+                            text-transform: capitalize;
+                            font-size: 3.2rem;
+                            font-weight: 500;
+                            color: $color-secondary;
+                            @include respond(tab-land) {
+                                font-size: calc(3.2rem / 1.2);
+                            }
+                            @include respond(bp-1000) {
+                                font-size: 3.2rem;
+                            }
+                        }
+                    }
+                    &-date {
+                        display: flex;
+                        justify-content: space-between;
+                        align-items: center;
+                        &-1 {
+                            display: flex;
+                            align-items: center;
+                            gap: 0.5rem;
+                            & ion-icon {
+                                font-size: 2rem;
+                            }
+                            & p {
+                                font-size: 1.6rem;
+                                @include respond(tab-land) {
+                                    font-size: calc(1.6rem / 1.2);
+                                }
+                                @include respond(bp-1000) {
+                                    font-size: 1.6rem;
+                                }
+                            }
+                        }
+                        &-2 {
+                            font-size: 1.4rem;
+                            @include respond(tab-land) {
+                                font-size: calc(1.4rem / 1.2);
+                            }
+                            @include respond(bp-1000) {
+                                font-size: 1.4rem;
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+}

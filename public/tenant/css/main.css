@@ -2392,6 +2392,9 @@ body {
     border-radius: 3rem;
     width: -webkit-fill-available;
     height: 50vw; }
+    .detail-news-content-img-src {
+      height: 100%;
+      width: 100%; }
   .detail-news-content-text p {
     font-size: 2.4rem;
     color: rgba(19, 33, 51, 0.8);
@@ -2399,3 +2402,190 @@ body {
     @media (max-width: 768px) {
       .detail-news-content-text p {
         margin: 5rem; } }
+
+.guru {
+  width: -webkit-fill-available; }
+  .guru-hero {
+    width: -webkit-fill-available;
+    padding: 10rem 4rem 5rem 4rem;
+    margin: 2rem 2rem 0 2rem;
+    border-radius: 3rem;
+    display: flex;
+    gap: 5rem;
+    align-items: center;
+    background: radial-gradient(74.87% 160.81% at 29.43% 109.75%, #7fdddd 0, #7fdddd 45.38%, #33d2c9 74.11%, #1aa9e8 100%); }
+    @media (max-width: 768px) {
+      .guru-hero {
+        padding: 10rem 5rem; } }
+    .guru-hero-info-img {
+      width: 50rem;
+      height: 50rem;
+      border-radius: 10rem; }
+    .guru-hero-info-name {
+      padding: 4.6rem 3rem;
+      border-radius: 3rem;
+      background-color: white;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      transform: translateY(-5rem); }
+      .guru-hero-info-name p:nth-child(1) {
+        font-size: 2rem;
+        font-weight: 500;
+        text-transform: capitalize; }
+      .guru-hero-info-name p:nth-child(2) {
+        font-size: 1.6rem;
+        font-weight: 400;
+        text-transform: capitalize; }
+    .guru-hero-text {
+      display: flex;
+      flex-direction: column;
+      gap: 1rem; }
+      .guru-hero-text p {
+        font-family: "primary-font", sans-serif;
+        font-size: 2.4rem;
+        line-height: 167%;
+        font-weight: 400; }
+  .guru-container {
+    position: relative;
+    padding: 3rem;
+    display: flex;
+    gap: 3rem;
+    flex-wrap: wrap; }
+    .guru-container .guru-card {
+      overflow: hidden;
+      width: min-content;
+      position: relative;
+      box-shadow: 0 60px 44px -49px rgba(128, 128, 128, 0.2); }
+      .guru-container .guru-card:hover .guru-card-top-img {
+        transform: scale(1.2); }
+      .guru-container .guru-card-top {
+        overflow: hidden;
+        position: relative;
+        transform: translateY(2rem);
+        border-radius: 3rem 3rem 0 0; }
+        .guru-container .guru-card-top-img {
+          transition: all 0.3s;
+          height: 30rem;
+          width: 35rem; }
+        .guru-container .guru-card-top-info {
+          bottom: 0;
+          left: 0;
+          margin: 2rem 2rem 4rem 2rem;
+          position: absolute;
+          display: flex;
+          gap: 1rem;
+          align-items: center; }
+          .guru-container .guru-card-top-info-item {
+            padding: 1rem 2rem;
+            border-radius: 10rem;
+            font-size: 1.4rem;
+            background-color: #132133;
+            color: white;
+            text-transform: capitalize; }
+      .guru-container .guru-card-bot {
+        position: relative;
+        border: 1px solid #e7ebeb;
+        border-radius: 3rem;
+        padding: 2rem;
+        z-index: 100;
+        background-color: white;
+        box-shadow: 0 60px 44px -49px rgba(128, 128, 128, 0.2); }
+        .guru-container .guru-card-bot-name {
+          font-size: 2.2rem;
+          margin-bottom: 2rem; }
+        .guru-container .guru-card-bot-desc {
+          font-size: 1.6rem; }
+
+.gallery {
+  width: 100%; }
+  .gallery-hero {
+    width: -webkit-fill-available;
+    padding: 10rem;
+    margin: 2rem 2rem 0 2rem;
+    border-radius: 3rem;
+    background: radial-gradient(74.87% 160.81% at 29.43% 109.75%, #7fdddd 0, #7fdddd 45.38%, #33d2c9 74.11%, #1aa9e8 100%); }
+    @media (max-width: 768px) {
+      .gallery-hero {
+        padding: 10rem 5rem; } }
+    .gallery-hero > * {
+      color: white; }
+    .gallery-hero-bc {
+      display: flex;
+      gap: 1rem;
+      margin-bottom: 5rem; }
+      .gallery-hero-bc a,
+      .gallery-hero-bc ion-icon > * {
+        color: white; }
+      .gallery-hero-bc a:nth-child(1) {
+        display: flex;
+        align-items: center;
+        gap: 1rem;
+        font-size: 1.6rem;
+        font-weight: 500; }
+        .gallery-hero-bc a:nth-child(1) ion-icon {
+          color: white;
+          font-size: 2rem; }
+      .gallery-hero-bc a:nth-child(2) {
+        color: white;
+        display: flex;
+        font-size: 1.6rem; }
+      .gallery-hero-bc a:nth-child(3) {
+        font-size: 1.6rem;
+        font-weight: 500; }
+    .gallery-hero-title {
+      font-size: 10vw;
+      line-height: 0.9;
+      font-weight: 900;
+      font-family: "primary-font", sans-serif;
+      text-transform: uppercase; }
+  .gallery-container {
+    position: relative;
+    padding: 3rem;
+    display: flex;
+    gap: 3rem;
+    flex-wrap: wrap; }
+    .gallery-container .gallery-card {
+      overflow: hidden;
+      width: min-content;
+      position: relative;
+      box-shadow: 0 60px 44px -49px rgba(128, 128, 128, 0.2); }
+      .gallery-container .gallery-card:hover .gallery-card-top-img {
+        transform: scale(1.2); }
+      .gallery-container .gallery-card-top {
+        overflow: hidden;
+        position: relative;
+        transform: translateY(2rem);
+        border-radius: 3rem 3rem 0 0; }
+        .gallery-container .gallery-card-top-img {
+          transition: all 0.3s;
+          height: 30rem;
+          width: 35rem; }
+        .gallery-container .gallery-card-top-info {
+          bottom: 0;
+          left: 0;
+          margin: 2rem 2rem 4rem 2rem;
+          position: absolute;
+          display: flex;
+          gap: 1rem;
+          align-items: center; }
+          .gallery-container .gallery-card-top-info-item {
+            padding: 1rem 2rem;
+            border-radius: 10rem;
+            font-size: 1.4rem;
+            background-color: #132133;
+            color: white;
+            text-transform: capitalize; }
+      .gallery-container .gallery-card-bot {
+        position: relative;
+        border: 1px solid #e7ebeb;
+        border-radius: 3rem;
+        padding: 2rem;
+        z-index: 100;
+        background-color: white;
+        box-shadow: 0 60px 44px -49px rgba(128, 128, 128, 0.2); }
+        .gallery-container .gallery-card-bot-name {
+          font-size: 2.2rem;
+          margin-bottom: 2rem; }
+        .gallery-container .gallery-card-bot-desc {
+          font-size: 1.6rem; }

@@ -29,7 +29,7 @@
                 <div class="news-box-container">
 
                     @foreach ($berita as $b)
-                        <a href="{{ route('detailNews') }}" class="berita-box">
+                        <a href="{{ route('detailBerita', [$b->id]) }}" class="berita-box">
                             <div class="berita-box-btn btn-circle">
                                 <ion-icon name="log-in-outline"></ion-icon>
                             </div>
