@@ -6,6 +6,7 @@ use App\Http\Controllers\Controller;
 use App\Models\tenant\tenantAlumni;
 use App\Models\tenant\tenantBerita;
 use App\Models\tenant\tenantFasilitas;
+use App\Models\tenant\tenantGuru;
 use Illuminate\Http\Request;
 
 class adminController extends Controller
@@ -199,6 +200,67 @@ class adminController extends Controller
         $alumni->save();
         return redirect()->route('dashboardAlumni');
     }
+    //////////////////////////////////////////////////////////////////
+    /////////////////////GURU FUNCTION///////////////////////////
+    /////////////////////GURU FUNCTION///////////////////////////
+    /////////////////////GURU FUNCTION///////////////////////////
+    //////////////////////////////////////////////////////////////////
+    public function guru()
+    {
+        $guru = tenantGuru::get();
+        return view('tenant.admin.guru', compact('guru'));
+    }
+    public function addGuru(Request $request)
+    {
+        $request->validate([
+            'nama' => 'required',
+            'deskripsi' => 'required',
+            'image' => 'required|unique:guru|image|mimes:jpg,png,jpeg,gif,svg',
+        ]);
+        $image = $this->uploadImageGuru($request->image);
+        $file = new tenantGuru();
+        $file->nama = $request->nama;
+        $file->kategori =  'guru';
+        $file->deskripsi = $request->deskripsi;
+        $file->image = $image;
+        $file->save();
+        return redirect()->route('dashboardGuru');
+    }
+    public function deleteGuru($id)
+    {
+        $guru = tenantGuru::find($id);
+        $image = public_path($guru->image);
+        if ($image) {
+            unlink($guru->image);
+        }
+        tenantGuru::destroy($id);
+        return redirect()->route('dashboardGuru');
+    }
+    public function showGuru($id)
+    {
+        $showGuru = tenantGuru::find($id);
+        return view('tenant.admin.editGuru', compact('showGuru'));
+    }
+    public function updateGuru(Request $request, $id)
+    {
+        $request->validate([
+            'nama' => 'required',
+            'deskripsi' => 'required',
+            'image' => 'required|unique:guru|image|mimes:jpg,png,jpeg,gif,svg',
+        ]);
+        $guru = tenantGuru::find($id);
+        if (!empty($request->image)) {
+            unlink($guru->image);
+            $image = $this->uploadImageGuru($request->image);
+            $guru->image = $image;
+        }
+        $guru->nama = $request->nama;
+        $guru->kategori = 'guru';
+        $guru->deskripsi = $request->deskripsi;
+        $guru->image = $image;
+        $guru->save();
+        return redirect()->route('dashboardGuru');
+    }
     public function uploadImageBerita($image)
     {
         $extFile = $image->getClientOriginalName();
@@ -217,6 +279,13 @@ class adminController extends Controller
     {
         $extFile = $image->getClientOriginalName();
         $path = $image->move('public/tenant/upload_file/alumni', $extFile);
+        $path = str_replace('\\', '/', $path);
+        return $path;
+    }
+    public function uploadImageGuru($image)
+    {
+        $extFile = $image->getClientOriginalName();
+        $path = $image->move('public/tenant/upload_file/guru', $extFile);
         $path = str_replace('\\', '/', $path);
         return $path;
     }

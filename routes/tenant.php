@@ -67,4 +67,10 @@ Route::middleware([
     Route::get('/dashboard-alumni-del-{id}', [adminController::class, 'deleteAlumni'])->name('dashboardAlumniDel');
     Route::get('/dashboard-alumni-show-{id}', [adminController::class, 'showAlumni'])->name('dashboardAlumniShow');
     Route::post('/dashboard-alumni-update-{id}', [adminController::class, 'updateAlumni'])->name('dashboardAlumniUpdate');
+    // dashboard route guru
+    Route::get('/dashboard-guru', [adminController::class, 'guru'])->name('dashboardGuru');
+    Route::post('/dashboard-guru-add', [adminController::class, 'addGuru'])->name('dashboardGuruAdd');
+    Route::get('/dashboard-guru-del-{id}', [adminController::class, 'deleteGuru'])->name('dashboardGuruDel');
+    Route::get('/dashboard-guru-show-{id}', [adminController::class, 'showGuru'])->name('dashboardGuruShow');
+    Route::post('/dashboard-guru-update-{id}', [adminController::class, 'updateGuru'])->name('dashboardGuruUpdate');
 });
