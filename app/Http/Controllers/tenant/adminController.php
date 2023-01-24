@@ -8,18 +8,22 @@ use App\Models\tenant\tenantBerita;
 use App\Models\tenant\tenantFasilitas;
 use App\Models\tenant\tenantGuru;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 
 class adminController extends Controller
 
 {
     public function index()
     {
-        return view('tenant.admin.dashboard');
+            return view('tenant.admin.dashboard');
+    }
+    public function createBerita(){
+        return view('tenant.admin.news.create');
     }
     public function berita()
     {
         $berita = tenantBerita::get();
-        return view('tenant.admin.berita', compact('berita'));
+        return view('tenant.admin.news.index', compact('berita'));
     }
     public function addBerita(Request $request)
     {
@@ -52,7 +56,15 @@ class adminController extends Controller
     public function showBerita($id)
     {
         $showBerita = tenantBerita::find($id);
-        return view('tenant.admin.editBerita', compact('showBerita'));
+        return view('tenant.admin.news.edit', compact('showBerita'));
+    }
+    public function editBerita($id){
+        
+        $showBerita = tenantBerita::findOrFail($id);
+        if($showBerita){
+            return view('tenant.admin.news.edit', compact(['showBerita']));
+        }
+        
     }
     public function updateBerita(Request $request, $id)
     {
@@ -84,7 +96,16 @@ class adminController extends Controller
     public function fasilitas()
     {
         $fasilitas = tenantFasilitas::get();
-        return view('tenant.admin.fasilitas', compact('fasilitas'));
+        return view('tenant.admin.fasilitas.index', compact('fasilitas'));
+    }
+    public function createFasilitas(){
+        return view('tenant.admin.fasilitas.create');
+    }
+    public function editFasilitas($id){
+        $showFasilitas = tenantFasilitas::findOrFail($id);
+        if($showFasilitas){
+            return view('tenant.admin.fasilitas.edit', compact(['showFasilitas']));
+        }
     }
     public function addFasilitas(Request $request)
     {
@@ -114,7 +135,7 @@ class adminController extends Controller
     public function showFasilitas($id)
     {
         $showFasilitas = tenantFasilitas::find($id);
-        return view('tenant.admin.editFasilitas', compact('showFasilitas'));
+        return view('tenant.admin.fasilitas.edit', compact('showFasilitas'));
     }
     public function updateFasilitas(Request $request, $id)
     {
