@@ -16,14 +16,15 @@
             <h4 class="mb-2">Welcome ! 👋</h4>
             <p class="mb-4">Please sign-in to your account</p>
 
-            <form id="formAuthentication" class="mb-3" action="index.html" method="POST">
+            <form id="formAuthentication" class="mb-3" action="{{ route('auth') }}" method="POST">
+              @csrf
               <div class="mb-3">
                 <label for="email" class="form-label">Email</label>
                 <input
                   type="email"
                   class="form-control"
                   id="email"
-                  name="email-username"
+                  name="email"
                   placeholder="Enter your email"
                   autofocus
                 />
@@ -31,9 +32,9 @@
               <div class="mb-3 form-password-toggle">
                 <div class="d-flex justify-content-between">
                   <label class="form-label" for="password">Password</label>
-                  <a href="auth-forgot-password-basic.html">
+                  <!--<a href="#">
                     <small>Forgot Password?</small>
-                  </a>
+                  </a>-->
                 </div>
                 <div class="input-group input-group-merge">
                   <input
