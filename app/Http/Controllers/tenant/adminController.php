@@ -7,6 +7,7 @@ use App\Models\tenant\tenantAlumni;
 use App\Models\tenant\tenantBerita;
 use App\Models\tenant\tenantFasilitas;
 use App\Models\tenant\tenantGuru;
+use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 
@@ -165,8 +166,17 @@ class adminController extends Controller
     //////////////////////////////////////////////////////////////////
     public function alumni()
     {
-        $alumni = tenantAlumni::get();
-        return view('tenant.admin.alumni', compact('alumni'));
+        $alumni = tenantAlumni::get(); 
+        return view('tenant.admin.alumni.index', compact('alumni'));
+    }
+    public function createAlumni(){
+        return view('tenant.admin.alumni.create');
+    }
+    public function editAlumni($id){
+        $alumni = tenantAlumni::findOrFail($id);
+        if($alumni){
+            return view('tenant.admin.alumni.edit', compact(['alumni']));
+        }
     }
     public function addAlumni(Request $request)
     {
@@ -229,7 +239,16 @@ class adminController extends Controller
     public function guru()
     {
         $guru = tenantGuru::get();
-        return view('tenant.admin.guru', compact('guru'));
+        return view('tenant.admin.guru.index', compact('guru'));
+    }
+    public function createGuru(){
+        return view('tenant.admin.guru.create');
+    }
+    public function editGuru($id){
+        $guru = tenantGuru::findOrFail($id);
+        if($guru){
+            return view('tenant.admin.guru.edit', compact(['guru']));
+        }
     }
     public function addGuru(Request $request)
     {
@@ -282,6 +301,66 @@ class adminController extends Controller
         $guru->save();
         return redirect()->route('dashboardGuru');
     }
+    //////////////////////////////////////////////////////////////////
+    /////////////////////USERS FUNCTION///////////////////////////
+    /////////////////////USERS FUNCTION///////////////////////////
+    /////////////////////USERS FUNCTION///////////////////////////
+    //////////////////////////////////////////////////////////////////
+    public function users()
+    {
+        $users = User::get();
+        return view('tenant.admin.users.index', compact('users'));
+    }
+    public function createUsers(){
+        return view('tenant.admin.users.create');
+    }
+    public function editUsers($id){
+        $users = User::findOrFail($id);
+        if($users){
+            return view('tenant.admin.users.edit', compact(['users']));
+        }
+    }
+    public function addUsers(Request $request)
+    {
+       
+    }
+    public function deleteUsers($id)
+    {
+      
+    }
+    public function showUsers($id)
+    {
+      
+    }
+    public function updateUsers(Request $request, $id)
+    {
+       
+    }
+    //////////////////////////////////////////////////////////////////
+    /////////////////////USER FUNCTION///////////////////////////
+    /////////////////////USER FUNCTION///////////////////////////
+    /////////////////////USER FUNCTION///////////////////////////
+    //////////////////////////////////////////////////////////////////
+
+    public function userProfile(){
+        return view('tenant.admin.user.profile');
+    }
+    public function userSettings(){
+        return view('tenant.admin.user.settings');
+    }
+    public function updateProfile(Request $request,$id){
+
+    }
+    public function updateUserSettings(Request $request,$id){
+        
+    }
+    //////////////////////////////////////////////////////////////////
+    /////////////////////IMAGE UPLOADING FUNCTION///////////////////////////
+    /////////////////////IMAGE UPLOADING FUNCTION///////////////////////////
+    /////////////////////IMAGE UPLOADING FUNCTION///////////////////////////
+    //////////////////////////////////////////////////////////////////
+    
+
     public function uploadImageBerita($image)
     {
         $extFile = $image->getClientOriginalName();

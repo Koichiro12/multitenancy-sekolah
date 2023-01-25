@@ -136,7 +136,7 @@
         <li class="menu-header small text-uppercase"><span class="menu-header-text">Authentikasi</span></li>
         <!-- Cards -->
         <li class="menu-item">
-            <a href="" class="menu-link">
+            <a href="{{route('dashboardUsers')}}" class="menu-link">
                 <i class="menu-icon tf-icons bx bx-collection"></i>
                 <div data-i18n="Basic">Users</div>
             </a>
