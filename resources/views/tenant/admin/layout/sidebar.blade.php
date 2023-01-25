@@ -100,7 +100,7 @@
                     </a>
                 </li>
                 <li class="menu-item">
-                    <a href="" class="menu-link">
+                    <a href="{{route('dashboardArtikel')}}" class="menu-link">
                         <div data-i18n="Basic">Artikel</div>
                     </a>
                 </li>

@@ -301,6 +301,43 @@ class adminController extends Controller
         $guru->save();
         return redirect()->route('dashboardGuru');
     }
+
+    //////////////////////////////////////////////////////////////////
+    /////////////////////USERS FUNCTION///////////////////////////
+    /////////////////////USERS FUNCTION///////////////////////////
+    /////////////////////USERS FUNCTION///////////////////////////
+    //////////////////////////////////////////////////////////////////
+    public function artikel()
+    {
+        $users = User::get();
+        return view('tenant.admin.artikel.index', compact('users'));
+    }
+    public function createArtikel(){
+        return view('tenant.admin.artikel.create');
+    }
+    public function editArtikel($id){
+        $users = User::findOrFail($id);
+        if($users){
+            return view('tenant.admin.artikel.edit', compact(['users']));
+        }
+    }
+    public function addArtikel(Request $request)
+    {
+       
+    }
+    public function deleteArtikel($id)
+    {
+      
+    }
+    public function showArtikel($id)
+    {
+      
+    }
+    public function updateArtikel(Request $request, $id)
+    {
+       
+    }
+
     //////////////////////////////////////////////////////////////////
     /////////////////////USERS FUNCTION///////////////////////////
     /////////////////////USERS FUNCTION///////////////////////////
