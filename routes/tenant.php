@@ -58,6 +58,17 @@ Route::middleware([
         Route::middleware(['tenant-auth'])->group(function(){
              // dashboard route
             Route::get('/dashboard', [adminController::class, 'index'])->name('dashboard');
+
+            // dashboard route Artikel
+            Route::get('/dashboard-artikel', [adminController::class, 'artikel'])->name('dashboardArtikel');
+            Route::get('/dashboard-artikel-create', [adminController::class, 'createArtikel'])->name('dashboardArtikelCreate');
+            Route::get('/dashboard-artikel-edit-{id}', [adminController::class, 'editArtikel'])->name('dashboardArtikelEdit');
+            Route::post('/dashboard-artikel-add', [adminController::class, 'addArtikel'])->name('dashboardArtikelAdd');
+            Route::get('/dashboard-artikel-del-{id}', [adminController::class, 'deleteArtikel'])->name('dashboardArtikelDel');
+            Route::get('/dashboard-artikel-show-{id}', [adminController::class, 'showArtikel'])->name('dashboardArtikelShow');
+            Route::post('/dashboard-artikel-update-{id}', [adminController::class, 'updateArtikel'])->name('dashboardArtikeUpdate');
+            
+
             // dashboard route berita
             Route::get('/dashboard-berita', [adminController::class, 'berita'])->name('dashboardBerita');
             Route::get('/dashboard-berita-create', [adminController::class, 'createBerita'])->name('dashboardBeritaCreate');
@@ -77,16 +88,28 @@ Route::middleware([
             Route::post('/dashboard-fasilitas-update-{id}', [adminController::class, 'updateFasilitas'])->name('dashboardFasilitasUpdate');
             // dashboard route alumni
             Route::get('/dashboard-alumni', [adminController::class, 'alumni'])->name('dashboardAlumni');
+            Route::get('/dashboard-alumni-create', [adminController::class, 'createAlumni'])->name('dashboardAlumniCreate');
+            Route::get('/dashboard-alumni-edit-{id}', [adminController::class, 'editAlumni'])->name('dashboardAlumniEdit');
             Route::post('/dashboard-alumni-add', [adminController::class, 'addAlumni'])->name('dashboardAlumniAdd');
             Route::get('/dashboard-alumni-del-{id}', [adminController::class, 'deleteAlumni'])->name('dashboardAlumniDel');
             Route::get('/dashboard-alumni-show-{id}', [adminController::class, 'showAlumni'])->name('dashboardAlumniShow');
             Route::post('/dashboard-alumni-update-{id}', [adminController::class, 'updateAlumni'])->name('dashboardAlumniUpdate');
             // dashboard route guru
             Route::get('/dashboard-guru', [adminController::class, 'guru'])->name('dashboardGuru');
+            Route::get('/dashboard-guru-create', [adminController::class, 'createGuru'])->name('dashboarGuruCreate');
+            Route::get('/dashboard-guru-edit-{id}', [adminController::class, 'editGuru'])->name('dashboardGuruEdit');
             Route::post('/dashboard-guru-add', [adminController::class, 'addGuru'])->name('dashboardGuruAdd');
             Route::get('/dashboard-guru-del-{id}', [adminController::class, 'deleteGuru'])->name('dashboardGuruDel');
             Route::get('/dashboard-guru-show-{id}', [adminController::class, 'showGuru'])->name('dashboardGuruShow');
             Route::post('/dashboard-guru-update-{id}', [adminController::class, 'updateGuru'])->name('dashboardGuruUpdate');
+            // dashboard route User
+            Route::get('/dashboard-users', [adminController::class, 'users'])->name('dashboardUsers');
+            Route::get('/dashboard-users-create', [adminController::class, 'createUsers'])->name('dashboarUsersCreate');
+            Route::get('/dashboard-users-edit-{id}', [adminController::class, 'editUsers'])->name('dashboardUsersEdit');
+            Route::post('/dashboard-users-add', [adminController::class, 'addUsers'])->name('dashboardUsersAdd');
+            Route::get('/dashboard-users-del-{id}', [adminController::class, 'deleteUsers'])->name('dashboardUsersDel');
+            Route::get('/dashboard-users-show-{id}', [adminController::class, 'showUsers'])->name('dashboardUsersShow');
+            Route::post('/dashboard-users-update-{id}', [adminController::class, 'updateUsers'])->name('dashboardUsersUpdate');
         });
     });
 
