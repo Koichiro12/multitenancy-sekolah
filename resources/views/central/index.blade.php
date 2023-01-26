@@ -359,36 +359,18 @@
                     <p class="mb-5">Diam dolor diam ipsum et tempor sit. Aliqu diam amet diam et eos labore. Clita erat ipsum et lorem et sit, sed stet no labore lorem sit clita duo justo</p>
                 </div>
                 <div class="owl-carousel testimonial-carousel wow fadeInUp" data-wow-delay="0.1s">
+                @foreach ($testimoni as $item)
                     <div class="testimonial-item bg-light rounded my-4">
-                        <p class="fs-5"><i class="fa fa-quote-left fa-4x text-success mt-n4 me-3"></i>Diam dolor diam ipsum sit. Aliqu diam amet diam et eos. Clita erat ipsum et lorem et sit sed stet lorem sit clita duo justo.</p>
+                        <p class="fs-5"><i class="fa fa-quote-left fa-4x text-success mt-n4 me-3"></i>{{$item->testi_desc}}</p>
                         <div class="d-flex align-items-center">
-                            <img class="img-fluid flex-shrink-0 rounded-circle" src="{{asset('public/central/img/testimonial-1.jpg')}}" style="width: 65px; height: 65px;">
+                            <img class="img-fluid flex-shrink-0 rounded-circle" src="{{asset('public/central/uploads/'.$item->testi_image)}}" style="width: 65px; height: 65px;">
                             <div class="ps-4">
-                                <h5 class="mb-1">Client Name</h5>
-                                <span>Profession</span>
+                                <h5 class="mb-1">{{$item->testi_name}}</h5>
+                                <span>{{$item->testi_profesion}}</span>
                             </div>
                         </div>
                     </div>
-                    <div class="testimonial-item bg-light rounded my-4">
-                        <p class="fs-5"><i class="fa fa-quote-left fa-4x text-success mt-n4 me-3"></i>Diam dolor diam ipsum sit. Aliqu diam amet diam et eos. Clita erat ipsum et lorem et sit sed stet lorem sit clita duo justo.</p>
-                        <div class="d-flex align-items-center">
-                            <img class="img-fluid flex-shrink-0 rounded-circle" src="{{asset('public/central/img/testimonial-2.jpg')}}" style="width: 65px; height: 65px;">
-                            <div class="ps-4">
-                                <h5 class="mb-1">Client Name</h5>
-                                <span>Profession</span>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="testimonial-item bg-light rounded my-4">
-                        <p class="fs-5"><i class="fa fa-quote-left fa-4x text-success mt-n4 me-3"></i>Diam dolor diam ipsum sit. Aliqu diam amet diam et eos. Clita erat ipsum et lorem et sit sed stet lorem sit clita duo justo.</p>
-                        <div class="d-flex align-items-center">
-                            <img class="img-fluid flex-shrink-0 rounded-circle" src="{{asset('public/central/img/testimonial-3.jpg')}}" style="width: 65px; height: 65px;">
-                            <div class="ps-4">
-                                <h5 class="mb-1">Client Name</h5>
-                                <span>Profession</span>
-                            </div>
-                        </div>
-                    </div>
+                @endforeach
                 </div>
             </div>
         </div>

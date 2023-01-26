@@ -5,11 +5,15 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Models\News;
 use App\Models\Features;
+use App\Models\testimonial;
+
 class PageController extends Controller
 {
     //
     public function index(){
-        return view('central.index');
+        $feature = Features::latest()->get();   
+        $testimoni = testimonial::latest()->get();      
+        return view('central.index',compact(['feature','testimoni']));
     }
     public function view_paket(){
         return view('central.paket');
