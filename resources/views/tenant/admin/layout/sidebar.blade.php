@@ -45,7 +45,7 @@
                     </g>
                 </svg>
             </span>
-            <span class="app-brand-text demo menu-text fw-bolder ms-2">Adminer</span>
+            <span class="app-brand-text demo menu-text fw-bolder ms-2">TENANCY</span>
         </a>
 
         <a href="javascript:void(0);" class="layout-menu-toggle menu-link text-large ms-auto d-block d-xl-none">
@@ -100,7 +100,7 @@
                     </a>
                 </li>
                 <li class="menu-item">
-                    <a href="" class="menu-link">
+                    <a href="{{route('dashboardArtikel')}}" class="menu-link">
                         <div data-i18n="Basic">Artikel</div>
                     </a>
                 </li>

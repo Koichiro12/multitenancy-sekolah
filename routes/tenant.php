@@ -56,8 +56,22 @@ Route::middleware([
 
     Route::middleware(['universal'])->group(function(){
         Route::middleware(['tenant-auth'])->group(function(){
+            //User Route
+            Route::get('/user-profile', [adminController::class, 'userProfile'])->name('userProfile');
+            Route::get('/user-settings', [adminController::class, 'userSettings'])->name('userSettings');
              // dashboard route
             Route::get('/dashboard', [adminController::class, 'index'])->name('dashboard');
+
+            // dashboard route Artikel
+            Route::get('/dashboard-artikel', [adminController::class, 'artikel'])->name('dashboardArtikel');
+            Route::get('/dashboard-artikel-create', [adminController::class, 'createArtikel'])->name('dashboardArtikelCreate');
+            Route::get('/dashboard-artikel-edit-{id}', [adminController::class, 'editArtikel'])->name('dashboardArtikelEdit');
+            Route::post('/dashboard-artikel-add', [adminController::class, 'addArtikel'])->name('dashboardArtikelAdd');
+            Route::get('/dashboard-artikel-del-{id}', [adminController::class, 'deleteArtikel'])->name('dashboardArtikelDel');
+            Route::get('/dashboard-artikel-show-{id}', [adminController::class, 'showArtikel'])->name('dashboardArtikelShow');
+            Route::post('/dashboard-artikel-update-{id}', [adminController::class, 'updateArtikel'])->name('dashboardArtikeUpdate');
+            
+
             // dashboard route berita
             Route::get('/dashboard-berita', [adminController::class, 'berita'])->name('dashboardBerita');
             Route::get('/dashboard-berita-create', [adminController::class, 'createBerita'])->name('dashboardBeritaCreate');
