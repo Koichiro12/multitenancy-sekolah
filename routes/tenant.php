@@ -56,6 +56,9 @@ Route::middleware([
 
     Route::middleware(['universal'])->group(function(){
         Route::middleware(['tenant-auth'])->group(function(){
+            //User Route
+            Route::get('/user-profile', [adminController::class, 'userProfile'])->name('userProfile');
+            Route::get('/user-settings', [adminController::class, 'userSettings'])->name('userSettings');
              // dashboard route
             Route::get('/dashboard', [adminController::class, 'index'])->name('dashboard');
 
