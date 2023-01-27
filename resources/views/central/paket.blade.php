@@ -32,72 +32,82 @@
                     <p class="mb-5">Diam dolor diam ipsum et tempor sit. Aliqu diam amet diam et eos labore. Clita erat ipsum et lorem et sit, sed stet no labore lorem sit clita duo justo</p>
                 </div>
                 <div class="row g-4">
-                    <div class="col-lg-4 col-md-6 wow fadeInUp" data-wow-delay="0.1s">
-                        <div class="price-item rounded overflow-hidden">
-                            <div class="bg-dark p-4">
-                                <h4 class="text-white mt-2">Standard</h4>
-                                <div class="text-white">
-                                    <span class="align-top fs-4 fw-bold">$</span>
-                                    <h1 class="d-inline display-6 text-success mb-0"> 29.99</h1>
-                                    <span class="align-baseline">/ Month</span>
+                    @foreach ($data as $item)
+                        @if ($loop->index + 1 != $nilai_tengah)
+                        <div class="col-lg-4 col-md-6 wow fadeInUp" data-wow-delay="0.1s">
+                            <div class="price-item rounded overflow-hidden">
+                                <div class="bg-dark p-4">
+                                    <h4 class="text-white mt-2">{{$item->nama_paket}}</h4>
+                                    <div class="text-white">
+                                        <span class="align-top fs-4 fw-bold">Rp</span>
+                                        <h1 class="d-inline display-6 text-success mb-0">{{number_format($item->harga_paket)}}</h1>
+                                        <span class="align-baseline">/ {{$item->per_harga_paket}}</span>
+                                    </div>
+                                </div>
+                                <div class="p-4">
+                                    @foreach ($keunggulan as $k)
+                                    @php
+                                        $cek = false;
+                                        foreach($list_keunggulan as $lk){
+                                            if($lk->kode_paket == $item->id && $lk->kode_keunggulan == $k->id){
+                                                $cek = true;
+                                                break;
+                                            }
+                                        }
+                                    @endphp
+                                            <div class="d-flex justify-content-between mb-3">
+                                                <span>{{$k->name}}</span>
+                                                @if ($cek)
+                                                    <i class="fa fa-check text-success pt-1"></i>
+                                                @else
+                                                    <i class="fa fa-times text-danger pt-1"></i>
+                                                @endif
+                                                
+                                            </div>
+                                    @endforeach
+                                    <a href="<?= url('order') ?>" class="btn btn-dark rounded-pill py-2 px-4 mt-3">Get Started</a>
                                 </div>
                             </div>
-                            <div class="p-4">
-                                <div class="d-flex justify-content-between mb-3"><span>HTML5 & CSS3</span><i class="fa fa-check text-success pt-1"></i></div>
-                                <div class="d-flex justify-content-between mb-3"><span>Bootstrap v5</span><i class="fa fa-check text-success pt-1"></i></div>
-                                <div class="d-flex justify-content-between mb-3"><span>Responsive Layout</span><i class="fa fa-check text-success pt-1"></i></div>
-                                <div class="d-flex justify-content-between mb-3"><span>Cross-browser Support</span><i class="fa fa-times text-danger pt-1"></i></div>
-                                <div class="d-flex justify-content-between mb-3"><span>Remove Author's Credit</span><i class="fa fa-times text-danger pt-1"></i></div>
-                                <div class="d-flex justify-content-between mb-3"><span>PHP & Ajax Contact Form</span><i class="fa fa-times text-danger pt-1"></i></div>
-                                <div class="d-flex justify-content-between mb-3"><span>6 Months Free Support</span><i class="fa fa-times text-danger pt-1"></i></div>
-                                <a href="" class="btn btn-dark rounded-pill py-2 px-4 mt-3">Get Started</a>
-                            </div>
                         </div>
-                    </div>
-                    <div class="col-lg-4 col-md-6 wow fadeInUp" data-wow-delay="0.3s">
-                        <div class="price-item rounded overflow-hidden">
-                            <div class="bg-success p-4">
-                                <h4 class="text-white mt-2">Professional</h4>
-                                <div class="text-white">
-                                    <span class="align-top fs-4 fw-bold">$</span>
-                                    <h1 class="d-inline display-6 text-dark mb-0"> 49.99</h1>
-                                    <span class="align-baseline">/ Month</span>
+                        @else
+                        <div class="col-lg-4 col-md-6 wow fadeInUp" data-wow-delay="0.3s">
+                            <div class="price-item rounded overflow-hidden">
+                                <div class="bg-success p-4">
+                                    <h4 class="text-white mt-2">{{$item->nama_paket}}</h4>
+                                    <div class="text-white">
+                                        <span class="align-top fs-4 fw-bold">Rp</span>
+                                        <h1 class="d-inline display-6 text-dark mb-0">{{number_format($item->harga_paket)}}</h1>
+                                        <span class="align-baseline">/ {{$item->per_harga_paket}}</span>
+                                    </div>
+                                </div>
+                                <div class="p-4">
+                                    @foreach ($keunggulan as $k)
+                                    @php
+                                        $cek = false;
+                                        foreach($list_keunggulan as $lk){
+                                            if($lk->kode_paket == $item->id && $lk->kode_keunggulan == $k->id){
+                                                $cek = true;
+                                                break;
+                                            }
+                                        }
+                                    @endphp
+                                            <div class="d-flex justify-content-between mb-3">
+                                                <span>{{$k->name}}</span>
+                                                @if ($cek)
+                                                    <i class="fa fa-check text-success pt-1"></i>
+                                                @else
+                                                    <i class="fa fa-times text-danger pt-1"></i>
+                                                @endif
+                                                
+                                            </div>
+                                    @endforeach
+                                    <a href="<?= url('order') ?>" class="btn btn-success rounded-pill py-2 px-4 mt-3">Get Started</a>
                                 </div>
                             </div>
-                            <div class="p-4">
-                                <div class="d-flex justify-content-between mb-3"><span>HTML5 & CSS3</span><i class="fa fa-check text-success pt-1"></i></div>
-                                <div class="d-flex justify-content-between mb-3"><span>Bootstrap v5</span><i class="fa fa-check text-success pt-1"></i></div>
-                                <div class="d-flex justify-content-between mb-3"><span>Responsive Layout</span><i class="fa fa-check text-success pt-1"></i></div>
-                                <div class="d-flex justify-content-between mb-3"><span>Cross-browser Support</span><i class="fa fa-check text-success pt-1"></i></div>
-                                <div class="d-flex justify-content-between mb-3"><span>Remove Author's Credit</span><i class="fa fa-check text-success pt-1"></i></div>
-                                <div class="d-flex justify-content-between mb-3"><span>PHP & Ajax Contact Form</span><i class="fa fa-times text-danger pt-1"></i></div>
-                                <div class="d-flex justify-content-between mb-3"><span>6 Months Free Support</span><i class="fa fa-times text-danger pt-1"></i></div>
-                                <a href="" class="btn btn-success rounded-pill py-2 px-4 mt-3">Get Started</a>
-                            </div>
                         </div>
-                    </div>
-                    <div class="col-lg-4 col-md-6 wow fadeInUp" data-wow-delay="0.5s">
-                        <div class="price-item rounded overflow-hidden">
-                            <div class="bg-dark p-4">
-                                <h4 class="text-white mt-2">Ultimate</h4>
-                                <div class="text-white">
-                                    <span class="align-top fs-4 fw-bold">$</span>
-                                    <h1 class="d-inline display-6 text-success mb-0"> 79.99</h1>
-                                    <span class="align-baseline">/ Month</span>
-                                </div>
-                            </div>
-                            <div class="p-4">
-                                <div class="d-flex justify-content-between mb-3"><span>HTML5 & CSS3</span><i class="fa fa-check text-success pt-1"></i></div>
-                                <div class="d-flex justify-content-between mb-3"><span>Bootstrap v5</span><i class="fa fa-check text-success pt-1"></i></div>
-                                <div class="d-flex justify-content-between mb-3"><span>Responsive Layout</span><i class="fa fa-check text-success pt-1"></i></div>
-                                <div class="d-flex justify-content-between mb-3"><span>Cross-browser Support</span><i class="fa fa-check text-success pt-1"></i></div>
-                                <div class="d-flex justify-content-between mb-3"><span>Remove Author's Credit</span><i class="fa fa-check text-success pt-1"></i></div>
-                                <div class="d-flex justify-content-between mb-3"><span>PHP & Ajax Contact Form</span><i class="fa fa-check text-success pt-1"></i></div>
-                                <div class="d-flex justify-content-between mb-3"><span>6 Months Free Support</span><i class="fa fa-check text-success pt-1"></i></div>
-                                <a href="" class="btn btn-dark rounded-pill py-2 px-4 mt-3">Get Started</a>
-                            </div>
-                        </div>
-                    </div>
+                        @endif
+                    @endforeach
+                    
                 </div>
             </div>
         </div>

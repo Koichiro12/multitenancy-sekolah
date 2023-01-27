@@ -85,7 +85,7 @@
                                 <i class="fa fa-check"></i>
                             </div>
                             <div class="ms-4">
-                                <h5>Multiple Module</h5>
+                                <h5>Murah Meriah</h5>
                                 <p class="mb-0">Aliqu diam amet diam et eos labore. Clita erat ipsum et lorem et sit, sed stet no labore lorem sit clita duo justo magna</p>
                             </div>
                         </div>
@@ -191,72 +191,82 @@
                     <p class="mb-5">Diam dolor diam ipsum et tempor sit. Aliqu diam amet diam et eos labore. Clita erat ipsum et lorem et sit, sed stet no labore lorem sit clita duo justo</p>
                 </div>
                 <div class="row g-4">
-                    <div class="col-lg-4 col-md-6 wow fadeInUp" data-wow-delay="0.1s">
-                        <div class="price-item rounded overflow-hidden">
-                            <div class="bg-dark p-4">
-                                <h4 class="text-white mt-2">Standard</h4>
-                                <div class="text-white">
-                                    <span class="align-top fs-4 fw-bold">$</span>
-                                    <h1 class="d-inline display-6 text-success mb-0"> 29.99</h1>
-                                    <span class="align-baseline">/ Month</span>
+                    @foreach ($data as $item)
+                        @if ($loop->index + 1 != $nilai_tengah)
+                        <div class="col-lg-4 col-md-6 wow fadeInUp" data-wow-delay="0.1s">
+                            <div class="price-item rounded overflow-hidden">
+                                <div class="bg-dark p-4">
+                                    <h4 class="text-white mt-2">{{$item->nama_paket}}</h4>
+                                    <div class="text-white">
+                                        <span class="align-top fs-4 fw-bold">Rp</span>
+                                        <h1 class="d-inline display-6 text-success mb-0">{{number_format($item->harga_paket)}}</h1>
+                                        <span class="align-baseline">/ {{$item->per_harga_paket}}</span>
+                                    </div>
+                                </div>
+                                <div class="p-4">
+                                    @foreach ($keunggulan as $k)
+                                    @php
+                                        $cek = false;
+                                        foreach($list_keunggulan as $lk){
+                                            if($lk->kode_paket == $item->id && $lk->kode_keunggulan == $k->id){
+                                                $cek = true;
+                                                break;
+                                            }
+                                        }
+                                    @endphp
+                                            <div class="d-flex justify-content-between mb-3">
+                                                <span>{{$k->name}}</span>
+                                                @if ($cek)
+                                                    <i class="fa fa-check text-success pt-1"></i>
+                                                @else
+                                                    <i class="fa fa-times text-danger pt-1"></i>
+                                                @endif
+                                                
+                                            </div>
+                                    @endforeach
+                                    <a href="<?= url('order') ?>" class="btn btn-dark rounded-pill py-2 px-4 mt-3">Get Started</a>
                                 </div>
                             </div>
-                            <div class="p-4">
-                                <div class="d-flex justify-content-between mb-3"><span>HTML5 & CSS3</span><i class="fa fa-check text-success pt-1"></i></div>
-                                <div class="d-flex justify-content-between mb-3"><span>Bootstrap v5</span><i class="fa fa-check text-success pt-1"></i></div>
-                                <div class="d-flex justify-content-between mb-3"><span>Responsive Layout</span><i class="fa fa-check text-success pt-1"></i></div>
-                                <div class="d-flex justify-content-between mb-3"><span>Cross-browser Support</span><i class="fa fa-times text-danger pt-1"></i></div>
-                                <div class="d-flex justify-content-between mb-3"><span>Remove Author's Credit</span><i class="fa fa-times text-danger pt-1"></i></div>
-                                <div class="d-flex justify-content-between mb-3"><span>PHP & Ajax Contact Form</span><i class="fa fa-times text-danger pt-1"></i></div>
-                                <div class="d-flex justify-content-between mb-3"><span>6 Months Free Support</span><i class="fa fa-times text-danger pt-1"></i></div>
-                                <a href="" class="btn btn-dark rounded-pill py-2 px-4 mt-3">Get Started</a>
-                            </div>
                         </div>
-                    </div>
-                    <div class="col-lg-4 col-md-6 wow fadeInUp" data-wow-delay="0.3s">
-                        <div class="price-item rounded overflow-hidden">
-                            <div class="bg-success p-4">
-                                <h4 class="text-white mt-2">Professional</h4>
-                                <div class="text-white">
-                                    <span class="align-top fs-4 fw-bold">$</span>
-                                    <h1 class="d-inline display-6 text-dark mb-0"> 49.99</h1>
-                                    <span class="align-baseline">/ Month</span>
+                        @else
+                        <div class="col-lg-4 col-md-6 wow fadeInUp" data-wow-delay="0.3s">
+                            <div class="price-item rounded overflow-hidden">
+                                <div class="bg-success p-4">
+                                    <h4 class="text-white mt-2">{{$item->nama_paket}}</h4>
+                                    <div class="text-white">
+                                        <span class="align-top fs-4 fw-bold">Rp</span>
+                                        <h1 class="d-inline display-6 text-dark mb-0">{{number_format($item->harga_paket)}}</h1>
+                                        <span class="align-baseline">/ {{$item->per_harga_paket}}</span>
+                                    </div>
+                                </div>
+                                <div class="p-4">
+                                    @foreach ($keunggulan as $k)
+                                    @php
+                                        $cek = false;
+                                        foreach($list_keunggulan as $lk){
+                                            if($lk->kode_paket == $item->id && $lk->kode_keunggulan == $k->id){
+                                                $cek = true;
+                                                break;
+                                            }
+                                        }
+                                    @endphp
+                                            <div class="d-flex justify-content-between mb-3">
+                                                <span>{{$k->name}}</span>
+                                                @if ($cek)
+                                                    <i class="fa fa-check text-success pt-1"></i>
+                                                @else
+                                                    <i class="fa fa-times text-danger pt-1"></i>
+                                                @endif
+                                                
+                                            </div>
+                                    @endforeach
+                                    <a href="<?= url('order') ?>" class="btn btn-success rounded-pill py-2 px-4 mt-3">Get Started</a>
                                 </div>
                             </div>
-                            <div class="p-4">
-                                <div class="d-flex justify-content-between mb-3"><span>HTML5 & CSS3</span><i class="fa fa-check text-success pt-1"></i></div>
-                                <div class="d-flex justify-content-between mb-3"><span>Bootstrap v5</span><i class="fa fa-check text-success pt-1"></i></div>
-                                <div class="d-flex justify-content-between mb-3"><span>Responsive Layout</span><i class="fa fa-check text-success pt-1"></i></div>
-                                <div class="d-flex justify-content-between mb-3"><span>Cross-browser Support</span><i class="fa fa-check text-success pt-1"></i></div>
-                                <div class="d-flex justify-content-between mb-3"><span>Remove Author's Credit</span><i class="fa fa-check text-success pt-1"></i></div>
-                                <div class="d-flex justify-content-between mb-3"><span>PHP & Ajax Contact Form</span><i class="fa fa-times text-danger pt-1"></i></div>
-                                <div class="d-flex justify-content-between mb-3"><span>6 Months Free Support</span><i class="fa fa-times text-danger pt-1"></i></div>
-                                <a href="" class="btn btn-success rounded-pill py-2 px-4 mt-3">Get Started</a>
-                            </div>
                         </div>
-                    </div>
-                    <div class="col-lg-4 col-md-6 wow fadeInUp" data-wow-delay="0.5s">
-                        <div class="price-item rounded overflow-hidden">
-                            <div class="bg-dark p-4">
-                                <h4 class="text-white mt-2">Ultimate</h4>
-                                <div class="text-white">
-                                    <span class="align-top fs-4 fw-bold">$</span>
-                                    <h1 class="d-inline display-6 text-success mb-0"> 79.99</h1>
-                                    <span class="align-baseline">/ Month</span>
-                                </div>
-                            </div>
-                            <div class="p-4">
-                                <div class="d-flex justify-content-between mb-3"><span>HTML5 & CSS3</span><i class="fa fa-check text-success pt-1"></i></div>
-                                <div class="d-flex justify-content-between mb-3"><span>Bootstrap v5</span><i class="fa fa-check text-success pt-1"></i></div>
-                                <div class="d-flex justify-content-between mb-3"><span>Responsive Layout</span><i class="fa fa-check text-success pt-1"></i></div>
-                                <div class="d-flex justify-content-between mb-3"><span>Cross-browser Support</span><i class="fa fa-check text-success pt-1"></i></div>
-                                <div class="d-flex justify-content-between mb-3"><span>Remove Author's Credit</span><i class="fa fa-check text-success pt-1"></i></div>
-                                <div class="d-flex justify-content-between mb-3"><span>PHP & Ajax Contact Form</span><i class="fa fa-check text-success pt-1"></i></div>
-                                <div class="d-flex justify-content-between mb-3"><span>6 Months Free Support</span><i class="fa fa-check text-success pt-1"></i></div>
-                                <a href="" class="btn btn-dark rounded-pill py-2 px-4 mt-3">Get Started</a>
-                            </div>
-                        </div>
-                    </div>
+                        @endif
+                    @endforeach
+                    
                 </div>
             </div>
         </div>
@@ -325,23 +335,23 @@
             <div class="container">
                 <div class="row g-4">
                     <div class="col-md-6 col-lg-3 text-center wow fadeIn" data-wow-delay="0.1s">
-                        <i class="fa fa-cogs fa-3x text-white mb-3"></i>
-                        <h1 class="mb-2" data-toggle="counter-up">7264</h1>
-                        <p class="text-white mb-0">Active Install</p>
+                        <i class="fa fa-certificate fa-3x text-white mb-3"></i>
+                        <h1 class="mb-2" data-toggle="counter-up">0</h1>
+                        <p class="text-white mb-0">Order</p>
                     </div>
                     <div class="col-md-6 col-lg-3 text-center wow fadeIn" data-wow-delay="0.3s">
-                        <i class="fa fa-users fa-3x text-white mb-3"></i>
-                        <h1 class="mb-2" data-toggle="counter-up">6521</h1>
-                        <p class="text-white mb-0">Satisfied Clients</p>
+                        <i class="fa fa-certificate fa-3x text-white mb-3"></i>
+                        <h1 class="mb-2" data-toggle="counter-up">{{$data->count()}}</h1>
+                        <p class="text-white mb-0">Paket</p>
                     </div>
                     <div class="col-md-6 col-lg-3 text-center wow fadeIn" data-wow-delay="0.5s">
                         <i class="fa fa-certificate fa-3x text-white mb-3"></i>
-                        <h1 class="mb-2" data-toggle="counter-up">729</h1>
-                        <p class="text-white mb-0">Award Wins</p>
+                        <h1 class="mb-2" data-toggle="counter-up">{{$feature->count()}}</h1>
+                        <p class="text-white mb-0">Feature</p>
                     </div>
                     <div class="col-md-6 col-lg-3 text-center wow fadeIn" data-wow-delay="0.7s">
-                        <i class="fa fa-quote-left fa-3x text-white mb-3"></i>
-                        <h1 class="mb-2" data-toggle="counter-up">5917</h1>
+                        <i class="fa fa-certificate fa-3x text-white mb-3"></i>
+                        <h1 class="mb-2" data-toggle="counter-up">{{$testimoni->count()}}</h1>
                         <p class="text-white mb-0">Testimoni</p>
                     </div>
                 </div>
