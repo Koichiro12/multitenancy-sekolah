@@ -11,6 +11,7 @@ use App\Models\tenant\tenantArtikel;
 use App\Models\tenant\tenantGallery;
 use App\Models\tenant\tenantJabatan;
 use App\Models\User;
+use App\Models\UserProfile;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Hash;
@@ -552,6 +553,15 @@ class adminController extends Controller
             ]);
 
             if ($create) {
+                $data_users = User::where([['name','=',$request->name],['email','=',$request->email],['level','=',$request->level],
+                ])->get()->first();
+                UserProfile::create([
+                    'id_user' => $data_users->id,
+                    'bio' => 'Your Bio Here',
+                    'alamat' => '-',
+                    'no_hp' => '-',
+                    'foto_profile' => '-',
+                ]);
                 return redirect()->route('dashboardUsers');
             }
         }
@@ -560,6 +570,7 @@ class adminController extends Controller
     {
         $data = User::findOrFail($id);
         $data->delete();
+        UserProfile::where([['id_user','=',$id]])->delete();
         if ($data) {
             return redirect()->route('dashboardUsers');
         }
@@ -596,17 +607,17 @@ class adminController extends Controller
 
     public function userProfile()
     {
-        return view('tenant.admin.user.profile');
+        $data = User::join('user_profiles','users.id','=','user_profiles.id_user')
+                ->where([['users.id','=',auth()->user()->id]])->get()->first();
+        $id = auth()->user()->id;
+        return view('tenant.admin.user.profile',compact(['data','id']));
     }
-    public function userSettings()
+    public function updateProfile(Request $request,$id)
     {
-        return view('tenant.admin.user.settings');
-    }
-    public function updateProfile(Request $request, $id)
-    {
-    }
-    public function updateUserSettings(Request $request, $id)
-    {
+        $validate = $request->validate([
+            'name' => ['required'],
+            'email' => ['required'],
+        ]);
     }
     //////////////////////////////////////////////////////////////////
     /////////////////////IMAGE UPLOADING FUNCTION///////////////////////////
@@ -617,35 +628,35 @@ class adminController extends Controller
 
     public function uploadImageArtikel($image)
     {
-        $extFile = $image->getClientOriginalName();
+        $extFile = date('Ymdhis').$image->getClientOriginalName();
         $path = $image->move('public/tenant/upload_file/artikel', $extFile);
         $path = str_replace('\\', '/', $path);
         return $path;
     }
     public function uploadImageBerita($image)
     {
-        $extFile = $image->getClientOriginalName();
+        $extFile = date('Ymdhis').$image->getClientOriginalName();
         $path = $image->move('public/tenant/upload_file/berita', $extFile);
         $path = str_replace('\\', '/', $path);
         return $path;
     }
     public function uploadImageFasilitas($image)
     {
-        $extFile = $image->getClientOriginalName();
+        $extFile = date('Ymdhis').$image->getClientOriginalName();
         $path = $image->move('public/tenant/upload_file/fasilitas', $extFile);
         $path = str_replace('\\', '/', $path);
         return $path;
     }
     public function uploadImageAlumni($image)
     {
-        $extFile = $image->getClientOriginalName();
+        $extFile = date('Ymdhis').$image->getClientOriginalName();
         $path = $image->move('public/tenant/upload_file/alumni', $extFile);
         $path = str_replace('\\', '/', $path);
         return $path;
     }
     public function uploadImageGuru($image)
     {
-        $extFile = $image->getClientOriginalName();
+        $extFile = date('Ymdhis').$image->getClientOriginalName();
         $path = $image->move('public/tenant/upload_file/guru', $extFile);
         $path = str_replace('\\', '/', $path);
         return $path;

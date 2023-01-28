@@ -58,7 +58,7 @@ Route::middleware([
         Route::middleware(['tenant-auth'])->group(function () {
             //User Route
             Route::get('/user-profile', [adminController::class, 'userProfile'])->name('userProfile');
-            Route::get('/user-settings', [adminController::class, 'userSettings'])->name('userSettings');
+            Route::post('/update-profile-{id}', [adminController::class, 'updateProfile'])->name('updateProfile');
             // dashboard route
             Route::get('/dashboard', [adminController::class, 'index'])->name('dashboard');
 
@@ -70,7 +70,6 @@ Route::middleware([
             Route::get('/dashboard-artikel-del-{id}', [adminController::class, 'deleteArtikel'])->name('dashboardArtikelDel');
             Route::get('/dashboard-artikel-show-{id}', [adminController::class, 'showArtikel'])->name('dashboardArtikelShow');
             Route::post('/dashboard-artikel-update-{id}', [adminController::class, 'updateArtikel'])->name('dashboardArtikelUpdate');
-
 
             // dashboard route berita
             Route::get('/dashboard-berita', [adminController::class, 'berita'])->name('dashboardBerita');
