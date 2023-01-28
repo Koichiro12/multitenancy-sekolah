@@ -113,6 +113,14 @@ Route::middleware([
             Route::get('/dashboard-jabatan-del-{id}', [adminController::class, 'deleteJabatan'])->name('dashboardJabatanDel');
             Route::get('/dashboard-jabatan-show-{id}', [adminController::class, 'showJabatan'])->name('dashboardJabatanShow');
             Route::post('/dashboard-jabatan-update-{id}', [adminController::class, 'updateJabatan'])->name('dashboardJabatanUpdate');
+            // dashboard route gallery
+            Route::get('/dashboard-gallery', [adminController::class, 'gallery'])->name('dashboardGallery');
+            Route::get('/dashboard-gallery-create', [adminController::class, 'createGallery'])->name('dashboarGalleryCreate');
+            Route::get('/dashboard-gallery-edit-{id}', [adminController::class, 'editGallery'])->name('dashboardGalleryEdit');
+            Route::post('/dashboard-gallery-add', [adminController::class, 'addGallery'])->name('dashboardGalleryAdd');
+            Route::get('/dashboard-gallery-del-{id}', [adminController::class, 'deleteGallery'])->name('dashboardGalleryDel');
+            Route::get('/dashboard-gallery-show-{id}', [adminController::class, 'showGallery'])->name('dashboardGalleryShow');
+            Route::post('/dashboard-gallery-update-{id}', [adminController::class, 'updateGallery'])->name('dashboardGalleryUpdate');
             // dashboard route User
             Route::get('/dashboard-users', [adminController::class, 'users'])->name('dashboardUsers');
             Route::get('/dashboard-users-create', [adminController::class, 'createUsers'])->name('dashboarUsersCreate');

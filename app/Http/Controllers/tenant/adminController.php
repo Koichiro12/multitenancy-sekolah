@@ -8,6 +8,7 @@ use App\Models\tenant\tenantBerita;
 use App\Models\tenant\tenantFasilitas;
 use App\Models\tenant\tenantGuru;
 use App\Models\tenant\tenantArtikel;
+use App\Models\tenant\tenantGallery;
 use App\Models\tenant\tenantJabatan;
 use App\Models\User;
 use Illuminate\Http\Request;
@@ -442,6 +443,76 @@ class adminController extends Controller
         $berita->save();
         return redirect()->route('dashboardArtikel');
     }
+    //////////////////////////////////////////////////////////////////
+    /////////////////////GALLERY FUNCTION///////////////////////////
+    /////////////////////GALLERY FUNCTION///////////////////////////
+    /////////////////////GALLERY FUNCTION///////////////////////////
+    //////////////////////////////////////////////////////////////////
+    public function gallery()
+    {
+        $gallery = tenantGallery::get();
+        return view('tenant.admin.gallery.index', compact('gallery'));
+    }
+    public function createGallery()
+    {
+        return view('tenant.admin.gallery.create');
+    }
+    public function editGallery($id)
+    {
+        $showGallery = tenantGallery::findOrFail($id);
+        if ($showGallery) {
+            return view('tenant.admin.artikel.edit', compact(['showGallery']));
+        }
+    }
+    public function addGallery(Request $request)
+    {
+        $request->validate([
+            'nama' => 'required',
+            'image' => 'required|unique:berita|image|mimes:jpg,png,jpeg,gif,svg',
+            'deskripsi' => 'required',
+        ]);
+        $image = $this->uploadImageGallery($request->image);
+        $file = new tenantGallery();
+        $file->nama = $request->nama;
+        $file->deskripsi = $request->deskripsi;
+        $file->image = $image;
+        $file->save();
+        return redirect()->route('dashboardGallery');
+    }
+    public function deleteGallery($id)
+    {
+        $gallery = tenantGallery::find($id);
+        $image = public_path($gallery->image);
+        if ($image) {
+            unlink($gallery->image);
+        }
+        tenantGallery::destroy($id);
+        return redirect()->route('dashboardGallery');
+    }
+    public function showGallery($id)
+    {
+        $showGallery = tenantGallery::find($id);
+        return view('tenant.admin.artikel.edit', compact('showGallery'));
+    }
+    public function updateGallery(Request $request, $id)
+
+    {
+        $request->validate([
+            'nama' => 'required',
+            'image' => 'required|unique:berita|image|mimes:jpg,png,jpeg,gif,svg',
+            'deskripsi' => 'required',
+        ]);
+        $gallery = tenantGallery::find($id);
+        if (!empty($request->image)) {
+            unlink($gallery->image);
+            $image = $this->uploadImageGallery($request->image);
+            $gallery->image = $image;
+        }
+        $gallery->nama = $request->nama;
+        $gallery->deskripsi = $request->deskripsi;
+        $gallery->save();
+        return redirect()->route('dashboardGallery');
+    }
 
     //////////////////////////////////////////////////////////////////
     /////////////////////USERS FUNCTION///////////////////////////
@@ -479,7 +550,7 @@ class adminController extends Controller
                 'password' => Hash::make($request->password),
                 'level' => $request->level,
             ]);
-            
+
             if ($create) {
                 return redirect()->route('dashboardUsers');
             }
@@ -576,6 +647,13 @@ class adminController extends Controller
     {
         $extFile = $image->getClientOriginalName();
         $path = $image->move('public/tenant/upload_file/guru', $extFile);
+        $path = str_replace('\\', '/', $path);
+        return $path;
+    }
+    public function uploadImageGallery($image)
+    {
+        $extFile = $image->getClientOriginalName();
+        $path = $image->move('public/tenant/upload_file/gallery', $extFile);
         $path = str_replace('\\', '/', $path);
         return $path;
     }
