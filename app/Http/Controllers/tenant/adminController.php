@@ -7,6 +7,8 @@ use App\Models\tenant\tenantAlumni;
 use App\Models\tenant\tenantBerita;
 use App\Models\tenant\tenantFasilitas;
 use App\Models\tenant\tenantGuru;
+use App\Models\tenant\tenantArtikel;
+use App\Models\tenant\tenantJabatan;
 use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
@@ -17,9 +19,10 @@ class adminController extends Controller
 {
     public function index()
     {
-            return view('tenant.admin.dashboard');
+        return view('tenant.admin.dashboard');
     }
-    public function createBerita(){
+    public function createBerita()
+    {
         return view('tenant.admin.news.create');
     }
     public function berita()
@@ -60,13 +63,13 @@ class adminController extends Controller
         $showBerita = tenantBerita::find($id);
         return view('tenant.admin.news.edit', compact('showBerita'));
     }
-    public function editBerita($id){
-        
+    public function editBerita($id)
+    {
+
         $showBerita = tenantBerita::findOrFail($id);
-        if($showBerita){
+        if ($showBerita) {
             return view('tenant.admin.news.edit', compact(['showBerita']));
         }
-        
     }
     public function updateBerita(Request $request, $id)
     {
@@ -100,12 +103,14 @@ class adminController extends Controller
         $fasilitas = tenantFasilitas::get();
         return view('tenant.admin.fasilitas.index', compact('fasilitas'));
     }
-    public function createFasilitas(){
+    public function createFasilitas()
+    {
         return view('tenant.admin.fasilitas.create');
     }
-    public function editFasilitas($id){
+    public function editFasilitas($id)
+    {
         $showFasilitas = tenantFasilitas::findOrFail($id);
-        if($showFasilitas){
+        if ($showFasilitas) {
             return view('tenant.admin.fasilitas.edit', compact(['showFasilitas']));
         }
     }
@@ -167,15 +172,17 @@ class adminController extends Controller
     //////////////////////////////////////////////////////////////////
     public function alumni()
     {
-        $alumni = tenantAlumni::get(); 
+        $alumni = tenantAlumni::get();
         return view('tenant.admin.alumni.index', compact('alumni'));
     }
-    public function createAlumni(){
+    public function createAlumni()
+    {
         return view('tenant.admin.alumni.create');
     }
-    public function editAlumni($id){
+    public function editAlumni($id)
+    {
         $alumni = tenantAlumni::findOrFail($id);
-        if($alumni){
+        if ($alumni) {
             return view('tenant.admin.alumni.edit', compact(['alumni']));
         }
     }
@@ -209,7 +216,7 @@ class adminController extends Controller
     public function showAlumni($id)
     {
         $showAlumni = tenantAlumni::find($id);
-        return view('tenant.admin.editAlumni', compact('showAlumni'));
+        return view('tenant.admin.alumni.edit', compact('showAlumni'));
     }
     public function updateAlumni(Request $request, $id)
     {
@@ -242,12 +249,15 @@ class adminController extends Controller
         $guru = tenantGuru::get();
         return view('tenant.admin.guru.index', compact('guru'));
     }
-    public function createGuru(){
-        return view('tenant.admin.guru.create');
+    public function createGuru()
+    {
+        $jabatan = tenantJabatan::get();
+        return view('tenant.admin.guru.create', compact('jabatan'));
     }
-    public function editGuru($id){
+    public function editGuru($id)
+    {
         $guru = tenantGuru::findOrFail($id);
-        if($guru){
+        if ($guru) {
             return view('tenant.admin.guru.edit', compact(['guru']));
         }
     }
@@ -256,12 +266,13 @@ class adminController extends Controller
         $request->validate([
             'nama' => 'required',
             'deskripsi' => 'required',
+            'kategori' => 'required',
             'image' => 'required|unique:guru|image|mimes:jpg,png,jpeg,gif,svg',
         ]);
         $image = $this->uploadImageGuru($request->image);
         $file = new tenantGuru();
         $file->nama = $request->nama;
-        $file->kategori =  'guru';
+        $file->kategori =  $request->kategori;
         $file->deskripsi = $request->deskripsi;
         $file->image = $image;
         $file->save();
@@ -280,12 +291,13 @@ class adminController extends Controller
     public function showGuru($id)
     {
         $showGuru = tenantGuru::find($id);
-        return view('tenant.admin.editGuru', compact('showGuru'));
+        return view('tenant.admin.guru.edit', compact('showGuru'));
     }
     public function updateGuru(Request $request, $id)
     {
         $request->validate([
             'nama' => 'required',
+            'kategori' => 'required',
             'deskripsi' => 'required',
             'image' => 'required|unique:guru|image|mimes:jpg,png,jpeg,gif,svg',
         ]);
@@ -296,47 +308,139 @@ class adminController extends Controller
             $guru->image = $image;
         }
         $guru->nama = $request->nama;
-        $guru->kategori = 'guru';
+        $guru->kategori = $request->kategori;
         $guru->deskripsi = $request->deskripsi;
         $guru->image = $image;
         $guru->save();
         return redirect()->route('dashboardGuru');
     }
+    //////////////////////////////////////////////////////////////////
+    /////////////////////JABATAN FUNCTION///////////////////////////
+    /////////////////////JABATAN FUNCTION///////////////////////////
+    /////////////////////JABATAN FUNCTION///////////////////////////
+    //////////////////////////////////////////////////////////////////
+    public function jabatan()
+    {
+        $jabatan = tenantJabatan::get();
+        return view('tenant.admin.jabatan.index', compact('jabatan'));
+    }
+    public function createJabatan()
+    {
+        return view('tenant.admin.jabatan.create');
+    }
+    public function editJabatan($id)
+    {
+        $showJabatan = tenantJabatan::findOrFail($id);
+        if ($showJabatan) {
+            return view('tenant.admin.jabatan.edit', compact(['showJabatan']));
+        }
+    }
+    public function addJabatan(Request $request)
+    {
+        $request->validate([
+            'nama' => 'required',
+        ]);
+        $file = new tenantJabatan();
+        $file->nama_jabatan = $request->nama;
+        $file->save();
+        return redirect()->route('dashboardJabatan');
+    }
+    public function deleteJabatan($id)
+    {
+        tenantJabatan::destroy($id);
+        return redirect()->route('dashboardJabatan');
+    }
+    public function showJabatan($id)
+    {
+        $showJabatan = tenantJabatan::find($id);
+        return view('tenant.admin.jabatan.edit', compact('showJabatan'));
+    }
+    public function updateJabatan(Request $request, $id)
+    {
+        $request->validate([
+            'nama' => 'required',
+        ]);
+        $jabatan = tenantJabatan::find($id);
+        $jabatan->nama_jabatan = $request->nama;
+        $jabatan->save();
+        return redirect()->route('dashboardJabatan');
+    }
 
     //////////////////////////////////////////////////////////////////
-    /////////////////////USERS FUNCTION///////////////////////////
-    /////////////////////USERS FUNCTION///////////////////////////
-    /////////////////////USERS FUNCTION///////////////////////////
+    /////////////////////ARTIKEL FUNCTION///////////////////////////
+    /////////////////////ARTIKEL FUNCTION///////////////////////////
+    /////////////////////ARTIKEL FUNCTION///////////////////////////
     //////////////////////////////////////////////////////////////////
     public function artikel()
     {
-        $users = User::get();
-        return view('tenant.admin.artikel.index', compact('users'));
+        $artikel = tenantArtikel::get();
+        return view('tenant.admin.artikel.index', compact('artikel'));
     }
-    public function createArtikel(){
+    public function createArtikel()
+    {
         return view('tenant.admin.artikel.create');
     }
-    public function editArtikel($id){
-        $users = User::findOrFail($id);
-        if($users){
-            return view('tenant.admin.artikel.edit', compact(['users']));
+    public function editArtikel($id)
+    {
+        $showArtikel = tenantArtikel::findOrFail($id);
+        if ($showArtikel) {
+            return view('tenant.admin.artikel.edit', compact(['showArtikel']));
         }
     }
     public function addArtikel(Request $request)
     {
-       
+        $request->validate([
+            'judul' => 'required',
+            'keyword' => 'required',
+            'image' => 'required|unique:berita|image|mimes:jpg,png,jpeg,gif,svg',
+            'deskripsi' => 'required',
+        ]);
+        $image = $this->uploadImageArtikel($request->image);
+        $file = new TenantArtikel();
+        $file->judul = $request->judul;
+        $file->kategori = 'artikel';
+        $file->keyword = $request->keyword;
+        $file->deskripsi = $request->deskripsi;
+        $file->image = $image;
+        $file->save();
+        return redirect()->route('dashboardArtikel');
     }
     public function deleteArtikel($id)
     {
-      
+        $artikel = tenantArtikel::find($id);
+        $image = public_path($artikel->image);
+        if ($image) {
+            unlink($artikel->image);
+        }
+        tenantArtikel::destroy($id);
+        return redirect()->route('dashboardArtikel');
     }
     public function showArtikel($id)
     {
-      
+        $showArtikel = tenantArtikel::find($id);
+        return view('tenant.admin.artikel.edit', compact('showArtikel'));
     }
     public function updateArtikel(Request $request, $id)
+
     {
-       
+        $request->validate([
+            'judul' => 'required',
+            'keyword' => 'required',
+            'image' => 'required|unique:berita|image|mimes:jpg,png,jpeg,gif,svg',
+            'deskripsi' => 'required',
+        ]);
+        $berita = tenantArtikel::find($id);
+        if (!empty($request->image)) {
+            unlink($berita->image);
+            $image = $this->uploadImageArtikel($request->image);
+            $berita->image = $image;
+        }
+        $berita->judul = $request->judul;
+        $berita->keyword = $request->keyword;
+        $berita->kategori = 'kategori';
+        $berita->deskripsi = $request->deskripsi;
+        $berita->save();
+        return redirect()->route('dashboardArtikel');
     }
 
     //////////////////////////////////////////////////////////////////
@@ -349,55 +453,56 @@ class adminController extends Controller
         $users = User::latest()->get();
         return view('tenant.admin.users.index', compact('users'));
     }
-    public function createUsers(){
+    public function createUsers()
+    {
         return view('tenant.admin.users.create');
     }
-    public function editUsers($id){
+    public function editUsers($id)
+    {
         $users = User::findOrFail($id);
-        if($users){
+        if ($users) {
             return view('tenant.admin.users.edit', compact(['users']));
         }
     }
     public function addUsers(Request $request)
     {
-       $validate = $request->validate([
+        $validate = $request->validate([
             'name' => ['required'],
-            'email' => ['required','email'],
+            'email' => ['required', 'email'],
             'password' => ['required'],
             'level' => ['required'],
-       ]);
-       if($validate){
+        ]);
+        if ($validate) {
             $create = User::create([
                 'name' => $request->name,
                 'email' => $request->email,
                 'password' => Hash::make($request->password),
                 'level' => $request->level,
             ]);
-            if($create){
+            if ($create) {
                 return redirect()->route('dashboardUsers');
             }
-       }
+        }
     }
     public function deleteUsers($id)
     {
-      $data = User::findOrFail($id);
-      $data->delete();
-      if($data){
-        return redirect()->route('dashboardUsers');
-      }
+        $data = User::findOrFail($id);
+        $data->delete();
+        if ($data) {
+            return redirect()->route('dashboardUsers');
+        }
     }
     public function showUsers($id)
     {
-      
     }
     public function updateUsers(Request $request, $id)
     {
         $validate = $request->validate([
             'name' => ['required'],
-            'email' => ['required','email'],
+            'email' => ['required', 'email'],
             'level' => ['required'],
-       ]);
-       if($validate){
+        ]);
+        if ($validate) {
             $update = User::findOrFail($id);
             $pass = $request->password != null ? Hash::make($request->password) : $update->password;
             $update->update([
@@ -406,10 +511,10 @@ class adminController extends Controller
                 'password' => $pass,
                 'level' => $request->level,
             ]);
-            if($update){
+            if ($update) {
                 return redirect()->route('dashboardUsers');
             }
-       }
+        }
     }
     //////////////////////////////////////////////////////////////////
     /////////////////////USER FUNCTION///////////////////////////
@@ -417,25 +522,34 @@ class adminController extends Controller
     /////////////////////USER FUNCTION///////////////////////////
     //////////////////////////////////////////////////////////////////
 
-    public function userProfile(){
+    public function userProfile()
+    {
         return view('tenant.admin.user.profile');
     }
-    public function userSettings(){
+    public function userSettings()
+    {
         return view('tenant.admin.user.settings');
     }
-    public function updateProfile(Request $request,$id){
-
+    public function updateProfile(Request $request, $id)
+    {
     }
-    public function updateUserSettings(Request $request,$id){
-        
+    public function updateUserSettings(Request $request, $id)
+    {
     }
     //////////////////////////////////////////////////////////////////
     /////////////////////IMAGE UPLOADING FUNCTION///////////////////////////
     /////////////////////IMAGE UPLOADING FUNCTION///////////////////////////
     /////////////////////IMAGE UPLOADING FUNCTION///////////////////////////
     //////////////////////////////////////////////////////////////////
-    
 
+
+    public function uploadImageArtikel($image)
+    {
+        $extFile = $image->getClientOriginalName();
+        $path = $image->move('public/tenant/upload_file/artikel', $extFile);
+        $path = str_replace('\\', '/', $path);
+        return $path;
+    }
     public function uploadImageBerita($image)
     {
         $extFile = $image->getClientOriginalName();

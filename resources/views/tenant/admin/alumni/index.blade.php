@@ -10,10 +10,10 @@
                         <h5 class="card-title">Data Alumni</h5>
                     </div>
                     <div class="col-md-2">
-                    <a href="#" class="btn btn-primary">Tambah</a>
+                        <a href="{{ route('dashboardAlumniCreate') }}" class="btn btn-primary">Tambah</a>
                     </div>
                 </div>
- 
+
             </div>
             <div class="w-100 ">
                 <table class="table ">
@@ -53,8 +53,7 @@
                                                     aria-label="Close"></button>
                                             </div>
                                             <div class="modal-body">
-                                                <img src="{{ $a->image }}" class="img-fluid"
-                                                    alt="{{ $a->image }}">
+                                                <img src="{{ $a->image }}" class="img-fluid" alt="{{ $a->image }}">
                                             </div>
                                             <div class="modal-footer">
                                                 <button type="button" class="btn btn-secondary"
@@ -70,11 +69,9 @@
                                             <i class="bx bx-dots-vertical-rounded"></i>
                                         </button>
                                         <div class="dropdown-menu">
-                                            <a class="dropdown-item"
-                                                href="{{ route('dashboardAlumniShow', [$a->id]) }}"><i
+                                            <a class="dropdown-item" href="{{ route('dashboardAlumniShow', [$a->id]) }}"><i
                                                     class="bx bx-edit-alt me-1"></i> Edit</a>
-                                            <a class="dropdown-item"
-                                                href="{{ route('dashboardAlumniDel', [$a->id]) }}"><i
+                                            <a class="dropdown-item" href="{{ route('dashboardAlumniDel', [$a->id]) }}"><i
                                                     class="bx bx-trash me-1"></i>
                                                 Delete</a>
                                         </div>

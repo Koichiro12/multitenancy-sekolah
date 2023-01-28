@@ -100,7 +100,7 @@
                     </a>
                 </li>
                 <li class="menu-item">
-                    <a href="{{route('dashboardArtikel')}}" class="menu-link">
+                    <a href="{{ route('dashboardArtikel') }}" class="menu-link">
                         <div data-i18n="Basic">Artikel</div>
                     </a>
                 </li>
@@ -126,8 +126,15 @@
             </a>
             <ul class="menu-sub">
                 <li class="menu-item">
-                    <a href="{{route('dashboardGuru')}}" class="menu-link">
+                    <a href="{{ route('dashboardGuru') }}" class="menu-link">
                         <div data-i18n="Basic">Data Guru</div>
+                    </a>
+                </li>
+            </ul>
+            <ul class="menu-sub">
+                <li class="menu-item">
+                    <a href="{{ route('dashboardJabatan') }}" class="menu-link">
+                        <div data-i18n="Basic">Data Jabatan</div>
                     </a>
                 </li>
             </ul>
@@ -136,7 +143,7 @@
         <li class="menu-header small text-uppercase"><span class="menu-header-text">Authentikasi</span></li>
         <!-- Cards -->
         <li class="menu-item">
-            <a href="{{route('dashboardUsers')}}" class="menu-link">
+            <a href="{{ route('dashboardUsers') }}" class="menu-link">
                 <i class="menu-icon tf-icons bx bx-collection"></i>
                 <div data-i18n="Basic">Users</div>
             </a>

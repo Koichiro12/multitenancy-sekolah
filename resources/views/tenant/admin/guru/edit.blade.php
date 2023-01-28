@@ -21,6 +21,18 @@
                         </div>
                     @enderror
                 </div>
+                <div class="mb-3">
+                    <label for="exampleFormControlInput1" class="form-label">Kategori Guru</label>
+                    <input type="text" name="kategori" value="{{ $showGuru->kategori }}"
+                        class="form-control
+                        @error('kategori') border-danger  @enderror"
+                        id="exampleFormControlInput1">
+                    @error('kategori')
+                        <div class="text-danger">
+                            {{ $message }}
+                        </div>
+                    @enderror
+                </div>
 
                 <div class="mb-3">
                     <label for="formFile" class="form-label">Foto Guru</label>

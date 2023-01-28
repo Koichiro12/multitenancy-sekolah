@@ -52,14 +52,14 @@ Route::middleware([
     //Authetications
     Route::get('/signin', [TenantAuthController::class, 'login'])->name('signin');
     Route::post('/auth', [TenantAuthController::class, 'authenticate'])->name('auth');
-    Route::post('/signout',[TenantAuthController::class,'logout'])->name('signout');
+    Route::post('/signout', [TenantAuthController::class, 'logout'])->name('signout');
 
-    Route::middleware(['universal'])->group(function(){
-        Route::middleware(['tenant-auth'])->group(function(){
+    Route::middleware(['universal'])->group(function () {
+        Route::middleware(['tenant-auth'])->group(function () {
             //User Route
             Route::get('/user-profile', [adminController::class, 'userProfile'])->name('userProfile');
             Route::get('/user-settings', [adminController::class, 'userSettings'])->name('userSettings');
-             // dashboard route
+            // dashboard route
             Route::get('/dashboard', [adminController::class, 'index'])->name('dashboard');
 
             // dashboard route Artikel
@@ -69,8 +69,8 @@ Route::middleware([
             Route::post('/dashboard-artikel-add', [adminController::class, 'addArtikel'])->name('dashboardArtikelAdd');
             Route::get('/dashboard-artikel-del-{id}', [adminController::class, 'deleteArtikel'])->name('dashboardArtikelDel');
             Route::get('/dashboard-artikel-show-{id}', [adminController::class, 'showArtikel'])->name('dashboardArtikelShow');
-            Route::post('/dashboard-artikel-update-{id}', [adminController::class, 'updateArtikel'])->name('dashboardArtikeUpdate');
-            
+            Route::post('/dashboard-artikel-update-{id}', [adminController::class, 'updateArtikel'])->name('dashboardArtikelUpdate');
+
 
             // dashboard route berita
             Route::get('/dashboard-berita', [adminController::class, 'berita'])->name('dashboardBerita');
@@ -80,7 +80,7 @@ Route::middleware([
             Route::get('/dashboard-berita-del-{id}', [adminController::class, 'deleteBerita'])->name('dashboardBeritaDel');
             Route::get('/dashboard-berita-show-{id}', [adminController::class, 'showBerita'])->name('dashboardBeritaShow');
             Route::post('/dashboard-berita-update-{id}', [adminController::class, 'updateBerita'])->name('dashboardBeritaUpdate');
-            
+
             // dashboard route fasilitas
             Route::get('/dashboard-fasilitas', [adminController::class, 'fasilitas'])->name('dashboardFasilitas');
             Route::get('/dashboard-fasilitas-create', [adminController::class, 'createFasilitas'])->name('dashboardFasilitasCreate');
@@ -105,6 +105,14 @@ Route::middleware([
             Route::get('/dashboard-guru-del-{id}', [adminController::class, 'deleteGuru'])->name('dashboardGuruDel');
             Route::get('/dashboard-guru-show-{id}', [adminController::class, 'showGuru'])->name('dashboardGuruShow');
             Route::post('/dashboard-guru-update-{id}', [adminController::class, 'updateGuru'])->name('dashboardGuruUpdate');
+            // dashboard route jabatan
+            Route::get('/dashboard-jabatan', [adminController::class, 'jabatan'])->name('dashboardJabatan');
+            Route::get('/dashboard-jabatan-create', [adminController::class, 'createJabatan'])->name('dashboarJabatanCreate');
+            Route::get('/dashboard-jabatan-edit-{id}', [adminController::class, 'editJabatan'])->name('dashboardJabatanEdit');
+            Route::post('/dashboard-jabatan-add', [adminController::class, 'addJabatan'])->name('dashboardJabatanAdd');
+            Route::get('/dashboard-jabatan-del-{id}', [adminController::class, 'deleteJabatan'])->name('dashboardJabatanDel');
+            Route::get('/dashboard-jabatan-show-{id}', [adminController::class, 'showJabatan'])->name('dashboardJabatanShow');
+            Route::post('/dashboard-jabatan-update-{id}', [adminController::class, 'updateJabatan'])->name('dashboardJabatanUpdate');
             // dashboard route User
             Route::get('/dashboard-users', [adminController::class, 'users'])->name('dashboardUsers');
             Route::get('/dashboard-users-create', [adminController::class, 'createUsers'])->name('dashboarUsersCreate');
@@ -115,5 +123,4 @@ Route::middleware([
             Route::post('/dashboard-users-update-{id}', [adminController::class, 'updateUsers'])->name('dashboardUsersUpdate');
         });
     });
-
 });
