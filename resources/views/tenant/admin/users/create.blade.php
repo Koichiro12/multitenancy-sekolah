@@ -1,52 +1,55 @@
 @extends('tenant.admin.layout.index')
 @section('content')
     <div class="container-xxl flex-grow-1 container-p-y">
-        <h4 class="fw-bold py-3 mb-4"><span class="text-muted fw-light">Dashboard /</span>Create Berita</h4>
+        <h4 class="fw-bold py-3 mb-4"><span class="text-muted fw-light">Dashboard /</span>Create Users</h4>
         <div class="card mb-4">
-            <h5 class="card-header">Tambahkan Berita</h5>
-            <form action="{{ route('dashboardBeritaAdd') }}" method="POST" enctype="multipart/form-data" class="card-body">
+            <h5 class="card-header">Tambahkan Users</h5>
+            <form action="{{ route('dashboardUsersAdd') }}" method="POST" enctype="multipart/form-data" class="card-body">
                 @csrf
                 <div class="mb-3">
-                    <label for="exampleFormControlInput1" class="form-label">Judul Berita</label>
-                    <input type="text" name="judul" class="form-control @error('judul') border-danger  @enderror"
-                        id="exampleFormControlInput1">
-                    @error('judul')
+                    <label for="exampleFormControlInput1" class="form-label">Username</label>
+                    <input type="text" name="name" class="form-control @error('name') border-danger  @enderror"
+                        id="exampleFormControlInput1" required>
+                    @error('name')
                         <div class="text-danger">
                             {{ $message }}
                         </div>
                     @enderror
                 </div>
                 <div class="mb-3">
-                    <label for="exampleFormControlInput1" class="form-label">Kata Kunci</label>
-                    <input type="text" name="keyword" class="form-control  @error('keyword') border-danger @enderror"
-                        id="exampleFormControlInput1">
-                    @error('keyword')
+                    <label for="exampleFormControlInput1" class="form-label">Email</label>
+                    <input type="mail" name="email" class="form-control  @error('email') border-danger @enderror"
+                        id="exampleFormControlInput1" required>
+                    @error('email')
                         <div class="text-danger">
                             {{ $message }}
                         </div>
                     @enderror
                 </div>
                 <div class="mb-3">
-                    <label for="formFile" class="form-label">Gambar Berita</label>
-                    <input name="image" class="form-control  @error('image') border-danger  @enderror" type="file"
-                        id="formFile">
-                    @error('image')
+                    <label for="exampleFormControlInput1" class="form-label">Password</label>
+                    <input type="password" name="password" class="form-control  @error('password') border-danger @enderror"
+                        id="exampleFormControlInput1" required>
+                    @error('password')
                         <div class="text-danger">
                             {{ $message }}
                         </div>
                     @enderror
                 </div>
                 <div class="mb-3">
-                    <label for="exampleFormControlTextarea1" class="form-label">Deskripsi Berita</label>
-                    <textarea name="deskripsi" class="form-control  @error('deskripsi') border-danger  @enderror"
-                        id="exampleFormControlTextarea1" rows="3"></textarea>
-                    @error('deskripsi')
+                    <label for="exampleFormControlInput1" class="form-label">Level</label>
+                    <select name="level" id="level" class="form-control @error('level') border-danger @enderror" required>
+                        <option value="">-- Pilih Level</option>
+                        <option value="0">Administrator</option>
+                    </select>
+                    @error('level')
                         <div class="text-danger">
                             {{ $message }}
                         </div>
                     @enderror
                 </div>
                 <button type="submit" class="btn btn-primary">Send</button>
+                <a href="{{route('dashboardUsers')}}" class="btn btn-danger">Cancel</a>
             </form>
         </div>
 

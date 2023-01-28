@@ -138,12 +138,6 @@
           </li>
           <li class="nav-item nav-category">Administrator</li>
           <li class="nav-item">
-            <a class="nav-link" href="<?= url('/') ?>">
-              <i class="menu-icon mdi mdi-city"></i>
-              <span class="menu-title">Identitas Website</span>
-            </a>
-          </li>
-          <li class="nav-item">
             <a class="nav-link" href="{{route('users.index')}}">
               <i class="menu-icon mdi mdi-account-card-details"></i>
               <span class="menu-title">Users</span>

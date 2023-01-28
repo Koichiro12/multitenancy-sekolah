@@ -34,7 +34,7 @@
                                         <td>{{$item->subject}}</td>
                                         <td>{{$item->message}}</td>
                                         <td>
-                                            <a href="{{ route('contact.edit',$item->id) }}" class="btn btn-warning"><i class="fas fa-eye"></i> View</a>
+                                            <a href="{{ route('contact.show',$item->id) }}" class="btn btn-warning"><i class="fas fa-eye"></i> View</a>
                                         </td>
                                     </tr>
                                 @empty

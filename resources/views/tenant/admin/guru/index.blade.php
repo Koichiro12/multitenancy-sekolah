@@ -10,13 +10,13 @@
                         <h5 class="card-title">Data Guru</h5>
                     </div>
                     <div class="col-md-2">
-                    <a href="#" class="btn btn-primary">Tambah</a>
+                    <a href="{{route('dashboarGuruCreate')}}" class="btn btn-primary">Tambah</a>
                     </div>
                 </div>
  
             </div>
             <div class="w-100 ">
-                <table class="table table-dark">
+                <table class="table">
                     <thead>
                         <tr>
                             <th>Id</th>

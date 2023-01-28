@@ -67,6 +67,8 @@ class ContactController extends Controller
     public function show($id)
     {
         //
+        $data = Contact::findOrFail($id);
+        return view('central.admin.contact.view',compact(['data']));
     }
 
     /**

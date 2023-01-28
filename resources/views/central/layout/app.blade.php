@@ -99,11 +99,11 @@
                     </div>
                     <div class="col-md-6 col-lg-4">
                         <p class="section-title text-white h5 mb-4">Quick Link<span></span></p>
-                        <a class="btn btn-link" href="">About</a>
-                        <a class="btn btn-link" href="">Contact</a>
-                        <a class="btn btn-link" href="">Privacy Policy</a>
-                        <a class="btn btn-link" href="">Terms & Conditions</a>
-                        <a class="btn btn-link" href="">Support</a>
+                        <a class="btn btn-link" href="<?= url('/') ?>">Home</a>
+                        <a class="btn btn-link" href="<?= url('fitur') ?>">Fitur</a>
+                        <a class="btn btn-link" href="<?= url('paket') ?>">Paket</a>
+                        <a class="btn btn-link" href="<?= url('berita') ?>">Berita</a>
+                        <a class="btn btn-link" href="<?= url('tentang') ?>">Tentang Kami</a>
                     </div>
                     <div class="col-md-6 col-lg-4">
                         <p class="section-title text-white h5 mb-4">SIPINTER<span></span></p>
@@ -130,7 +130,7 @@
                                 <a href="<?= url('/') ?>">Home</a>
                                 <a href="<?= url('fitur') ?>">Fitur</a>
                                 <a href="<?= url('paket') ?>">Paket Harga</a>
-                                <a href="#testimonial">Testimoni</a>
+                                <a href="<?= url('berita') ?>">Berita</a>
                                 <a href="<?= url('/tentang') ?>">Tentang Kami</a>
                             </div>
                         </div>

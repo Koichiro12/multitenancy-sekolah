@@ -10,6 +10,7 @@ use App\Models\tenant\tenantGuru;
 use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Hash;
 
 class adminController extends Controller
 
@@ -345,7 +346,7 @@ class adminController extends Controller
     //////////////////////////////////////////////////////////////////
     public function users()
     {
-        $users = User::get();
+        $users = User::latest()->get();
         return view('tenant.admin.users.index', compact('users'));
     }
     public function createUsers(){
@@ -359,11 +360,31 @@ class adminController extends Controller
     }
     public function addUsers(Request $request)
     {
-       
+       $validate = $request->validate([
+            'name' => ['required'],
+            'email' => ['required','email'],
+            'password' => ['required'],
+            'level' => ['required'],
+       ]);
+       if($validate){
+            $create = User::create([
+                'name' => $request->name,
+                'email' => $request->email,
+                'password' => Hash::make($request->password),
+                'level' => $request->level,
+            ]);
+            if($create){
+                return redirect()->route('dashboardUsers');
+            }
+       }
     }
     public function deleteUsers($id)
     {
-      
+      $data = User::findOrFail($id);
+      $data->delete();
+      if($data){
+        return redirect()->route('dashboardUsers');
+      }
     }
     public function showUsers($id)
     {
@@ -371,7 +392,24 @@ class adminController extends Controller
     }
     public function updateUsers(Request $request, $id)
     {
-       
+        $validate = $request->validate([
+            'name' => ['required'],
+            'email' => ['required','email'],
+            'level' => ['required'],
+       ]);
+       if($validate){
+            $update = User::findOrFail($id);
+            $pass = $request->password != null ? Hash::make($request->password) : $update->password;
+            $update->update([
+                'name' => $request->name,
+                'email' => $request->email,
+                'password' => $pass,
+                'level' => $request->level,
+            ]);
+            if($update){
+                return redirect()->route('dashboardUsers');
+            }
+       }
     }
     //////////////////////////////////////////////////////////////////
     /////////////////////USER FUNCTION///////////////////////////

@@ -34,7 +34,7 @@ id="layout-navbar"
                 </div>
               </div>
               <div class="flex-grow-1">
-                <span class="fw-semibold d-block">John Doe</span>
+                <span class="fw-semibold d-block">{{auth()->user()->name}}</span>
                 <small class="text-muted">Admin</small>
               </div>
             </div>
@@ -44,13 +44,13 @@ id="layout-navbar"
           <div class="dropdown-divider"></div>
         </li>
         <li>
-          <a class="dropdown-item" href="#">
+          <a class="dropdown-item" href="{{route('userProfile')}}">
             <i class="bx bx-user me-2"></i>
             <span class="align-middle">My Profile</span>
           </a>
         </li>
         <li>
-          <a class="dropdown-item" href="#">
+          <a class="dropdown-item" href="{{route('userSettings')}}">
             <i class="bx bx-cog me-2"></i>
             <span class="align-middle">Settings</span>
           </a>
