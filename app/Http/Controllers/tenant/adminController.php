@@ -479,6 +479,7 @@ class adminController extends Controller
                 'password' => Hash::make($request->password),
                 'level' => $request->level,
             ]);
+            
             if ($create) {
                 return redirect()->route('dashboardUsers');
             }

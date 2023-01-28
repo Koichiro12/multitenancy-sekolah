@@ -40,7 +40,7 @@
                                         Gambar Alumni
                                     </button>
                                 </td>
-                                <div style="z-index: 1000" class="modal fade" id="exampleModal{{ $g->id }}"
+                                <div style="z-index: 100000" class="modal fade" id="exampleModal{{ $g->id }}"
                                     tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
                                     <div class="modal-dialog">
                                         <div class="modal-content">
