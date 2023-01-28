@@ -10,10 +10,10 @@
                         <h5 class="card-title">Data Guru</h5>
                     </div>
                     <div class="col-md-2">
-                    <a href="{{route('dashboarGuruCreate')}}" class="btn btn-primary">Tambah</a>
+                        <a href="{{ route('dashboarGuruCreate') }}" class="btn btn-primary">Tambah</a>
                     </div>
                 </div>
- 
+
             </div>
             <div class="w-100 ">
                 <table class="table">
@@ -37,7 +37,7 @@
                                 <td>
                                     <button type="button" class="btn btn-primary" data-bs-toggle="modal"
                                         data-bs-target="#exampleModal{{ $g->id }}">
-                                        Gambar Alumni
+                                        Gambar Guru
                                     </button>
                                 </td>
                                 <div style="z-index: 100000" class="modal fade" id="exampleModal{{ $g->id }}"
@@ -51,8 +51,7 @@
                                                     aria-label="Close"></button>
                                             </div>
                                             <div class="modal-body">
-                                                <img src="{{ $g->image }}" class="img-fluid"
-                                                    alt="{{ $g->image }}">
+                                                <img src="{{ $g->image }}" class="img-fluid" alt="{{ $g->image }}">
                                             </div>
                                             <div class="modal-footer">
                                                 <button type="button" class="btn btn-secondary"

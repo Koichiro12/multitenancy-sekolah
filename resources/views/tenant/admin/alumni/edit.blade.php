@@ -47,7 +47,7 @@
                     @enderror
                 </div>
                 <div class="mb-3">
-                    <label for="exampleFormControlTextarea1" class="form-label">Deskripsi Fasilitas</label>
+                    <label for="exampleFormControlTextarea1" class="form-label">Deskripsi Alumni</label>
                     <textarea name="deskripsi" class="form-control
                         @error('deskripsi') border-danger  @enderror"
                         id="exampleFormControlTextarea1" rows="3">{{ $showAlumni->deskripsi }}</textarea>

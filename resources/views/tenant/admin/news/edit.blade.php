@@ -1,8 +1,8 @@
 @extends('tenant.admin.layout.index')
 @section('content')
     <div class="container-xxl flex-grow-1 container-p-y">
-        <h4 class="fw-bold py-3 mb-4"><span class="text-muted fw-light">Dashboard /</span> Update Berita
-            {{ $showBerita->judul }}</h4>
+        <h4 class="fw-bold py-3 mb-4"><span class="text-muted fw-light">Dashboard / <a class="text-muted fw-light"
+                    href="{{ route('dashboardBerita') }}">Berita /</a> </span> Update Berita {{ $showBerita->judul }} </h4>
         <div class="card mb-4">
             <h5 class="card-header">Update Berita</h5>
             <form action="{{ route('dashboardBeritaUpdate', [$showBerita->id]) }}" method="POST" enctype="multipart/form-data"

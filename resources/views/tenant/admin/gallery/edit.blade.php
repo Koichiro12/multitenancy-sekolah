@@ -2,16 +2,16 @@
 @section('content')
     <div class="container-xxl flex-grow-1 container-p-y">
         <h4 class="fw-bold py-3 mb-4"><span class="text-muted fw-light">Dashboard /<a class="text-muted fw-light"
-                    href="{{ route('dashboardGuru') }}"> Guru</a> /</span> Update Guru {{ $showGuru->nama }}
+                    href="{{ route('dashboardGallery') }}"> Gallery</a> /</span> Update Gambar {{ $showGallery->nama }}
         </h4>
         <div class="card mb-4">
-            <h5 class="card-header">Update Berita</h5>
-            <form action="{{ route('dashboardGuruUpdate', [$showGuru->id]) }}" method="POST" enctype="multipart/form-data"
-                class="card-body">
+            <h5 class="card-header">Update Gallery</h5>
+            <form action="{{ route('dashboardGalleryUpdate', [$showGallery->id]) }}" method="POST"
+                enctype="multipart/form-data" class="card-body">
                 @csrf
                 <div class="mb-3">
-                    <label for="exampleFormControlInput1" class="form-label">Nama Guru</label>
-                    <input type="text" name="nama" value="{{ $showGuru->nama }}"
+                    <label for="exampleFormControlInput1" class="form-label">Nama Gambar</label>
+                    <input type="text" name="nama" value="{{ $showGallery->nama }}"
                         class="form-control
                         @error('nama') border-danger  @enderror"
                         id="exampleFormControlInput1">
@@ -21,21 +21,9 @@
                         </div>
                     @enderror
                 </div>
-                <div class="mb-3">
-                    <label for="exampleFormControlInput1" class="form-label">Kategori Guru</label>
-                    <input type="text" name="kategori" value="{{ $showGuru->kategori }}"
-                        class="form-control
-                        @error('kategori') border-danger  @enderror"
-                        id="exampleFormControlInput1">
-                    @error('kategori')
-                        <div class="text-danger">
-                            {{ $message }}
-                        </div>
-                    @enderror
-                </div>
 
                 <div class="mb-3">
-                    <label for="formFile" class="form-label">Foto Guru</label>
+                    <label for="formFile" class="form-label">Gambar</label>
                     <input name="image" class="form-control  @error('image') border-danger  @enderror" type="file"
                         id="formFile">
                     @error('image')
@@ -45,10 +33,10 @@
                     @enderror
                 </div>
                 <div class="mb-3">
-                    <label for="exampleFormControlTextarea1" class="form-label">Deskripsi Fasilitas</label>
+                    <label for="exampleFormControlTextarea1" class="form-label">Deskripsi Gambar</label>
                     <textarea name="deskripsi" class="form-control
                         @error('deskripsi') border-danger  @enderror"
-                        id="exampleFormControlTextarea1" rows="3">{{ $showGuru->deskripsi }}</textarea>
+                        id="exampleFormControlTextarea1" rows="3">{{ $showGallery->deskripsi }}</textarea>
                     @error('deskripsi')
                         <div class="text-danger">
                             {{ $message }}

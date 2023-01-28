@@ -10,10 +10,10 @@
                         <h5 class="card-title">Data Berita</h5>
                     </div>
                     <div class="col-md-2">
-                    <a href="{{route('dashboardBeritaCreate')}}" class="btn btn-primary">Tambah</a>
+                        <a href="{{ route('dashboardBeritaCreate') }}" class="btn btn-primary">Tambah</a>
                     </div>
                 </div>
- 
+
             </div>
             <div class="w-100 ">
                 <table class="table">
@@ -23,7 +23,7 @@
                             <th>Judul Berita</th>
                             <th>Kata Kunci</th>
                             <th>Deskripsi</th>
-                            <th>Status</th>
+                            <th>Gambar</th>
                             <th>Actions</th>
                         </tr>
                     </thead>
@@ -55,8 +55,7 @@
                                                     aria-label="Close"></button>
                                             </div>
                                             <div class="modal-body">
-                                                <img src="{{ $b->image }}" class="img-fluid"
-                                                    alt="{{ $b->image }}">
+                                                <img src="{{ $b->image }}" class="img-fluid" alt="{{ $b->image }}">
                                             </div>
                                             <div class="modal-footer">
                                                 <button type="button" class="btn btn-secondary"

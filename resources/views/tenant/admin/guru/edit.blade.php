@@ -5,7 +5,7 @@
                     href="{{ route('dashboardGuru') }}"> Guru</a> /</span> Update Guru {{ $showGuru->nama }}
         </h4>
         <div class="card mb-4">
-            <h5 class="card-header">Update Berita</h5>
+            <h5 class="card-header">Update Guru</h5>
             <form action="{{ route('dashboardGuruUpdate', [$showGuru->id]) }}" method="POST" enctype="multipart/form-data"
                 class="card-body">
                 @csrf
@@ -45,7 +45,7 @@
                     @enderror
                 </div>
                 <div class="mb-3">
-                    <label for="exampleFormControlTextarea1" class="form-label">Deskripsi Fasilitas</label>
+                    <label for="exampleFormControlTextarea1" class="form-label">Deskripsi Guru</label>
                     <textarea name="deskripsi" class="form-control
                         @error('deskripsi') border-danger  @enderror"
                         id="exampleFormControlTextarea1" rows="3">{{ $showGuru->deskripsi }}</textarea>

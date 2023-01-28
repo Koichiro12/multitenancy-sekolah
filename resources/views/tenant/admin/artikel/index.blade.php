@@ -23,7 +23,7 @@
                             <th>Judul Artikel</th>
                             <th>Kata Kunci</th>
                             <th>Deskripsi</th>
-                            <th>Status</th>
+                            <th>Gambar</th>
                             <th>Actions</th>
                         </tr>
                     </thead>

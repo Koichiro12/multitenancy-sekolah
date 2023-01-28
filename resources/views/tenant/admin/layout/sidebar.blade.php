@@ -86,6 +86,11 @@
                         <div data-i18n="Account">Fasilitas</div>
                     </a>
                 </li>
+                <li class="menu-item">
+                    <a href="{{ route('dashboardGallery') }}" class="menu-link">
+                        <div data-i18n="Account">Gallery</div>
+                    </a>
+                </li>
             </ul>
         </li>
         <li class="menu-item">
