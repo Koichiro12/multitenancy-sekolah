@@ -21,7 +21,7 @@ id="layout-navbar"
     <li class="nav-item navbar-dropdown dropdown-user dropdown">
       <a class="nav-link dropdown-toggle hide-arrow" href="javascript:void(0);" data-bs-toggle="dropdown">
         <div class="avatar avatar-online">
-          <img src="{{ 'public/tenant/admin/assets/img/avatars/1.png' }}" alt class="w-px-40 h-auto rounded-circle" />
+          <img src="{{ 'public/tenant/admin/assets/img/avatars/2.png' }}" alt class="w-px-40 h-auto rounded-circle" />
         </div>
       </a>
       <ul class="dropdown-menu dropdown-menu-end">
@@ -30,7 +30,7 @@ id="layout-navbar"
             <div class="d-flex">
               <div class="flex-shrink-0 me-3">
                 <div class="avatar avatar-online">
-                  <img src="{{ 'public/tenant/admin/assets/img/avatars/1.png' }}" alt class="w-px-40 h-auto rounded-circle" />
+                  <img src="{{ 'public/tenant/admin/assets/img/avatars/2.png' }}" alt class="w-px-40 h-auto rounded-circle" />
                 </div>
               </div>
               <div class="flex-grow-1">
@@ -50,12 +50,6 @@ id="layout-navbar"
           </a>
         </li>
         <li>
-          <a class="dropdown-item" href="{{route('userSettings')}}">
-            <i class="bx bx-cog me-2"></i>
-            <span class="align-middle">Settings</span>
-          </a>
-        </li>
-        <li>
           <div class="dropdown-divider"></div>
         </li>
         <li>
@@ -66,7 +60,6 @@ id="layout-navbar"
               <span class="align-middle">Log Out</span>
             </button>
             </form>
-       
         </li>
       </ul>
     </li>
