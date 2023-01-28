@@ -48,6 +48,7 @@ Route::group(['middleware'=>['auth']],function(){
     Route::post('/update_profile/{id}',[UserController::class,'update_profile'])->name('update_profile');
     
 });
+Route::resource('/contact',ContactController::class);
 //FrontWeb Central
 Route::get('/',[PageController::class,'index'])->name('dasboard');
 Route::get('/fitur',[PageController::class,'view_fitur'])->name('fitur');

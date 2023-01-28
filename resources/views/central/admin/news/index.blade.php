@@ -5,7 +5,7 @@
 <div class="content-wrapper">
     <div class="row">
         <div class="col-md-12">
-            @if(session('success'))
+        @if(session('success'))
             <div class="alert alert-success text-center">
                 {{ session('success') }}
             </div>
