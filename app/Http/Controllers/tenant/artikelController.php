@@ -9,15 +9,20 @@ use Illuminate\Http\Request;
 class artikelController extends Controller
 {
 
+    public function index()
+    {
+        $artikel = tenantArtikel::get();
+        if ($artikel->count() > 0) {
+            return view('tenant.page.artikel', compact('artikel'));
+        } else {
+            session()->flash('notfound', 'Artikel Belum Ada');
+            return view('tenant.page.artikel', compact('artikel'));
+        }
+    }
     public function artikel()
     {
         $artikel = tenantArtikel::get();
         return view('tenant.admin.artikel.index', compact('artikel'));
-    }
-    public function index()
-    {
-        $artikel = tenantArtikel::get();
-        return view('tenant.page.artikel', compact('artikel'));
     }
     public function detailArtikel($id)
     {

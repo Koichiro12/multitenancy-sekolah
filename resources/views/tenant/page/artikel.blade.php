@@ -19,6 +19,20 @@
                 </svg>
                 <p>berita</p>
             </div>
+            @if (session()->has('notfound'))
+                <div class="not-found">
+                    <div class="not-found-wrapper">
+                        <div class="not-found-wrapper-title">{{ session('notfound') }}</div>
+                        <div class="not-found-wrapper-desc">Artikel Belum Di tambahkan, Sign in ke admin Untuk
+                            Menambahkan
+                            data</div>
+                        <a href="{{ route('dashboard') }}">
+                            <div class="not-found-wrapper-btn">Sign in</div>
+                        </a>
+                        <img src="{{ 'public/tenant/img/notfound.png' }}" class="not-found-wrapper-img">
+                    </div>
+                </div>
+            @endif
             <div class="news-box-wrapper">
                 <div class="news-box-head">
                     <div class="news-box-head-link btn active">Prestasi</div>

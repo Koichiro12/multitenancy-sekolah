@@ -3,12 +3,24 @@
 namespace App\Http\Controllers\tenant;
 
 use App\Http\Controllers\Controller;
+use App\Models\tenant\tenantAlumni;
 use App\Models\tenant\tenantGuru;
 use App\Models\tenant\tenantJabatan;
 use Illuminate\Http\Request;
 
 class guruController extends Controller
 {
+    public function index()
+    {
+        $kepalaSekolah = tenantGuru::where('kategori', 'kepala sekolah')->get();
+        $guru = tenantGuru::where('kategori', 'guru')->get();
+        if ($guru->count() > 0) {
+            return view('tenant.page.guru', compact('guru', 'kepalaSekolah'));
+        } else {
+            session()->flash('notfound', 'guru Belum Ada');
+            return view('tenant.page.guru', compact('guru', 'kepalaSekolah'));
+        }
+    }
     public function guru()
     {
         $guru = tenantGuru::get();
@@ -81,7 +93,7 @@ class guruController extends Controller
     }
     public function uploadImageGuru($image)
     {
-        $extFile = date('Ymdhis').$image->getClientOriginalName();
+        $extFile = date('Ymdhis') . $image->getClientOriginalName();
         $path = $image->move('public/tenant/upload_file/guru', $extFile);
         $path = str_replace('\\', '/', $path);
         return $path;

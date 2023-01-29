@@ -9,11 +9,16 @@ use Illuminate\Http\Request;
 class galleryController extends Controller
 {
 
-    //////////////////////////////////////////////////////////////////
-    /////////////////////GALLERY FUNCTION///////////////////////////
-    /////////////////////GALLERY FUNCTION///////////////////////////
-    /////////////////////GALLERY FUNCTION///////////////////////////
-    //////////////////////////////////////////////////////////////////
+    public function index()
+    {
+        $gallery = tenantGallery::get();
+        if ($gallery->count() > 0) {
+            return view('tenant.page.gallery', compact('gallery'));
+        } else {
+            session()->flash('notfound', 'Gallery Belum Ada');
+            return view('tenant.page.gallery', compact('gallery'));
+        }
+    }
     public function gallery()
     {
         $gallery = tenantGallery::get();

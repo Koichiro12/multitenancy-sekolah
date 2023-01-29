@@ -11,7 +11,12 @@ class alumniController extends Controller
     public function index()
     {
         $alumni = tenantAlumni::get();
-        return view('tenant.page.alumni', compact('alumni'));
+        if ($alumni->count() > 0) {
+            return view('tenant.page.alumni', compact('alumni'));
+        } else {
+            session()->flash('notfound', 'Alumni Belum Ada');
+            return view('tenant.page.alumni', compact('alumni'));
+        }
     }
     public function alumni()
     {

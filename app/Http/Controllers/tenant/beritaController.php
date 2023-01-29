@@ -11,7 +11,12 @@ class beritaController extends Controller
     public function index()
     {
         $berita = tenantBerita::latest()->get();
-        return view('tenant.page.news', compact('berita'));
+        if ($berita->count() > 0) {
+            return view('tenant.page.news', compact('berita'));
+        } else {
+            session()->flash('notfound', 'Berita Belum Ada');
+            return view('tenant.page.news', compact('berita'));
+        }
     }
 
     public function detailBerita($id)

@@ -53,8 +53,8 @@ Route::middleware([
     Route::get('/artikel', [artikelController::class, 'index'])->name('artikel');
     Route::get('/detail-artikel-{id}', [artikelController::class, 'detailArtikel'])->name('detailArtikel');
     Route::get('/detail-berita-{id}', [beritaController::class, 'detailBerita'])->name('detailBerita');
-    Route::get('/guru', [PagesController::class, 'guru'])->name('guru');
-    Route::get('/gallery', [PagesController::class, 'gallery'])->name('gallery');
+    Route::get('/guru', [guruController::class, 'index'])->name('guru');
+    Route::get('/gallery', [galleryController::class, 'index'])->name('gallery');
 
     //Authetications
     Route::get('/signin', [TenantAuthController::class, 'login'])->name('signin');

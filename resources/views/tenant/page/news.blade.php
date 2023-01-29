@@ -26,8 +26,21 @@
                     <div class="news-box-head-link btn">Juara</div>
                 </div>
 
+                @if (session()->has('notfound'))
+                    <div class="not-found">
+                        <div class="not-found-wrapper">
+                            <div class="not-found-wrapper-title">{{ session('notfound') }}</div>
+                            <div class="not-found-wrapper-desc">Berita Belum Di tambahkan, Sign in ke admin Untuk
+                                Menambahkan
+                                data</div>
+                            <a href="{{ route('dashboard') }}">
+                                <div class="not-found-wrapper-btn">Sign in</div>
+                            </a>
+                            <img src="{{ 'public/tenant/img/notfound.png' }}" class="not-found-wrapper-img">
+                        </div>
+                    </div>
+                @endif
                 <div class="news-box-container">
-
                     @foreach ($berita as $b)
                         <a href="{{ route('detailBerita', [$b->id]) }}" class="berita-box">
                             <div class="berita-box-btn btn-circle">

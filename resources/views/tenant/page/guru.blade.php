@@ -28,12 +28,27 @@
             </div>
         @endforeach
 
+
         <div class="guru-container">
             <div class="section-title"><svg fill="none" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 480 40">
                     <path d="M0 40C137.185 40 125.676 0 240 0s103.999 40 240 40H0Z" fill="#fff"></path>
                 </svg>
                 <p>guru-guru</p>
             </div>
+            @if (session()->has('notfound'))
+                <div class="not-found">
+                    <div class="not-found-wrapper">
+                        <div class="not-found-wrapper-title">{{ session('notfound') }}</div>
+                        <div class="not-found-wrapper-desc">guru Belum Di tambahkan, Sign in ke admin Untuk
+                            Menambahkan
+                            data</div>
+                        <a href="{{ route('dashboard') }}">
+                            <div class="not-found-wrapper-btn">Sign in</div>
+                        </a>
+                        <img src="{{ 'public/tenant/img/notfound.png' }}" class="not-found-wrapper-img">
+                    </div>
+                </div>
+            @endif
 
             @foreach ($guru as $guru)
                 <div class="guru-card">

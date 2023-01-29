@@ -46,9 +46,5 @@ class PagesController extends Controller
         $guru = tenantGuru::where('kategori', 'guru')->get();
         return view('tenant.page.guru', compact('kepalaSekolah', 'guru'));
     }
-    public function gallery()
-    {
-        $gallery = tenantGallery::get();
-        return view('tenant.page.gallery', compact('gallery'));
-    }
+    
 }
