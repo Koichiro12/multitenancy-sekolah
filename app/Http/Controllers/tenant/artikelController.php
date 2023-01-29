@@ -8,10 +8,21 @@ use Illuminate\Http\Request;
 
 class artikelController extends Controller
 {
+
     public function artikel()
     {
         $artikel = tenantArtikel::get();
         return view('tenant.admin.artikel.index', compact('artikel'));
+    }
+    public function index()
+    {
+        $artikel = tenantArtikel::get();
+        return view('tenant.page.artikel', compact('artikel'));
+    }
+    public function detailArtikel($id)
+    {
+        $detailArtikel =  tenantArtikel::find($id);
+        return view('tenant.page.detailArtikel', compact('detailArtikel'));
     }
     public function createArtikel()
     {

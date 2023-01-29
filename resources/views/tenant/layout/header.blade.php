@@ -63,7 +63,7 @@
             <div class="header-popup-container-box">
                 <div class="header-popup-container-box-title">Halaman</div>
                 <a href="{{ route('news') }}" class="header-popup-container-box-link">Berita</a>
-                <a href="{{ route('ppdb') }}" class="header-popup-container-box-link">Ppdb</a>
+                <a href="{{ route('artikel') }}" class="header-popup-container-box-link">Artikel</a>
                 <a href="{{ route('alumni') }}" class="header-popup-container-box-link">Alumni</a>
                 <a href="{{ route('guru') }}" class="header-popup-container-box-link">Guru</a>
                 <a href="{{ route('gallery') }}" class="header-popup-container-box-link">Gallery</a>

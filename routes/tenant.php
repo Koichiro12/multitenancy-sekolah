@@ -50,7 +50,8 @@ Route::middleware([
     Route::get('/alumni', [alumniController::class, 'index'])->name('alumni');
     Route::get('/ppdb', [PagesController::class, 'ppdb'])->name('ppdb');
     Route::get('/news', [beritaController::class, 'index'])->name('news');
-    Route::get('/artikel', [PagesController::class, 'index'])->name('artikel');
+    Route::get('/artikel', [artikelController::class, 'index'])->name('artikel');
+    Route::get('/detail-artikel-{id}', [artikelController::class, 'detailArtikel'])->name('detailArtikel');
     Route::get('/detail-berita-{id}', [beritaController::class, 'detailBerita'])->name('detailBerita');
     Route::get('/guru', [PagesController::class, 'guru'])->name('guru');
     Route::get('/gallery', [PagesController::class, 'gallery'])->name('gallery');
