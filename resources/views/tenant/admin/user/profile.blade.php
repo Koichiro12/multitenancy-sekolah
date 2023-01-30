@@ -3,6 +3,20 @@
     <div class="container-xxl flex-grow-1 container-p-y">
         <h4 class="fw-bold py-3 mb-4"><span class="text-muted fw-light">Dashboard /</span> User Profile</h4>
         <div class="row">
+          <div class="col-md-12">
+              @if(session('success'))
+              <div class="alert alert-success text-center">
+                  {{ session('success') }}
+              </div>
+          @endif 
+          @if(session('error'))
+              <div class="alert alert-danger text-center">
+                  {{ session('error') }}
+              </div>
+          @endif 
+          </div>
+      </div>
+        <div class="row">
             <div class="col-md-12">
                 <ul class="nav nav-pills flex-column flex-md-row mb-3">
                     <li class="nav-item">
@@ -11,7 +25,9 @@
                   </ul>
             </div>
             <div class="col-md-12">
-                <form action="{{route('updateProfile',$id)}}"></form>
+                <form action="{{route('updateProfile',$id)}}" method="POST" enctype="multipart/form-data">
+                  @csrf
+                  @method('POST')
                 <div class="card">
                     <h5 class="card-header">Profile Details</h5>
                     <div class="card-body">
@@ -80,6 +96,7 @@
                         <button type="submit" class="btn btn-primary me-2">Update Profile</button>
                       </div>
                 </div>
+              </form>
             </div>
         </div>
     </div>

@@ -121,11 +121,29 @@ class adminController extends Controller
             'name' => ['required'],
             'email' => ['required'],
         ]);
+        if($validate){
+            $data_profile = UserProfile::where([['id_user','=',$id]])->get()->first();
+            $file = $request->file('foto_profile');
+            $foto = $file != null ? date('Ymdhis').$file->getClientOriginalName() : $data_profile->foto_profile;
+            if($file != null){
+                $file->move('public/tenant/upload_file/user',$foto);
+                $data_profile->foto_profile != '-' ? unlink('public/tenant/upload_file/user/'.$data_profile->foto_profile) : '';
+            }
+            $data_profile->update([
+                'bio' => !empty($request->bio) ? $request->bio :  $data_profile->bio, 
+                'alamat' => !empty($request->alamat) ? $request->alamat :  $data_profile->alamat, 
+                'no_hp' => !empty($request->no_hp) ? $request->no_hp :  $data_profile->no_hp, 
+                'foto_profile' => $foto,
+            ]);
+            if($data_profile){
+                $data_user = User::findOrFail($id);
+                $data_user->update([
+                    'name' => $request->name,
+                    'email' => $request->email
+                ]);    
+                session()->flash('success',"Users Has Been Updated");
+                return redirect()->route('userProfile');
+            }
+        }
     }
-
-
-
-
- 
- 
 }
