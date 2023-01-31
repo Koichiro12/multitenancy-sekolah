@@ -47,7 +47,8 @@ class PageController extends Controller
         return view('central.fitur',compact(['data']));
     }
     public function view_order(){
-        return view('central.order');
+        $paket = Paket::latest()->get();
+        return view('central.order',compact(['paket']));
     }
 
 }

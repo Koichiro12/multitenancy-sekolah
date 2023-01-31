@@ -43,12 +43,14 @@ Route::group(['middleware'=>['auth']],function(){
     Route::resource('/contact',ContactController::class);
     Route::resource('/tenancy',TenancyController::class);
     Route::resource('/orders',OrderController::class); 
+    Route::put('/orders/{id}/ubah_status',[OrderController::class,'ubah_status'])->name('orders.ubah_status'); 
     Route::get('/user_profile',[UserController::class,'profile'])->name('user_profile');
     Route::get('/user_activity',[UserController::class,'activity'])->name('user_activity');
     Route::post('/update_profile/{id}',[UserController::class,'update_profile'])->name('update_profile');
     
 });
 Route::resource('/contact',ContactController::class);
+Route::post('orders.store',[OrderController::class,'store'])->name('orders.store'); 
 //FrontWeb Central
 Route::get('/',[PageController::class,'index'])->name('dasboard');
 Route::get('/fitur',[PageController::class,'view_fitur'])->name('fitur');

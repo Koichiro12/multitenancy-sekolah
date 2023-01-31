@@ -33,9 +33,46 @@
                         <table class="table">
                             <thead>
                                 <th>No</th>
+                                <th>Nama</th>
+                                <th>Email</th>
+                                <th>Paket</th>
+                                <th>Phone</th>
+                                <th>Status</th>
                                 <th>Aksi</th>
                             </thead>
-                            <tbody></tbody>
+                            <tbody>
+                                @forelse ($data as $item)
+                                    <tr>
+                                        <td>{{$loop->index + 1}}</td>
+                                        <td>{{$item->nama}}</td>
+                                        <td>{{$item->email}}</td>
+                                        <td>{{$item->nama_paket}}</td>
+                                        <td>{{$item->phone}}</td>
+                                        <td>@switch($item->status_order)
+                                            @case(0)
+                                                <span class="badge badge-primary">New Order</span>
+                                                @break
+                                            @case(1)
+                                                <span class="badge badge-success">Active</span>
+                                                @break
+                                            @case(2)
+                                                <span class="badge badge-danger">NonActive</span>
+                                                @break
+                                        @endswitch</td>
+                                        <td><form onsubmit="return confirm('Apakah Anda yakin ?')"
+                                            action="{{ route('orders.destroy',$item->id_order) }}" method="POST">
+                                            <a href="{{ route('orders.edit',$item->id_order) }}" class="btn btn-warning">View</a>
+                                          <!--  @csrf
+                                            @method('DELETE')
+                                            <button type="submit" class="btn btn-danger"><i class="fas fa-trash"></i> Hapus</button>    -->
+                                        </form></td>
+                                    </tr>
+                                @empty
+                                    <tr>
+                                        <td colspan="100%" class="text-center text-mute">Tidak Ada Data</td>
+                                    </tr>
+                                @endforelse
+                            </tbody>
                         </table>
                     </div>
                 </div>
