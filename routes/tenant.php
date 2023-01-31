@@ -12,6 +12,7 @@ use App\Http\Controllers\tenant\guruController;
 use App\Http\Controllers\tenant\jabatanController;
 use App\Http\Controllers\tenant\PagesController;
 use App\Http\Controllers\tenant\TenantAuthController;
+use App\Http\Controllers\tenant\TenantSettings;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
 use Stancl\Tenancy\Middleware\InitializeTenancyByDomain;
@@ -68,7 +69,7 @@ Route::middleware([
             Route::post('/update-profile-{id}', [adminController::class, 'updateProfile'])->name('updateProfile');
             // dashboard route
             Route::get('/dashboard', [adminController::class, 'index'])->name('dashboard');
-
+            Route::get('/sekolah',[TenantSettings::class,'view_sekolah_settings'])->name('sekolah');
             // dashboard route Artikel
             Route::get('/dashboard-artikel', [artikelController::class, 'artikel'])->name('dashboardArtikel');
             Route::get('/dashboard-artikel-create', [artikelController::class, 'createArtikel'])->name('dashboardArtikelCreate');

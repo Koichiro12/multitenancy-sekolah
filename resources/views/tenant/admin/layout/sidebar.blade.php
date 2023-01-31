@@ -66,7 +66,7 @@
 
         <!-- Layouts -->
         <li class="menu-item">
-            <a href="#" class="menu-link">
+            <a href="{{route('sekolah')}}" class="menu-link">
                 <i class="menu-icon tf-icons bx bxs-school"></i>
                 <div data-i18n="Layouts">Sekolah</div>
             </a>
