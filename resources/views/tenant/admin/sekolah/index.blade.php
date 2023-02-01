@@ -60,7 +60,10 @@
                       </div>
                       <hr class="my-0" />
                       <div class="card-body">
-
+                          <div class="form-group">
+                            <label>Nama Sekolah</label>
+                            <input type="text" name="nama_sekolah" id="nama_sekolah" class="form-control">
+                          </div>
                       </div>
                       <div class="card-footer">
                         <button type="submit" class="btn btn-primary me-2">Save Changes</button>
