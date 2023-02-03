@@ -12,11 +12,11 @@
         align-items: center;
         justify-content: center;
         flex-direction: column;
-
         margin: 2rem 2rem 0 2rem;
         border-radius: 3rem;
         overflow: hidden;
         height: calc(100vh - 4rem);
+        min-height: 50rem;
         @include respond(1000) {
             display: none;
         }
@@ -25,6 +25,7 @@
         }
         @include respond(bp-500) {
             padding: 8.52rem 2rem 0 2rem;
+            height: 50rem;
         }
 
         &-info {
@@ -210,9 +211,10 @@
                 align-items: center;
                 width: -webkit-fill-available;
                 justify-content: space-between;
-                @media (max-width:768px) {
+                gap: 2rem;
+                flex-wrap: wrap;
+                @media (max-width: 768px) {
                     padding: 3rem;
-                    
                 }
                 &-title {
                     font-size: 2.6rem;
@@ -269,16 +271,16 @@
                                     position: absolute;
                                     bottom: 0;
                                     left: 0;
-                                    height: 50%;
+                                    min-height: 50%;
                                     border-radius: 3rem 3rem 0 0;
                                     padding: 3rem;
-                                    overflow: hidden;
                                     display: flex;
                                     justify-content: space-between;
                                     flex-direction: column;
                                     background-color: white;
                                     width: -webkit-fill-available;
                                     z-index: 10;
+                                    gap: 3rem;
                                     &-cat {
                                         display: flex;
                                         align-items: center;
@@ -310,6 +312,8 @@
                                         display: flex;
                                         justify-content: space-between;
                                         align-items: center;
+                                        gap: 1rem;
+                                        flex-wrap: wrap;
                                         &-1 {
                                             display: flex;
                                             align-items: center;
@@ -355,6 +359,10 @@
         background-color: white;
         justify-content: center;
         position: relative;
+
+        @media (max-width: 500px) {
+            padding: 3rem;
+        }
         &-wrapper {
             width: fit-content;
             display: flex;
@@ -367,6 +375,7 @@
             align-items: center;
             gap: 2rem;
             margin-bottom: 3.2rem;
+            flex-wrap: wrap;
             &-link {
                 background-color: $color-section;
                 color: $color-secondary;
@@ -478,6 +487,8 @@
                         display: flex;
                         justify-content: space-between;
                         align-items: center;
+                        gap: 1rem;
+                        flex-wrap: wrap;
                         &-1 {
                             display: flex;
                             align-items: center;

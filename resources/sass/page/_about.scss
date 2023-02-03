@@ -14,6 +14,7 @@
         margin: 2rem 2rem 0 2rem;
         border-radius: 3rem;
         overflow: hidden;
+        
         @include respond(1000) {
             display: none;
         }
@@ -21,7 +22,7 @@
             padding: 8.52rem 5rem 10rem 5rem;
         }
         @include respond(bp-500) {
-            padding: 8.52rem 2rem 0 2rem;
+            padding: 8.52rem 2rem 5rem 2rem;
         }
         & .blur {
             backdrop-filter: blur(50px);
@@ -49,9 +50,11 @@
                         font-weight: 900;
                         font-family: "primary-font", sans-serif;
                         text-transform: uppercase;
-
                         @media (max-width: 768px) {
                             font-size: 8rem;
+                        }
+                        @media (max-width: 500px) {
+                            font-size: 14vw;
                         }
                     }
                     &:nth-child(2) {
@@ -136,6 +139,9 @@
                     @media (max-width: 701px) {
                         height: calc(38rem / 1.5);
                         width: calc(53.5rem / 1.5);
+                    }
+                    @media (max-width: 500px) {
+                        width: 100%;
                     }
                     &-src {
                         height: 100%;
