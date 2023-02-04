@@ -6,9 +6,10 @@
             <div class="about__hero-info">
                 <div class="about__hero-info-title">
                     <p>tentang </p>
-                    <p>Madrasah Tsanawiyah nahdlatul ulama pakis</p>
+                    <p>{{ $dataSetting[0]['value'] }}</p>
                 </div>
-                <div class="about__hero-info-img" style="background: url({{ 'public/tenant/img/heroPakis.jpg' }})">
+                <div class="about__hero-info-img"
+                    style="background: url({{ 'public/tenant/upload_file/sekolah/' . $dataSetting[6]['value'] }})">
                 </div>
             </div>
         </div>
@@ -21,17 +22,13 @@
             </div>
             <div class="about__info-container">
                 <div class="about__info-container-right">
-                    <div class="about__info-container-right-title">tentang mts nu pakis?</div>
-                    <div class="about__info-container-right-txt"> Ocean School is a free environmental education resource
-                        for students in grades 5-12. Our inspiring and immersive multimedia resources featuring linear and
-                        360˚ videos, VR/AR, interactive media and hands-on projects and activities are offered in English
-                        and French. Our cross-curricular content spans science, social studies, language arts and more!
+                    <div class="about__info-container-right-title">tentang {{ $dataSetting[0]['value'] }}</div>
+                    <div class="about__info-container-right-txt"> {{ $dataSetting[2]['value'] }}
                     </div>
                     <div class="about__info-container-right-btn btn">Explore Your Skill</div>
                 </div>
                 <div class="about__info-container-left">
-                    <div class="about__info-container-left-txt">Explore the ocean through immersive multimedia lessons
-                        created by scientists, educators, and storytellers</div>
+                    <div class="about__info-container-left-txt">{{ $dataSetting[2]['value'] }}</div>
                     <div class="about__info-container-left-img">
                         <div class="about__info-container-left-img-src bg-asset"
                             style="background: url({{ 'public/tenant/img/siswa.jpg' }})">
@@ -44,9 +41,9 @@
         </div>
         <div class="about__map">
             <div class="about__map-title">
-                <div class="about__map-title-1">lokasi mts nu pakis</div>
+                <div class="about__map-title-1">lokasi {{ $dataSetting[0]['value'] }}</div>
                 <div class="about__map-title-2">
-                    <p>Lokasi mts nu pakis berada di Jalan Raya Bunut Wetan Nomor 986, Kecamatan Pakis, Kabupaten Malang
+                    <p>{{ $dataSetting[3]['value'] }}
                     </p>
                 </div>
                 <a href="" class="about__map-title-btn btn">Open In Google Maps</a>
@@ -65,7 +62,6 @@
         var map = L.map('map', {
             zoomControl: false
         }).setView([-7.752371, 112.696571], 13);
-
         var tiles = L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
             minZoom: 10,
             maxZoom: 17,

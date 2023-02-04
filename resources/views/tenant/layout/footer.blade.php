@@ -1,7 +1,7 @@
 <footer class="prefooter bg-asset" style="background: url({{ 'public/tenant/img/heroAlumni.jpg' }})">
     <div class="prefooter-info ">
         <div class="prefooter-info-title">bergabung <br>dengan kita?</div>
-        <div class="prefooter-info-desc">daftar dan bersekolah di mts nu pakis</div>
+        <div class="prefooter-info-desc">daftar dan bersekolah di {{ $dataSetting[0]['value'] }}</div>
         <div class="prefooter-info-btn btn">
             <p> <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 15 16" role="img">
                     <path fill-rule="evenodd" clip-rule="evenodd"
@@ -20,10 +20,9 @@
             <div class="footer__wrapper--left">
                 <div class="footer-logo-container">
                     <div class="footer__wrapper--left__logo">
-                        <img src={{ 'public/tenant/img/logoPakis.png' }} alt="Logo" />
+                        <img src={{ 'public/tenant/upload_file/sekolah/' . $dataSetting[6]['value'] }} alt="Logo" />
                         <p>
-                            mts nu <br />
-                            pakis
+                            {{ $dataSetting[0]['value'] }}
                         </p>
                     </div>
 
@@ -79,22 +78,21 @@
                     <p>
                         <ion-icon name="call"></ion-icon>
                     </p>
-                    <p>(0343) 613747</p>
+                    <p>{{ $dataSetting[4]['value'] }}</p>
                 </div>
                 <div class="footer__bottom--left__alamat">
                     <p>
                         <ion-icon name="location"></ion-icon>
                     </p>
                     <p>
-                        Jl. Raya Bunut Wetan No. 986, <br />
-                        Kec. Pakis, Kab. Malang
+                        {{ $dataSetting[3]['value'] }}
                     </p>
                 </div>
                 <div class="footer__bottom--left__email">
                     <p>
                         <ion-icon name="mail"></ion-icon>
                     </p>
-                    <p>mtsnupakis@gmail.com</p>
+                    <p>{{ $dataSetting[5]['value'] }}</p>
                 </div>
             </div>
         </div>

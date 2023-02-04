@@ -2,6 +2,7 @@
 
 declare(strict_types=1);
 
+use App\Http\Controllers\tenant\sponsorController;
 use App\Http\Controllers\tenant\adminController;
 use App\Http\Controllers\tenant\alumniController;
 use App\Http\Controllers\tenant\artikelController;
@@ -69,8 +70,8 @@ Route::middleware([
             Route::post('/update-profile-{id}', [adminController::class, 'updateProfile'])->name('updateProfile');
             // dashboard route
             Route::get('/dashboard', [adminController::class, 'index'])->name('dashboard');
-            Route::get('/sekolah',[TenantSettings::class,'view_sekolah_settings'])->name('sekolah');
-            Route::post('/update-sekolah',[TenantSettings::class,'update_sekolah_setting'])->name('update-sekolah');
+            Route::get('/sekolah', [TenantSettings::class, 'view_sekolah_settings'])->name('sekolah');
+            Route::post('/update-sekolah', [TenantSettings::class, 'update_sekolah_setting'])->name('update-sekolah');
             // dashboard route Artikel
             Route::get('/dashboard-artikel', [artikelController::class, 'artikel'])->name('dashboardArtikel');
             Route::get('/dashboard-artikel-create', [artikelController::class, 'createArtikel'])->name('dashboardArtikelCreate');
@@ -129,6 +130,14 @@ Route::middleware([
             Route::get('/dashboard-gallery-del-{id}', [galleryController::class, 'deleteGallery'])->name('dashboardGalleryDel');
             Route::get('/dashboard-gallery-show-{id}', [galleryController::class, 'showGallery'])->name('dashboardGalleryShow');
             Route::post('/dashboard-gallery-update-{id}', [galleryController::class, 'updateGallery'])->name('dashboardGalleryUpdate');
+            // dashboard route sponsor
+            Route::get('/dashboard-sponsor', [sponsorController::class, 'sponsor'])->name('dashboardSponsor');
+            Route::get('/dashboard-sponsor-create', [sponsorController::class, 'createSponsor'])->name('dashboardSponsorCreate');
+            Route::get('/dashboard-sponsor-edit-{id}', [sponsorController::class, 'editSponsor'])->name('dashboardSponsorEdit');
+            Route::post('/dashboard-sponsor-add', [sponsorController::class, 'addSponsor'])->name('dashboardSponsorAdd');
+            Route::get('/dashboard-sponsor-del-{id}', [sponsorController::class, 'deleteSponsor'])->name('dashboardSponsorDel');
+            Route::get('/dashboard-sponsor-show-{id}', [sponsorController::class, 'showSponsor'])->name('dashboardSponsorShow');
+            Route::post('/dashboard-sponsor-update-{id}', [sponsorController::class, 'updateSponsor'])->name('dashboardSponsorUpdate');
             // dashboard route User
             Route::get('/dashboard-users', [adminController::class, 'users'])->name('dashboardUsers');
             Route::get('/dashboard-users-create', [adminController::class, 'createUsers'])->name('dashboarUsersCreate');

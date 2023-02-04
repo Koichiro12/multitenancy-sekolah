@@ -4,6 +4,7 @@ namespace App\Http\Controllers\tenant;
 
 use App\Http\Controllers\Controller;
 use App\Models\tenant\tenantArtikel;
+use App\Models\tenant\TenantSettings;
 use Illuminate\Http\Request;
 
 class artikelController extends Controller
@@ -11,12 +12,13 @@ class artikelController extends Controller
 
     public function index()
     {
+        $dataSetting = TenantSettings::get();
         $artikel = tenantArtikel::get();
         if ($artikel->count() > 0) {
-            return view('tenant.page.artikel', compact('artikel'));
+            return view('tenant.page.artikel', compact('artikel', 'dataSetting'));
         } else {
             session()->flash('notfound', 'Artikel Belum Ada');
-            return view('tenant.page.artikel', compact('artikel'));
+            return view('tenant.page.artikel', compact('artikel', 'dataSetting'));
         }
     }
     public function artikel()
@@ -26,8 +28,9 @@ class artikelController extends Controller
     }
     public function detailArtikel($id)
     {
+        $dataSetting = TenantSettings::get();
         $detailArtikel =  tenantArtikel::find($id);
-        return view('tenant.page.detailArtikel', compact('detailArtikel'));
+        return view('tenant.page.detailArtikel', compact('detailArtikel', 'dataSetting'));
     }
     public function createArtikel()
     {
@@ -98,8 +101,8 @@ class artikelController extends Controller
 
     public function uploadImageArtikel($image)
     {
-        $extFile = date('Ymdhis') . $image->getClientOriginalName();
-        $path = $image->move('public/tenant/upload_file/artikel', $extFile);
+        $extFile =  $image->getClientOriginalName();
+        $path = $image->move('public/tenant/upload_file/artikel', date('Ymdhis') . $extFile);
         $path = str_replace('\\', '/', $path);
         return $path;
     }

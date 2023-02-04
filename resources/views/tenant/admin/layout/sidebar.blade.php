@@ -66,7 +66,7 @@
 
         <!-- Layouts -->
         <li class="menu-item">
-            <a href="{{route('sekolah')}}" class="menu-link">
+            <a href="{{ route('sekolah') }}" class="menu-link">
                 <i class="menu-icon tf-icons bx bxs-school"></i>
                 <div data-i18n="Layouts">Sekolah</div>
             </a>
@@ -89,6 +89,11 @@
                 <li class="menu-item">
                     <a href="{{ route('dashboardGallery') }}" class="menu-link">
                         <div data-i18n="Account">Gallery</div>
+                    </a>
+                </li>
+                <li class="menu-item">
+                    <a href="{{ route('dashboardSponsor') }}" class="menu-link">
+                        <div data-i18n="Account">Sponsor</div>
                     </a>
                 </li>
             </ul>

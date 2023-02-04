@@ -2,6 +2,7 @@
 
 namespace App\Providers;
 
+use App\Models\tenant\TenantSettings;
 use App\Models\User;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\View;
@@ -27,11 +28,11 @@ class AppServiceProvider extends ServiceProvider
     public function boot()
     {
         //
-        view()->composer('*',function($view){
-            if(Auth::check()){
-                $view->with('data_users',User::join('user_profiles','user_profiles.id_user','=','users.id')->where([['users.id','=',auth()->user()->id]])->get(['users.*','user_profiles.*','users.id as id_user'])->first());
+        view()->composer('*', function ($view) {
+            if (Auth::check()) {
+                $view->with('data_users', User::join('user_profiles', 'user_profiles.id_user', '=', 'users.id')->where([['users.id', '=', auth()->user()->id]])->get(['users.*', 'user_profiles.*', 'users.id as id_user'])->first());
             }
-            });
+        });
         date_default_timezone_set('Asia/Jakarta');
     }
 }

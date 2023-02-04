@@ -86,8 +86,8 @@ class galleryController extends Controller
     }
     public function uploadImageGallery($image)
     {
-        $extFile = date('Ymdhis') . $image->getClientOriginalName();
-        $path = $image->move('public/tenant/upload_file/gallery', $extFile);
+        $extFile = $image->getClientOriginalName();
+        $path = $image->move('public/tenant/upload_file/gallery', date('Ymdhis') . $extFile);
         $path = str_replace('\\', '/', $path);
         return $path;
     }

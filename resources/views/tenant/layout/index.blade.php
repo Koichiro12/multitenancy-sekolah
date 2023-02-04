@@ -11,7 +11,8 @@
         integrity="sha512-hoalWLoI8r4UszCkZ5kL8vayOGVae1oxXe/2A4AO6J9+580uKHDO3JdHb7NzwwzK5xr/Fs0W40kiNHxM9vyTtQ=="
         crossorigin="" />
     <link rel="stylesheet" href="{{ 'public/tenant/css/main.css' }}">
-    <link rel="shortcut icon" href="{{ 'public/tenant/img/logoPakis.png' }}" type="image/x-icon">
+    <link rel="shortcut icon" href="{{ 'public/tenant/upload_file/sekolah/' . $dataSetting[6]['value'] }}"
+        type="image/x-icon">
     <title>Sekolah</title>
 </head>
 

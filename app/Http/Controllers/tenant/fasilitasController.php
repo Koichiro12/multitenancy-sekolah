@@ -82,8 +82,8 @@ class fasilitasController extends Controller
     }
     public function uploadImageFasilitas($image)
     {
-        $extFile = date('Ymdhis') . $image->getClientOriginalName();
-        $path = $image->move('public/tenant/upload_file/fasilitas', $extFile);
+        $extFile = $image->getClientOriginalName();
+        $path = $image->move('public/tenant/upload_file/fasilitas', date('Ymdhis') . $extFile);
         $path = str_replace('\\', '/', $path);
         return $path;
     }

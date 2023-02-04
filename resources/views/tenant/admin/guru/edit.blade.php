@@ -22,11 +22,13 @@
                     @enderror
                 </div>
                 <div class="mb-3">
-                    <label for="exampleFormControlInput1" class="form-label">Kategori Guru</label>
-                    <input type="text" name="kategori" value="{{ $showGuru->kategori }}"
-                        class="form-control
-                        @error('kategori') border-danger  @enderror"
-                        id="exampleFormControlInput1">
+                    <label for="exampleFormControlSelect2" class="form-label">Jabatan Guru</label>
+                    <select name="kategori" class="form-select @error('kategori') border-danger @enderror"
+                        id="exampleFormControlSelect2" aria-label="Multiple select example">
+                        @foreach ($jabatan as $j)
+                            <option value="{{ $j->nama_jabatan }}">{{ $j->nama_jabatan }}</option>
+                        @endforeach
+                    </select>
                     @error('kategori')
                         <div class="text-danger">
                             {{ $message }}

@@ -3,11 +3,12 @@
         <div class="header__name btn-show-header-popup">
             <ion-icon class="header__name-btn " name="menu-outline"></ion-icon>
             <p class="header__name-title">
-                mts nu pakis
+                {{ $dataSetting[0]['value'] }}
             </p>
         </div>
         <a href="{{ route('home') }}">
-            <img class="header__logo" src={{ 'public/tenant/img/logoPakis.png' }} alt="Logo" />
+            <img class="header__logo" src={{ 'public/tenant/upload_file/sekolah/' . $dataSetting[6]['value'] }}
+                alt="Logo" />
         </a>
         <div class="header__list">
             <a href="{{ route('news') }}" class="header__list--item news-link">berita</a>
@@ -22,11 +23,12 @@
         <div class="header-top__name btn-show-header-popup">
             <ion-icon name="menu-outline" class="header-top__name-btn"></ion-icon>
             <p class="header-top__name-title">
-                mts nu pakis
+                {{ $dataSetting[0]['value'] }}
             </p>
         </div>
         <a href="{{ route('home') }}">
-            <img class="header-top__logo" src={{ 'public/tenant/img/logoPakis.png' }} alt="Logo" />
+            <img class="header-top__logo" src={{ 'public/tenant/upload_file/sekolah/' . $dataSetting[6]['value'] }}
+                alt= />
         </a>
         <div class="header-top__list">
             <a href="{{ route('news') }}" class="header__list--item news-link">berita</a>

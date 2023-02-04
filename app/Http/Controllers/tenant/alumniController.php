@@ -4,6 +4,7 @@ namespace App\Http\Controllers\tenant;
 
 use App\Http\Controllers\Controller;
 use App\Models\tenant\tenantAlumni;
+use App\Models\tenant\TenantSettings;
 use Illuminate\Http\Request;
 
 class alumniController extends Controller
@@ -11,11 +12,12 @@ class alumniController extends Controller
     public function index()
     {
         $alumni = tenantAlumni::get();
+        $dataSetting = TenantSettings::get();
         if ($alumni->count() > 0) {
-            return view('tenant.page.alumni', compact('alumni'));
+            return view('tenant.page.alumni', compact('alumni', 'dataSetting'));
         } else {
             session()->flash('notfound', 'Alumni Belum Ada');
-            return view('tenant.page.alumni', compact('alumni'));
+            return view('tenant.page.alumni', compact('alumni', 'dataSetting'));
         }
     }
     public function alumni()
@@ -90,8 +92,8 @@ class alumniController extends Controller
 
     public function uploadImageAlumni($image)
     {
-        $extFile = date('Ymdhis') . $image->getClientOriginalName();
-        $path = $image->move('public/tenant/upload_file/alumni', $extFile);
+        $extFile =  $image->getClientOriginalName();
+        $path = $image->move('public/tenant/upload_file/alumni', date('Ymdhis') . $extFile);
         $path = str_replace('\\', '/', $path);
         return $path;
     }

@@ -7,12 +7,14 @@ use App\Models\tenant\tenantBerita;
 use App\Models\tenant\tenantFasilitas;
 use App\Models\tenant\tenantGallery;
 use App\Models\tenant\tenantGuru;
+use App\Models\tenant\TenantSettings;
+use App\Models\tenant\tenantSponsor;
 use Illuminate\Http\Request;
 
 class PagesController extends Controller
 {
     //
-   
+
     public function login()
     {
         return view('tenant.auth.signin');
@@ -21,11 +23,14 @@ class PagesController extends Controller
     {
         $berita = tenantBerita::get();
         $fasilitas = tenantFasilitas::get();
-        return view('tenant.page.home', compact('berita', 'fasilitas'));
+        $dataSetting = TenantSettings::get();
+        $sponsor = tenantSponsor::get();
+        return view('tenant.page.home', compact('berita', 'fasilitas', 'dataSetting', 'sponsor'));
     }
     public function about()
     {
-        return view('tenant.page.about');
+        $dataSetting = TenantSettings::get();
+        return view('tenant.page.about', compact('dataSetting'));
     }
     public function alumni()
     {
@@ -33,18 +38,7 @@ class PagesController extends Controller
     }
     public function ppdb()
     {
-        return view('tenant.page.ppdb');
+        $dataSetting = TenantSettings::get();
+        return view('tenant.page.ppdb', compact('dataSetting'));
     }
-    public function news()
-    {
-        $berita = tenantBerita::latest()->get();
-        return view('tenant.page.news',compact(['berita']));
-    }
-    public function guru()
-    {
-        $kepalaSekolah = tenantGuru::where('kategori', 'kepala sekolah')->get();
-        $guru = tenantGuru::where('kategori', 'guru')->get();
-        return view('tenant.page.guru', compact('kepalaSekolah', 'guru'));
-    }
-    
 }

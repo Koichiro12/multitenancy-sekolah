@@ -4,6 +4,7 @@ namespace App\Http\Controllers\tenant;
 
 use App\Http\Controllers\Controller;
 use App\Models\tenant\tenantBerita;
+use App\Models\tenant\TenantSettings;
 use Illuminate\Http\Request;
 
 class beritaController extends Controller
@@ -11,18 +12,20 @@ class beritaController extends Controller
     public function index()
     {
         $berita = tenantBerita::latest()->get();
+        $dataSetting = TenantSettings::get();
         if ($berita->count() > 0) {
-            return view('tenant.page.news', compact('berita'));
+            return view('tenant.page.news', compact('berita', 'dataSetting'));
         } else {
             session()->flash('notfound', 'Berita Belum Ada');
-            return view('tenant.page.news', compact('berita'));
+            return view('tenant.page.news', compact('berita', 'dataSetting'));
         }
     }
 
     public function detailBerita($id)
     {
         $detailBerita = tenantBerita::find($id);
-        return view('tenant.page.detailNews', compact('detailBerita'));
+        $dataSetting = TenantSettings::get();
+        return view('tenant.page.detailNews', compact('detailBerita', 'dataSetting'));
     }
     public function createBerita()
     {
@@ -97,8 +100,8 @@ class beritaController extends Controller
     }
     public function uploadImageBerita($image)
     {
-        $extFile = date('Ymdhis') . $image->getClientOriginalName();
-        $path = $image->move('public/tenant/upload_file/berita', $extFile);
+        $extFile =  $image->getClientOriginalName();
+        $path = $image->move('public/tenant/upload_file/berita', date('Ymdhis') . $extFile);
         $path = str_replace('\\', '/', $path);
         return $path;
     }

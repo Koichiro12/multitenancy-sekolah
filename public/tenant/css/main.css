@@ -2586,7 +2586,6 @@ body {
         border: 1px solid #e7ebeb;
         border-radius: 3rem;
         padding: 2rem;
-        z-index: 100;
         background-color: white;
         box-shadow: 0 60px 44px -49px rgba(128, 128, 128, 0.2); }
         .guru-container .guru-card-bot-name {

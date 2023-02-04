@@ -17,7 +17,7 @@
             <div class="section-title"><svg fill="none" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 480 40">
                     <path d="M0 40C137.185 40 125.676 0 240 0s103.999 40 240 40H0Z" fill="#fff"></path>
                 </svg>
-                <p>berita</p>
+                <p>Artikel</p>
             </div>
             @if (session()->has('notfound'))
                 <div class="not-found">

@@ -6,19 +6,21 @@ use App\Http\Controllers\Controller;
 use App\Models\tenant\tenantAlumni;
 use App\Models\tenant\tenantGuru;
 use App\Models\tenant\tenantJabatan;
+use App\Models\tenant\TenantSettings;
 use Illuminate\Http\Request;
 
 class guruController extends Controller
 {
     public function index()
     {
+        $dataSetting = TenantSettings::get();
         $kepalaSekolah = tenantGuru::where('kategori', 'kepala sekolah')->get();
         $guru = tenantGuru::where('kategori', 'guru')->get();
         if ($guru->count() > 0) {
-            return view('tenant.page.guru', compact('guru', 'kepalaSekolah'));
+            return view('tenant.page.guru', compact('guru', 'kepalaSekolah', 'dataSetting'));
         } else {
             session()->flash('notfound', 'guru Belum Ada');
-            return view('tenant.page.guru', compact('guru', 'kepalaSekolah'));
+            return view('tenant.page.guru', compact('guru', 'kepalaSekolah', 'dataSetting'));
         }
     }
     public function guru()
@@ -33,9 +35,11 @@ class guruController extends Controller
     }
     public function editGuru($id)
     {
+
+        $jabatan = tenantJabatan::get();
         $showGuru = tenantGuru::findOrFail($id);
         if ($showGuru) {
-            return view('tenant.admin.guru.edit', compact(['showGuru']));
+            return view('tenant.admin.guru.edit', compact(['showGuru', 'jabatan']));
         }
     }
     public function addGuru(Request $request)
@@ -93,8 +97,8 @@ class guruController extends Controller
     }
     public function uploadImageGuru($image)
     {
-        $extFile = date('Ymdhis') . $image->getClientOriginalName();
-        $path = $image->move('public/tenant/upload_file/guru', $extFile);
+        $extFile =  $image->getClientOriginalName();
+        $path = $image->move('public/tenant/upload_file/guru', date('Ymdhis') . $extFile);
         $path = str_replace('\\', '/', $path);
         return $path;
     }
