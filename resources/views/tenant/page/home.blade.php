@@ -2,7 +2,8 @@
 
 @section('content')
     <div class="home">
-        <div class="home__hero bg-asset" style="background: url({{ 'public/tenant/img/heroPakis.jpg' }})">
+        <div class="home__hero bg-asset"
+            style="background: url({{ 'public/tenant/upload_file/sekolah/' . $dataSetting[7]['value'] }})">
             <div class="blur"></div>
             <div class="home__hero-info">
                 <div class="home__hero-info-title">
@@ -29,10 +30,11 @@
         </div>
     </div>
     <div class="home__video">
-        <div class="home__video-wrapper bg-asset" style="background: url({{ 'public/tenant/img/pakis2.jpg' }})">
+        <div class="home__video-wrapper bg-asset"
+            style="background: url({{ 'public/tenant/upload_file/sekolah/' . $dataSetting[8]['value'] }})">
             <div class="home__video-wrapper-info">
                 <div class="home__video-wrapper-info-img bg-asset"
-                    style="background: url({{ 'public/tenant/img/pakis2.jpg' }})">
+                    style="background: url({{ 'public/tenant/upload_file/sekolah/' . $dataSetting[8]['value'] }})">
                 </div>
                 <div class="home__video-wrapper-info-title">sambutan</div>
                 <div class="home__video-wrapper-info-btn btn-show-video-player">
@@ -145,7 +147,7 @@
 
     <div class="video-player">
         <div class="video-player-wrapper">
-            <video autoplay loop muted src="{{ 'public/tenant/video/Inggris.mp4' }}"></video>
+            <video autoplay loop muted src="{{ 'public/tenant/upload_file/sekolah/' . $dataSetting[9]['value'] }}"></video>
         </div>
         <div class="video-player-close btn-circle btn-hide-video-player">
             &#10005;

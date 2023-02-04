@@ -1,7 +1,8 @@
 @extends('tenant.layout.index')
 @section('content')
     <div class="about">
-        <div class="about__hero" style="background: url({{ 'public/tenant/img/heroPakis.jpg' }})">
+        <div class="about__hero"
+            style="background: url({{ 'public/tenant/upload_file/sekolah/' . $dataSetting[7]['value'] }})">
             <div class="blur"></div>
             <div class="about__hero-info">
                 <div class="about__hero-info-title">
@@ -9,7 +10,7 @@
                     <p>{{ $dataSetting[0]['value'] }}</p>
                 </div>
                 <div class="about__hero-info-img"
-                    style="background: url({{ 'public/tenant/upload_file/sekolah/' . $dataSetting[6]['value'] }})">
+                    style="background: url({{ 'public/tenant/upload_file/sekolah/' . $dataSetting[7]['value'] }})">
                 </div>
             </div>
         </div>
@@ -31,7 +32,7 @@
                     <div class="about__info-container-left-txt">{{ $dataSetting[2]['value'] }}</div>
                     <div class="about__info-container-left-img">
                         <div class="about__info-container-left-img-src bg-asset"
-                            style="background: url({{ 'public/tenant/img/siswa.jpg' }})">
+                            style="background: url({{ 'public/tenant/upload_file/sekolah/' . $dataSetting[7]['value'] }})">
 
                         </div>
                     </div>

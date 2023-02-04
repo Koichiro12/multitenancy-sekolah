@@ -53,17 +53,17 @@
                                 </div>
                             </div>
                         </div>
-                        {{-- <h5 class="card-header">Gambar Sekolah</h5>
+                        <h5 class="card-header">Gambar Sekolah</h5>
                         <div class="card-body">
                             <div class="d-flex align-items-start align-items-sm-center gap-4">
                                 @if ($data[7]['value'] != '-')
                                     <img src="{{ 'public/tenant/upload_file/sekolah/' . $data[7]['value'] }}"
                                         alt="user-avatar" class="d-block rounded img-circle" height="100" width="100"
-                                        name="view-img1" id="view-img1" />
+                                        name="view-img-sekolah" id="view-img-sekolah" />
                                 @else
                                     <img src="{{ 'public/tenant/admin/assets/img/avatars/2.png' }}" alt="user-avatar"
-                                        class="d-block rounded img-circle" height="100" width="100" name="view-img1"
-                                        id="view-img1" />
+                                        class="d-block rounded img-circle" height="100" width="100"
+                                        name="view-img-sekolah" id="view-img-sekolah" />
                                 @endif
 
                                 <div class="button-wrapper">
@@ -76,7 +76,8 @@
                                     <p class="text-muted mb-0">Allowed JPG, GIF or PNG. Max size of 800K</p>
                                 </div>
                             </div>
-                        </div> --}}
+                        </div>
+
                         <hr class="my-0" />
                         <div class="card-body">
                             <div class="form-group">
@@ -110,6 +111,55 @@
                                     value="{{ $data[5]['value'] != '-' ? $data[5]['value'] : $data[5]['default'] }}">
                             </div>
 
+                            <h5 class="card-header">Gambar Sambutan</h5>
+                            <div class="card-body">
+                                <div class="d-flex align-items-start align-items-sm-center gap-4">
+                                    @if ($data[8]['value'] != '-')
+                                        <img src="{{ 'public/tenant/upload_file/sekolah/' . $data[8]['value'] }}"
+                                            alt="user-avatar" class="d-block rounded img-circle" height="100"
+                                            width="100" name="view-img" id="view-img-sambutan" />
+                                    @else
+                                        <img src="{{ 'public/tenant/admin/assets/img/avatars/2.png' }}" alt="user-avatar"
+                                            class="d-block rounded img-circle" height="100" width="100"
+                                            name="view-img" id="view-img" />
+                                    @endif
+
+                                    <div class="button-wrapper">
+                                        <label for="upload" class="me-2 mb-4" tabindex="0">
+                                            <span class="d-none d-sm-block">Gambar sambutan</span>
+                                            <i class=" d-block d-sm-none"></i>
+                                            <input type="file" id="gambar_sambutan" name="gambar_sambutan"
+                                                class="form-control" accept="image/png, image/jpeg" />
+                                        </label>
+                                        <p class="text-muted mb-0">Allowed JPG, GIF or PNG. Max size of 800K</p>
+                                    </div>
+                                </div>
+                            </div>
+                            <h5 class="card-header">Video Sambutan</h5>
+                            <div class="card-body">
+                                <div class="d-flex align-items-start align-items-sm-center gap-4">
+                                    @if ($data[9]['value'] != '-')
+                                        <video src="{{ 'public/tenant/upload_file/sekolah/' . $data[9]['value'] }}"
+                                            alt="user-avatar" class="d-block rounded img-circle" height="100"
+                                            width="100" name="view-video-sambutan" id="view-video-sambutan"></video>
+                                    @else
+                                        <video src="{{ 'public/tenant/admin/assets/img/avatars/2.png' }}"
+                                            alt="user-avatar" class="d-block rounded img-circle" height="100"
+                                            width="100" name="view-video-sambutan" id="view-video-sambutan"></video>
+                                    @endif
+
+                                    <div class="button-wrapper">
+                                        <label for="upload" class="me-2 mb-4" tabindex="0">
+                                            <span class="d-none d-sm-block">Video Sambutan</span>
+                                            <i class=" d-block d-sm-none"></i>
+                                            <input type="file" id="video_sambutan" name="video_sambutan"
+                                                class="form-control" accept="video/mp4,video/x-m4v,video/*" />
+                                        </label>
+                                        <p class="text-muted mb-0">Allowed Mp4, mkv</p>
+                                    </div>
+                                </div>
+                            </div>
+
                         </div>
                         <div class="card-footer">
                             <button type="submit" class="btn btn-primary me-2">Save Changes</button>
@@ -125,6 +175,15 @@
     <script>
         $('#logo_sekolah').change(function(event) {
             $("#view-img").fadeIn("fast").attr('src', URL.createObjectURL(event.target.files[0]));
+        });
+        $('#gambar_sekolah').change(function(event) {
+            $("#view-img-sekolah").fadeIn("fast").attr('src', URL.createObjectURL(event.target.files[0]));
+        });
+        $('#gambar_sambutan').change(function(event) {
+            $("#view-img-sambutan").fadeIn("fast").attr('src', URL.createObjectURL(event.target.files[0]));
+        });
+        $('#video_sambutan').change(function(event) {
+            $("#view-video-sambutan").fadeIn("fast").attr('src', URL.createObjectURL(event.target.files[0]));
         });
     </script>
 @endsection
