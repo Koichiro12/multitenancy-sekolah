@@ -16,8 +16,8 @@ return new class extends Migration
         Schema::create('tenant_settings', function (Blueprint $table) {
             $table->id();
             $table->string('settings_name');
-            $table->string('value')->nullable();
-            $table->string('default')->nullable();
+            $table->text('value')->nullable();
+            $table->text('default')->nullable();
             $table->string('status_settings');
             $table->timestamps();
         });

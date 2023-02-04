@@ -25,31 +25,43 @@
                   </ul>
             </div>
             <div class="col-md-12">
-                <form action="#" method="POST" enctype="multipart/form-data">
+                <form action="{{route('update-sekolah')}}" method="POST" enctype="multipart/form-data">
                   @csrf
                   @method('POST')
                 <div class="card">
                     <h5 class="card-header">Profile Details</h5>
                     <div class="card-body">
                         <div class="d-flex align-items-start align-items-sm-center gap-4">
-                        
-                            <img
-                            src="{{'public/tenant/admin/assets/img/avatars/2.png'}}"
-                            alt="user-avatar"
-                            class="d-block rounded img-circle"
-                            height="100"
-                            width="100"
-                            name="view-img"
-                            id="view-img"
-                          />
+                        @if ($data[6]['value'] != '-')
+                        <img
+                        src="{{'public/tenant/upload_file/sekolah/'.$data[6]['value']}}"
+                        alt="user-avatar"
+                        class="d-block rounded img-circle"
+                        height="100"
+                        width="100"
+                        name="view-img"
+                        id="view-img"
+                      />
+                        @else
+                        <img
+                          src="{{'public/tenant/admin/assets/img/avatars/2.png'}}"
+                          alt="user-avatar"
+                          class="d-block rounded img-circle"
+                          height="100"
+                          width="100"
+                          name="view-img"
+                          id="view-img"
+                        />
+                        @endif
+                           
                           <div class="button-wrapper">
                             <label for="upload" class="me-2 mb-4" tabindex="0">
                               <span class="d-none d-sm-block">Logo</span>
                               <i class=" d-block d-sm-none"></i>
                               <input
                                 type="file"
-                                id="foto_profile"
-                                name="foto_profile"
+                                id="logo_sekolah"
+                                name="logo_sekolah"
                                 class="form-control"
                                 accept="image/png, image/jpeg"
                               />
@@ -60,6 +72,30 @@
                       </div>
                       <hr class="my-0" />
                       <div class="card-body">
+                          <div class="form-group">
+                            <label>Nama Sekolah</label>
+                            <input type="text" name="nama_sekolah" value="{{$data[0]['value'] != '-' ? $data[0]['value'] : $data[0]['default'];}}" id="nama_sekolah" class="form-control">
+                          </div>
+                          <div class="form-group">
+                            <label>Slug</label>
+                            <input type="text" name="slug" id="slug" value="{{$data[1]['value'] != '-' ? $data[1]['value'] : $data[1]['default'];}}" class="form-control">
+                          </div>
+                          <div class="form-group">
+                            <label>Tentang</label>
+                            <textarea name="tentang_sekolah" id="tentang_sekolah" class="form-control" cols="30" rows="10">{{$data[2]['value'] != '-' ? $data[2]['value'] : $data[2]['default'];}}</textarea>
+                          </div>
+                          <div class="form-group">
+                            <label>Alamat</label>
+                            <textarea name="alamat_sekolah" id="alamat_sekolah" class="form-control" cols="30" rows="10">{{$data[3]['value'] != '-' ? $data[3]['value'] : $data[3]['default'];}}</textarea>
+                          </div>
+                          <div class="from-group">
+                            <label>No Hp</label>
+                            <input type="text" name="no_hp" id="no_hp" class="form-control" value="{{$data[4]['value'] != '-' ? $data[4]['value'] : $data[4]['default'];}}">
+                          </div>
+                          <div class="form-group">
+                            <label>Email</label>
+                            <input type="email" name="email" id="email" class="form-control" value="{{$data[5]['value'] != '-' ? $data[5]['value'] : $data[5]['default'];}}">
+                          </div>
 
                       </div>
                       <div class="card-footer">
@@ -74,7 +110,7 @@
 @endsection
 @section('content-script')
     <script>
-        $('#foto_profile').change( function(event) {
+        $('#logo_sekolah').change( function(event) {
             $("#view-img").fadeIn("fast").attr('src',URL.createObjectURL(event.target.files[0]));
         });
 

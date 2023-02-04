@@ -16,7 +16,8 @@ class TenantDatabaseSeeder extends Seeder
     {
         //
         $this->call([
-            UserSeeder::class
+            UserSeeder::class,
+            SettingsSeeder::class
         ]);
     }
 }

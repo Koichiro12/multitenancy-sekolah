@@ -70,6 +70,7 @@ Route::middleware([
             // dashboard route
             Route::get('/dashboard', [adminController::class, 'index'])->name('dashboard');
             Route::get('/sekolah',[TenantSettings::class,'view_sekolah_settings'])->name('sekolah');
+            Route::post('/update-sekolah',[TenantSettings::class,'update_sekolah_setting'])->name('update-sekolah');
             // dashboard route Artikel
             Route::get('/dashboard-artikel', [artikelController::class, 'artikel'])->name('dashboardArtikel');
             Route::get('/dashboard-artikel-create', [artikelController::class, 'createArtikel'])->name('dashboardArtikelCreate');
