@@ -36,9 +36,10 @@ Route::middleware([
     InitializeTenancyByDomainOrSubdomain::class,
     PreventAccessFromCentralDomains::class,
 ])->group(function () {
-    Route::get('/', function () {
-        return 'This is Your Multi-tenant API applications. The id of the current tenant is ' . tenant('id');
+    Route::get('/api/v1/',function(){
+        return "Not Found";
     });
+
 });
 
 Route::middleware([

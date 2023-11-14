@@ -196,7 +196,7 @@ return [
         App\Providers\RouteServiceProvider::class,
         App\Providers\TenancyServiceProvider::class,
         RealRashid\SweetAlert\SweetAlertServiceProvider::class,
-
+        Tymon\JWTAuth\Providers\LaravelServiceProvider::class,
     ],
 
     /*
